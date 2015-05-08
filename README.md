@@ -14,6 +14,23 @@ Extendiendo el comienzo del punto anterior pasamos a describir la primera fase d
 
 ## PRIMERA FASE DE DESAROLLO
 
+La primera fase de desarrollo contempla la creación de una base de datos relacional para poder guardar los datos con los que se va a trabajar. El desarrollo de la API RESTful que se encargará de comunicar el front con la BBDD con todos los servicios necesarios para las interecciones de los clientes web. Un cliente web desarrollado bajo Backbone que llevará el peso de la lógica de negocio. La funcionalidades que se obtendrán de esta primera fase son los siguientes:
+
+- Alta de nuevos Usuarios
+- Login
+- SignOut
+- Listado de deportes
+- Listado de pistas
+- Listado de horarios de cada pista con aviso de estado: libre, ocupado o posibilidad de cancelación si es tu propia reserva.
+- Calendario para switchear días
+- Listado de ficha de usuario
+- Los administradores también podrán:
+....Dar de baja Usuarios
+....Crear Otras cuentas de administradores
+....Cancelar cualquier reserva
+....Reservar pistas
+....Cambiar precios de las pistas
+
 
 
 ### DEFINICIÓN DE LA ESRTUCTURA DE SOFTWARE
