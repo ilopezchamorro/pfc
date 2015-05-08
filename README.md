@@ -24,12 +24,13 @@ La primera fase de desarrollo contempla la creación de una base de datos relaci
 - Listado de horarios de cada pista con aviso de estado: libre, ocupado o posibilidad de cancelación si es tu propia reserva.
 - Calendario para switchear días
 - Listado de ficha de usuario
-- Los administradores también podrán:
-....Dar de baja Usuarios
-....Crear Otras cuentas de administradores
-....Cancelar cualquier reserva
-....Reservar pistas
-....Cambiar precios de las pistas
+
+###### Los usuarios administradores también podrán:
+- Dar de baja Usuarios
+- Crear Otras cuentas de administradores
+- Cancelar cualquier reserva
+- Reservar pistas
+- Cambiar precios de las pistas
 
 
 
