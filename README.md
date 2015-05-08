@@ -37,7 +37,10 @@ Seguidamente se van a definir las tecnologías de cada capa.
 
 Será un modelo de datos relacional en MySQL... blah blah blah, aquí explayate tu y metes el diagrama que te paso de la bbdd te da para rellenar con wikipedia una página entera con historia etc... Si quieres el royo también del workbench, etc.
 
-incluir adjunto: [bookingfy.png]
+
+![alt text][logo]
+
+[logo]: https://github.com/ilopezchamorro/pfc/blob/master/db.sql "Modelo Relacional"
 
 ####  2.API-RESTfull
 
