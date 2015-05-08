@@ -106,11 +106,11 @@ Finalmente se creará una instancia de la clase Api y se llamará al método pro
 > Hasta ahora se ha documentado cómo funciona la api, a continuación se documentará cada endpoint del servicio
 
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| Método        | URL             | Descripción                 | Parametros
+| ------------- | --------------- | --------------------------- | -----------------------
+| POST          | nuevoUsuario/   | Crea un nuevo Usuario       | nombre, apellidos, expediente, dni, password, mail
+| POST          | centered        |   $12                       | test
+| DELETE        | are neat        |    $1                       | test
 
 
 
