@@ -39,10 +39,10 @@ La primera fase de desarrollo contempla la creación de una base de datos relaci
 Se ha optado por una arquitectura separada principalmente en tres capas lógicas:
 
 	- 1.Modelo de Datos
-	- 2.API-RESTfull
+	- 2.API-RESTful
 	- 3.Front-end
 
-El modelo será una base de datos relacional MySQL que guardará todos los datos necesarios para el funcionamiento de la aplicación.  Se creará una capa intermedia a modo broker cuyo único fin es comunicar el front-end con el modelo de datos que será la API RESTfull. Y una tercera capa que será el front-end donde estará el peso de la lógica de negocio y las vistas para que los usuarios y administradores puedan interaccionar con el modelo.
+El modelo será una base de datos relacional MySQL que guardará todos los datos necesarios para el funcionamiento de la aplicación.  Se creará una capa intermedia a modo broker cuyo único fin es comunicar el front-end con el modelo de datos que será la API RESTful. Y una tercera capa que será el front-end donde estará el peso de la lógica de negocio y las vistas para que los usuarios y administradores puedan interaccionar con el modelo.
 
 
 ![alt text][logo2]
@@ -57,7 +57,7 @@ Para el desarrollo y en corcondancia con la reducción de costes se ha optado po
 Seguidamente se van a definir las tecnologías de cada capa.
 
 
-#### 1.MODELO DE DATOS
+#### 1. MODELO DE DATOS
 
 Será un modelo de datos relacional en MySQL... blah blah blah, aquí explayate tu y metes el diagrama que te paso de la bbdd te da para rellenar con wikipedia una página entera con historia etc... Si quieres el royo también del workbench, etc.
 
@@ -66,7 +66,7 @@ Será un modelo de datos relacional en MySQL... blah blah blah, aquí explayate 
 
 [logo]: https://github.com/ilopezchamorro/pfc/blob/master/db.png "Modelo Relacional"
 
-####  2.API-RESTfull
+####  2. API-RESTful
 
 Actuará de brocker ejerciendo la comunicación entre el frontend y el modelo de datos. Esta API no guardará datos en memoria por lo que no se encargará de la persistencia siendo su único fin la gestión de recuperación de datos y empaquetarlos como JSON para devolverlos al front. Se crea esta capa intermedia para garantizar la seguridad de los datos no teniendo nunca el front acceso directo a la base de datos siendo trabajo de esta api el lanzamiendo de las consultas en un entorno controlado. Las variables que proceden del front serán parametrizadas siempre evitando así cualquier ataque tipo SQL Inyection.
 
@@ -148,7 +148,50 @@ Finalmente se creará una instancia de la clase Api y se llamará al método pro
 
 
 
+####  2. FRONT-END
 
+El front-end está compuesto por un conjunto de tecnologías web de última generación.
+
+	- 1.HTML5
+	- 2.CSS3
+	- 3.Javascript(lógica de negocio)
+
+Aunque estas tecnologías existen casi desde el comienzo de la web han sufren continuas actualizaciones y cambios sobre sus estándares mejorando su perfomance y ampliando sus capacidades.
+
+Conviene destacar un poco la historia de javascript que nació para dar interactividad a las webs estáticas. Fue Microsof con Internet Explorer 5.5 quien sin saberlo dotó de vida a javascript creando los objtos XHR (comunicación ajax) aunque la comunidad no supo aprovechar la potencia de este objeto hasta varios años después. Este estándar nos permite hoy en día comunicar javascript directamente con el servidor a través de llamadas Ajax de manera asíncrona (sin tener que recargar la página). Gracias a esto se han desarrollado frameworks como Backbone que ha traído una revolución a la web, siempre se ha tenido javascript como un lenguaje menor por que no se ha sabido aprovechar su naturaleza funcional gracias a que son objetos de primera clase por que se pueden pasar funciones anónimas como parámetro o devolver funciones entre otras cualidades. Backbone nos ayuda a tener un patrón de diseño MVC en front teniendo la capacidad de desarrollar código bien estructurado y astraido que nos permite tener un código limpio, mantenible y ampliable.
+
+A continuación pasamos a describir cada punto de manera más extensa.
+
+
+#### 1. HTML5
+
+to-do
+
+
+#### 2. CSS3
+
+
+to-do
+
+
+#### 3. JAVASCRIPT
+
+Existen librerías que son dependencias para el desarrollo pero que no afectan a la ejecución del proyectoque las explicaremos en un punto posterior sobre el entorno de desarrollo y las automatizaciones de tareas.
+
+A continuación se listarán las librerías de las que el proyecto es dependiente para su ejecución:
+
+
+- [Backbone.js](http://backbonejs.org/)
+- [Underscore.js](http://underscorejs.org/)
+- [HandelBars](http://handlebarsjs.com/)
+- [Moment](http://momentjs.com/)
+- [Sha1](https://github.com/pvorb/node-sha1)
+- [Backbone.localstorage](https://www.npmjs.com/package/backbone.localstorage)
+- [jQuery](https://jquery.com/)
+- [JQuery UI](https://jqueryui.com/)
+
+
+El resultado final del javascript del proyecto será un único archivo concatenado, ofuscado y minificado con todas las dependencias de producción así como la lógica desarrollada en el archivo `./js/app.min.js`. Gracias a esto conseguimos que toda la lógica que necesita la aplicación esté contenida en una única petición al servidor que podría ser servida de forma distribuída por un CDN tipo Amazon S3 y optimizar aun más el proyecto, aunque no se contempla en esta primera fase armar una arquitectura de alta disponibilidad.
 
 
 ***
