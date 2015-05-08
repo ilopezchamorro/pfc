@@ -213,9 +213,12 @@ Hasta que CSS3 y HTML5 sean un estándar terminado y no en desarrollo ante hueco
 
 El único resource externo que se usa es la fuente Roboto para utilizarla en toda la página.
 
-`<link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,900italic,700italic,900,700,500italic' rel='stylesheet' type='text/css'>`
+-LLAMADA HTML:
+```html
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,900italic,700italic,900,700,500italic' rel='stylesheet' type='text/css'>
+```
 
-
+-CSS:
 ```css
 body{
 	font-family: 'Roboto', sans-serif;
