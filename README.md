@@ -130,7 +130,11 @@ E) Finalmente el método crearUsuario tras comprobar que se ha accedido a él me
 
 Finalmente se creará una instancia de la clase Api y se llamará al método procesarLLamada. Esto es necesario ya que cada vez que se realice una petición a una URL del servicio, gracias a la regla de reescritura se llama al script `Api.php`. Y de esta manera se creará el objeto Api y se invocará al método que procesa la URL y llama al encargado de resolver la petición.
 
+
+
 > Hasta ahora se ha documentado cómo funciona la api, a continuación se documentará cada endpoint del servicio
+
+
 
 
 | Método        | URL             | Descripción                                          | Parametros
