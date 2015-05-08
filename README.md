@@ -148,7 +148,7 @@ Finalmente se creará una instancia de la clase Api y se llamará al método pro
 
 
 
-####  2. FRONT-END
+####  3. FRONT-END
 
 El front-end está compuesto por un conjunto de tecnologías web de última generación.
 
