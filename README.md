@@ -29,7 +29,7 @@ El modelo será una base de datos relacional MySQL que guardará todos los datos
 
 ![alt text][logo]
 
-[logo]: https://github.com/ilopezchamorro/pfc/blob/master/arquitectura.png "Arquitectura"
+[logo]: https://github.com/ilopezchamorro/pfc/blob/master/db.png "Arquitectura"
 
 
 Se ha optado por esta arquitectura para que los costes de servidores sean los mínimos posibles llevando la lógica de negocio al front-end gracias a la pontencia que nos brinda el framework Backbone desarrollado en javascript que pasará a ser ejecutado en el cliente. Actualmente esto es viable gracias al aumento de la potencia media de todos los dispositivos con los que cuentan los usuarios y conseguimos rebajar el número de procesos en el servidor prácticamente al mínimo reduciendo el coste notablemente. Se entiende que ante picos de uso y la necesidad de poder dar servicio a millones de personas concurremente esta misma arquitectura estaría preparada para ser desplegada en un entorno de alta disponibilidad con escalado automático sin tener que realizar ninguna refactorización de código.
@@ -46,7 +46,7 @@ Será un modelo de datos relacional en MySQL... blah blah blah, aquí explayate 
 
 ![alt text][logo]
 
-[logo]: https://github.com/ilopezchamorro/pfc/blob/master/db.png "Modelo Relacional"
+[logo]: https://github.com/ilopezchamorro/pfc/blob/master/arquitectura.png "Modelo Relacional"
 
 ####  2.API-RESTfull
 
