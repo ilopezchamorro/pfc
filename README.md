@@ -40,7 +40,7 @@ Será un modelo de datos relacional en MySQL... blah blah blah, aquí explayate 
 
 ![alt text][logo]
 
-[logo]: https://github.com/ilopezchamorro/pfc/blob/master/db.sql "Modelo Relacional"
+[logo]: https://github.com/ilopezchamorro/pfc/blob/master/db.png "Modelo Relacional"
 
 ####  2.API-RESTfull
 
