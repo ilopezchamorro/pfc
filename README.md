@@ -12,15 +12,17 @@ Como solución se plantea la creación de una aplicación web que pueda crear un
 
 Extendiendo el comienzo del punto anterior pasamos a describir la primera fase de la aplicación que será la única contemplada en este proyecto fin de carrera para la Universidad Francisco de Vitoria por Don Ignacio.
 
-# PRIMERA FASE DE DESAROLLO
+## PRIMERA FASE DE DESAROLLO
 
-## DEFINICIÓN DE LA ESRTUCTURA DE SOFTWARE
+
+
+### DEFINICIÓN DE LA ESRTUCTURA DE SOFTWARE
 
 Se ha optado por una arquitectura separada principalmente en tres capas lógicas:
 
-	- Modelo de Datos
-	- API-RESTfull
-	- Front-end
+	- 1.Modelo de Datos
+	- 2.API-RESTfull
+	- 3.Front-end
 
 El modelo será una base de datos relacional MySQL que guardará todos los datos necesarios para el funcionamiento de la aplicación.  Se creará una capa intermedia a modo broker cuyo único fin es comunicar el front-end con el modelo de datos que será la API RESTfull. Y una tercera capa que será el front-end donde estará el peso de la lógica de negocio y las vistas para que los usuarios y administradores puedan interaccionar con el modelo.
 
@@ -31,13 +33,13 @@ Para el desarrollo y en corcondancia con la reducción de costes se ha optado po
 Seguidamente se van a definir las tecnologías de cada capa.
 
 
-### MODELO DE DATOS
+#### 1.MODELO DE DATOS
 
 Será un modelo de datos relacional en MySQL... blah blah blah, aquí explayate tu y metes el diagrama que te paso de la bbdd te da para rellenar con wikipedia una página entera con historia etc... Si quieres el royo también del workbench, etc.
 
 incluir adjunto: [bookingfy.png]
 
-###  API-RESTfull
+####  2.API-RESTfull
 
 Actuará de brocker ejerciendo la comunicación entre el frontend y el modelo de datos. Esta API no guardará datos en memoria por lo que no se encargará de la persistencia siendo su único fin la gestión de recuperación de datos y empaquetarlos como JSON para devolverlos al front. Se crea esta capa intermedia para garantizar la seguridad de los datos no teniendo nunca el front acceso directo a la base de datos siendo trabajo de esta api el lanzamiendo de las consultas en un entorno controlado. Las variables que proceden del front serán parametrizadas siempre evitando así cualquier ataque tipo SQL Inyection.
 
@@ -47,7 +49,7 @@ Estará preparada para trabajar las consultas con urls amigables.
 
 Su lógica implica que por cada petición vamos a recibir un objeto JSON ya sea dando la información solicitada o bien informando del error que ocurra por ejecución, petición no aceptada, datos incorrectos, o falta de privilegios para dicha consulta.
 
-.Clase Rest:
+###### Clase Rest:
 
 Esta clase se ocupa de dos tareas principalmente:
 - Devolver las cabeceras con el código de estado y el resultado de la petición al cliente.
@@ -58,21 +60,21 @@ B) El método setCabecera  crea dos cabeceras que acompañarán a la respuesta d
 C) El método getCodEstado contiene un array asociativo donde las claves son los posibles códigos de estado y los valores son las descripciones asociadas a esos códigos. Por lo tanto a partir del código de estado que se enviará junto a las cabeceras y la respuesta, devolverá su descripción.
 
 Los método encargados de limpiar los datos se encargan de sanear los datos que acompañan a las peticiones GET, POST, PUT y DELETE.
-A) El método tratarEntrada se encarga de sanear el array datos de entrada llamando al método limpiarEntrada y asigna dicho array de datos al atributo $datosPetición. Para ello primero comprueba cual es el método de petición ($_SERVER['REQUEST_METHOD']) y pasa los datos del array superglobal de la petición a limpiarEntrada. Esto quiere decir que si el método de estrada es GET se tratarán los datos del array $_GET. Y si es POST se tratarán los datos que puedan estar contenidos en $_POST.
+A) El método tratarEntrada se encarga de sanear el array datos de entrada llamando al método limpiarEntrada y asigna dicho array de datos al atributo $datosPetición. Para ello primero comprueba cual es el método de petición `($_SERVER['REQUEST_METHOD'])` y pasa los datos del array superglobal de la petición a limpiarEntrada. Esto quiere decir que si el método de estrada es GET se tratarán los datos del array `$_GET`. Y si es POST se tratarán los datos que puedan estar contenidos en `$_POST`.
 B) El método limpiarEntrada se encarga de sanear los datos que se le pasen como parámetro. Es un método recursivo para tratar cada uno de los valores de un array.
 
 
-.htaccess
+###### .htaccess
 
 Como comentamos anteriormente, queremos que el servicio pueda ser utilizado mediante URL's amigables. Para ello deberemos de especificar una regla de reescritura de URL's en un fichero .htaccess. Que lo definiremos en la raíz del proyecto.
 
 Con esta regla de reescritura estamos especificando:
-- El directorio base es /login_restful/
-- Se han añadido tres condiciones para restringir la reescritura sólo a rutas que no existan previamente. Es decir, que no valdría realizar reescritura, por ejemplo, para www.dominio.com/img/img.png (suponemos que esta ruta y recurso existe). La primera condición previene los directorios que ya existan con la bandera !-d. La segunda condición hace que se ignoren ficheros que ya existan con la bandera !-f. Y la tercera condición hace que se ignoren los enlaces simbólicos que ya existan con !-l.
-- Luego con la regla de reescritura transformaremos una URL amigable a una URL con la que el servidor pueda trabajar. Por lo tanto http://pfc.ilopezchamorro.com/api/borrarUsuario/1 será transformado internamente a http://pfc.ilopezchamorro.com/api/Api.php?url=borrarUsuario/1. Ya que /borrarUsuario/1 será tomado como referencia $1.
+- El directorio base es `/login_restful/`
+- Se han añadido tres condiciones para restringir la reescritura sólo a rutas que no existan previamente. Es decir, que no valdría realizar reescritura, por ejemplo, para `http://pfc.ilopezchamorro.com/img/img.png` (suponemos que esta ruta y recurso existe). La primera condición previene los directorios que ya existan con la bandera `!-d`. La segunda condición hace que se ignoren ficheros que ya existan con la bandera !-f. Y la tercera condición hace que se ignoren los enlaces simbólicos que ya existan con `!-l`.
+- Luego con la regla de reescritura transformaremos una URL amigable a una URL con la que el servidor pueda trabajar. Por lo tanto http://pfc.ilopezchamorro.com/api/borrarUsuario/1 será transformado internamente a `http://pfc.ilopezchamorro.com/api/Api.php?url=borrarUsuario/1`. Ya que `/borrarUsuario/1` será tomado como referencia `$1`.
 
 
-. Clase Api
+###### Clase Api
 
 Anteriormente definimos la clase Rest y vamos a utilizarla como clase base a heredar. De esta forma tendremos disponibles tanto sus métodos como atributos. La clase que vamos a definir a continuación (Api) va a ser la encargada de:
 
@@ -83,23 +85,21 @@ Anteriormente definimos la clase Rest y vamos a utilizarla como clase base a her
 A) El método conectarDB como su propio indica, se encarga de conectar con la base de datos que contendrán los recursos del servicio. Para ello utilizaremos PDO como librería de abstracción para tratar con la base de datos MySQL.
 B) El método devolverError utiliza un identificador recibido como parámetro para devolver un array asociativo con dos elementos: elemento 'estado' con valor error y elementos 'msg' con la descripción de error.
 C) El método procesarLLamada es uno de los métodos más importantes ya que es el encargado de procesar la URL de la petición y a partir de ella se llamará al método que resolverá la citada petición.
-Como hemos comentado en el apartado anterior, si se hace una petición a la URL  http://pfc.ilopezchamorro.com/api/borrarUsuario/1, esta URL será transformado internamente a http://pfc.ilopezchamorro.com/api/Api.php?url=borrarUsuario/1. Por lo tanto, si obtenemos el valor de la variable global 'url' ($_REQUEST['url']) obtendremos borrarUsuario/1.  Y esto nos puede sugerir que necesitamos invocar al método borrarUsuario con el 1 como argumento para resolver la petición. Evidentemente no todas las URL estarán asociadas a llamadas a métodos con argumentos. Por ejemplo: http://pfc.ilopezchamorro.com/api/usuarios.
+Como hemos comentado en el apartado anterior, si se hace una petición a la URL  `http://pfc.ilopezchamorro.com/api/borrarUsuario/1`, esta URL será transformado internamente a `http://pfc.ilopezchamorro.com/api/Api.php?url=borrarUsuario/1`. Por lo tanto, si obtenemos el valor de la variable global 'url' `($_REQUEST['url'])` obtendremos borrarUsuario/1.  Y esto nos puede sugerir que necesitamos invocar al método borrarUsuario con el 1 como argumento para resolver la petición. Evidentemente no todas las URL estarán asociadas a llamadas a métodos con argumentos. Por ejemplo: `http://pfc.ilopezchamorro.com/api/usuarios`.
 
 Los siguientes métodos de la clase son los encargados de realizar cada una de la operaciones asociadas con las peticiones.
 A) El método usuarios comprueba si se ha accedido a él mediante una petición GET y devuelve un objeto JSON con los datos de los usuarios del servicio.
-B) El método login comprueba si se ha accedido a él mediante una petición POST, comprueba si lo datos que acompañan a dicha petición ($datosPeticion) son adecuados y devuelve un objeto JSON indicando si el usuario existe.
-C) El método actualizarNombre($id) tras comprobar que se ha accedido a él con una petición PUT, utiliza los datos pasados junto a dicha petición y el parámetro $id, extraído de la URL en procesarLLamada, para actualizar el nombre de un usuario existente (con dicho identificador). Posteriormente devuelve un objeto JSON confirmando que se ha actualizado los datos de un usuario.
-D) El método borrarUsuario($id) tras comprobar que se ha accedido a él con una petición DELETE, utiliza el parámetro $id, extraído de la URL en procesarLLamada, para borrar el usuario con dicho identificador. Posteriormente devuelve un objeto JSON confirmando que se ha borrado el usuario.
+B) El método login comprueba si se ha accedido a él mediante una petición POST, comprueba si lo datos que acompañan a dicha petición `($datosPeticion)` son adecuados y devuelve un objeto JSON indicando si el usuario existe.
+C) El método `actualizarNombre($id)` tras comprobar que se ha accedido a él con una petición PUT, utiliza los datos pasados junto a dicha petición y el parámetro `$id`, extraído de la URL en procesarLLamada, para actualizar el nombre de un usuario existente (con dicho identificador). Posteriormente devuelve un objeto JSON confirmando que se ha actualizado los datos de un usuario.
+D) El método `borrarUsuario($id)` tras comprobar que se ha accedido a él con una petición DELETE, utiliza el parámetro $id, extraído de la URL en procesarLLamada, para borrar el usuario con dicho identificador. Posteriormente devuelve un objeto JSON confirmando que se ha borrado el usuario.
 E) Finalmente el método crearUsuario tras comprobar que se ha accedido a él mediante una petición POST, utiliza los datos pasados junto a dicha petición para crear a un nuevo usuario. Posteriormente se devuelve un objeto confirmando la creación del usuario.
 
-Finalmente se creará una instancia de la clase Api y se llamará al método procesarLLamada. Esto es necesario ya que cada vez que se realice una petición a una URL del servicio, gracias a la regla de reescritura se llama al script Api.php. Y de esta manera se creará el objeto Api y se invocará al método que procesa la URL y llama al encargado de resolver la petición.
+Finalmente se creará una instancia de la clase Api y se llamará al método procesarLLamada. Esto es necesario ya que cada vez que se realice una petición a una URL del servicio, gracias a la regla de reescritura se llama al script `Api.php`. Y de esta manera se creará el objeto Api y se invocará al método que procesa la URL y llama al encargado de resolver la petición.
 
 
-************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+***
 
-
- // DE AQUI ABAJO NO HE HECHO NADA AUN .... TO-DO
-
+TO-DO
 
 
 o	ARQUITECTURA DE BASE DE DATOS
@@ -130,15 +130,4 @@ o	IMPLEMENTACIÓN DE MODULOS
 o	ESTILOS CSS AL ESQUELETO HTML
 o	TESTING
 o	MEMORIA
-
-
-
-
-
-
- como práctica de API RESTfull en php y front modular con backbone.
-
-# Arquitectura
-
-Se ha optado por una solución
 
