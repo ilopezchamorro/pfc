@@ -106,11 +106,19 @@ Finalmente se creará una instancia de la clase Api y se llamará al método pro
 > Hasta ahora se ha documentado cómo funciona la api, a continuación se documentará cada endpoint del servicio
 
 
-| Método        | URL             | Descripción                 | Parametros
-| ------------- | --------------- | --------------------------- | -----------------------
-| POST          | nuevoUsuario/   | Crea un nuevo Usuario       | nombre, apellidos, expediente, dni, password, mail
-| POST          | centered        |   $12                       | test
-| DELETE        | are neat        |    $1                       | test
+| Método        | URL             | Descripción                                          | Parametros
+| ------------- | --------------- | ---------------------------------------------------- | -----------------------
+| POST          | nuevoUsuario/   | Crea un nuevo Usuario                                | nombre, apellidos, expediente, dni, password, mail
+| POST          | nuevoAdmin/     | Crea un nuevo Adminsitrador                          | nombre, apellidos, expediente, dni, password, mail, rol
+| POST          | nuevaHora/      | Crea una nueva hora a todas las pistas               | inicio
+| POST          | nuevoDeporte/   | Crea un nuevo Deporte                                | nombre
+| GET           | deportes/       | Lista los deportes                                   | null
+| POST          | pistas/         | Lista las pistas de un deporte de un día determinado | id (pista), fecha_pista
+| POST          | reserva/        | Crea un nueva Reserva                                | id_usuario, id_pista, id_hora, fecha_pista, luz, anulado
+| PUT           | anularReserva/  | Anula una reserva                                    | id_reserva
+| GET           | usuarios/       | Lista los usuarios                                   | null
+| POST          | login/          | Confirma credenciales del usuario                    | mail, password
+
 
 
 
