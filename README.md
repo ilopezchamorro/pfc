@@ -181,17 +181,17 @@ Existen librerías que son dependencias para el desarrollo pero que no afectan a
 A continuación se listarán las librerías de las que el proyecto es dependiente para su ejecución:
 
 
-- Core de la aplicación, lleva MVC al front [Backbone.js](http://backbonejs.org/)
-- Manejo de Objetos con orientación funcional y dependencia de Backbone [Underscore.js](http://underscorejs.org/)
-- Templating que astrae la lógica de la presentación [HandelBars](http://handlebarsjs.com/)
-- Gestión de fechas [Moment](http://momentjs.com/)
-- Creación de arlgoritmo de cifrado Sha1 para la contraseña de los usuarios [Sha1](https://github.com/pvorb/node-sha1)
-- Librería que facilita el uso de localstorege de HTML desde javascript [Backbone.localstorage](https://www.npmjs.com/package/backbone.localstorage)
-- Libreria cross-browsing y dependencia de Backbone para peticiones Ajax [jQuery](https://jquery.com/)
-- Capa de Front interactiva usada para el calendario [JQuery UI](https://jqueryui.com/)
+- [Backbone.js](http://backbonejs.org/): Core de la aplicación, lleva MVC al front
+- [Underscore.js](http://underscorejs.org/): Manejo de Objetos con orientación funcional y dependencia de Backbone
+- [HandelBars](http://handlebarsjs.com/): Templating que astrae la lógica de la presentación
+- [Moment](http://momentjs.com/): Gestión de fechas
+- [Sha1](https://github.com/pvorb/node-sha1): Creación de arlgoritmo de cifrado Sha1 para la contraseña de los usuarios
+- [Backbone.localstorage](https://www.npmjs.com/package/backbone.localstorage): Librería que facilita el uso de localstorege de HTML desde javascript
+- [jQuery](https://jquery.com/): Libreria cross-browsing y dependencia de Backbone para peticiones Ajax
+- [JQuery UI](https://jqueryui.com/): Capa de Front interactiva usada para el calendario
 
 
-El resultado final del javascript del proyecto será un único archivo concatenado, ofuscado y minificado con todas las dependencias de producción así como la lógica desarrollada en el archivo `./js/app.min.js`. Gracias a esto conseguimos que toda la lógica que necesita la aplicación esté contenida en una única petición al servidor que podría ser servida de forma distribuída por un CDN tipo Amazon S3 y optimizar aun más el proyecto, aunque no se contempla en esta primera fase armar una arquitectura de alta disponibilidad.
+El resultado final del javascript del proyecto será un único javacript concatenado, ofuscado y minificado en el archivo `./js/app.min.js` con todas las dependencias de producción así como la lógica desarrollada. Gracias a esto conseguimos que toda la lógica que necesita la aplicación esté contenida en una única petición al servidor optimizando así la carga de la aplicación que podría llegar a ser servida de forma distribuída por un CDN tipo Amazon S3 y optimizar aun más el proyecto, aunque no se contempla en esta primera fase armar una arquitectura de alta disponibilidad.
 
 
 ***
