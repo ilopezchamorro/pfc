@@ -184,7 +184,7 @@ A continuación se listarán las librerías de las que el proyecto es dependient
 - [Backbone.js](http://backbonejs.org/): Core de la aplicación, lleva MVC al front
 - [Underscore.js](http://underscorejs.org/): Manejo de Objetos con orientación funcional y dependencia de Backbone
 - [HandelBars](http://handlebarsjs.com/): Templating que astrae la lógica de la presentación
-- [Moment](http://momentjs.com/): Gestión de fechas
+- [Moment](http://momentjs.com/): Parsea, manipula y muestra fechas
 - [Sha1](https://github.com/pvorb/node-sha1): Creación de arlgoritmo de cifrado Sha1 para la contraseña de los usuarios
 - [Backbone.localstorage](https://www.npmjs.com/package/backbone.localstorage): Librería que facilita el uso de localstorege de HTML5 desde javascript
 - [jQuery](https://jquery.com/): Libreria cross-browsing y dependencia de Backbone para peticiones Ajax
