@@ -176,7 +176,7 @@ to-do
 
 #### 3. JAVASCRIPT
 
-Existen librerías que son dependencias para el desarrollo pero que no afectan a la ejecución del proyectoque las explicaremos en un punto posterior sobre el entorno de desarrollo y las automatizaciones de tareas.
+Existen librerías que son dependencias para el desarrollo pero que no afectan a la ejecución del proyecto y las explicaremos en un punto posterior sobre el entorno de desarrollo y las automatizaciones de tareas.
 
 A continuación se listarán las librerías de las que el proyecto es dependiente para su ejecución:
 
@@ -186,7 +186,7 @@ A continuación se listarán las librerías de las que el proyecto es dependient
 - [HandelBars](http://handlebarsjs.com/): Templating que astrae la lógica de la presentación
 - [Moment](http://momentjs.com/): Gestión de fechas
 - [Sha1](https://github.com/pvorb/node-sha1): Creación de arlgoritmo de cifrado Sha1 para la contraseña de los usuarios
-- [Backbone.localstorage](https://www.npmjs.com/package/backbone.localstorage): Librería que facilita el uso de localstorege de HTML desde javascript
+- [Backbone.localstorage](https://www.npmjs.com/package/backbone.localstorage): Librería que facilita el uso de localstorege de HTML5 desde javascript
 - [jQuery](https://jquery.com/): Libreria cross-browsing y dependencia de Backbone para peticiones Ajax
 - [JQuery UI](https://jqueryui.com/): Capa de Front interactiva usada para el calendario
 
