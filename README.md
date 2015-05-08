@@ -173,13 +173,43 @@ A continuación pasamos a describir cada punto de manera más extensa.
 
 #### 1. HTML5
 
-to-do
+HTML5  es la última evolución de la norma que define HTML. El término representa dos conceptos diferentes
+
+Uno se trata de una nueva versión del lenguaje HTML, con nuevos elementos, atributos y comportamientos.
+Dos un conjunto más amplio de tecnologías que permite a los sitios Web y a las aplicaciones ser más diversas y de gran alcance. Este conjunto se le llama HTML5 y amigos, a menudo reducido a sólo a HTML5 .
+
+Diseñado para ser utilizable por todos los desarrolladores de Open Web, esta página referencia a numerosos recursos sobre las tecnologías de HTML5, que se clasifican en varios grupos según su función.
+
+- Semántica: Permite describir con mayor precisión cuál es su contenido.
+- Conectividad: Permite comunicarse con el servidor de formas nuevas e innovadoras.
+- Fuera de línea y almacenamiento: Permite a páginas web almacenar datos, localmente, en el lado del cliente y operar fuera de línea de manera más eficiente.
+- Multimedia: Nos otorga un excelente soporte para utilizar contenido multimedia como lo son audio y video nativamente.
+- Gráficos y efectos 2D/3D: Proporcionar una amplia gama de nuevas características que se ocupan de los gráficos en la web como lo son el lienzo 2D, WebGL, SVG, etc.
+- Rendimiento e Integración: Proporcionar una mayor optimización de la velocidad y un mejor uso del hardware.
+- Acceso al dispositivo: Proporciona APIs para el uso de varios compomentes internos de entrada y salida de nuestro dispositivo.
+- CSS3: Nos ofrece una nueva gran variedad de opciones para la sofisticación del diseño.
+
+En este proyecto al ser tipo ONE-PAGE se encontrará un único archivo `.html` que será el esquelo base para generar las vistas de usuario y su gestión se delegará a Backbone. En este archivo se incluyen las llamadas a los documentos tanto javascript como css.
 
 
 #### 2. CSS3
 
 
-to-do
+CSS u hojas de estilo en cascada (en inglés Cascading Style Sheets) es un lenguaje usado para definir la presentación de un documento estructurado escrito en HTML. El W3C (World Wide Web Consortium) es el encargado de formular la especificación de las hojas de estilo que servirán de estándar para los agentes de usuario o navegadores.
+
+Actualmente, pese a que la especificación 2.1 se aprobó recientemente, CSS3 ha venido desarrollándose desde 1999. Esta nueva especificación viene con interesantes novedades que permitirán hacer webs más elaboradas y dinámicas, con mayor separación entre estilos y contenidos. Dará soporte a muchas necesidades de las webs actuales, sin tener que recurrir a trucos de diseñadores o lenguajes de programación.
+
+En esta completa guía, el autor nos muestra el uso de las principales características que este lenguaje ofrece. De entre ellas, destacamos los nuevos selectores, los pseudo elementos, las pseudo clases y toda una serie de efectos estéticos que abarcan desde la tipografía a las transformaciones 3D.
+
+Nuestro CSS será un único archivo minificado y concatenado generado por el precompilador Stylus (se describirá en la parte de desarrollo)
+
+Se ha usado la librería [Normalize](http://necolas.github.io/normalize.css/) a modo reset de estilos.
+
+#####¿Por qué se hace esto?
+
+Hasta que CSS3 y HTML5 sean un estándar terminado y no en desarrollo ante huecos no claros de estilos predefinidos cada navegador aplica las reglas por defecto que le parecen mas óptimas, esto hace que de partida y sin un reset que iguale los estilos predefinidos de todos los navegadores nos encontramos algunos problemas como que Microsoft aplica bordes a las tablas ya que considera que una tabla debe mostrarse así mientras que Chrome lo muestra sin líneas a salvo que se le indique. Esto occurre con otros tantos estilos como márgenes, padings, etc.
+
+
 
 
 #### 3. JAVASCRIPT
