@@ -155,14 +155,27 @@ Finalmente se creará una instancia de la clase Api y se llamará al método pro
 | ------------- | --------------- | ---------------------------------------------------- | -----------------------
 | POST          | nuevoUsuario/   | Crea un nuevo Usuario                                | nombre, apellidos, expediente, dni, password, mail
 | POST          | nuevoAdmin/     | Crea un nuevo Adminsitrador                          | nombre, apellidos, expediente, dni, password, mail, rol
+| POST          | actualizarUsuario/| Atualiza los datos de un user                      | nombre, apellidos, expediente, dni, password, mail
+| POST          | actualizarAdmin/| Atualiza los datos de un admin                      | nombre, apellidos, expediente, dni, password, mail
+| POST          | eliminarUsuario/| Elimina un usuario                                   | id_usuario
 | POST          | nuevaHora/      | Crea una nueva hora a todas las pistas               | inicio
 | POST          | nuevoDeporte/   | Crea un nuevo Deporte                                | nombre
-| GET           | deportes/       | Lista los deportes                                   | null
+| POST          | EliminarDeporte/| Elimina un deporte                                   | id_deporte
+| POST          | ModificarDeporte/| Modifica un Deporte                                 | id, new_name_deporte
+| GET           | deportes/       | Lista los deportes con Pistas asociadas              | null
+| GET           | deportesAdmin/       | Lista todos los deportes                             | null
 | POST          | pistas/         | Lista las pistas de un deporte de un día determinado | id (pista), fecha_pista
+| POST          | modificarPistas/| Modifica una pista                                   | id (pista), nombre, precio_luz, precio_pista
+| POST          | eliminarPista/  | Elimina una pista                                    | id (pista)
+| POST          | nuevaPista/     | Crea una pista asociada a un derporte                | nombre, id_deporte
+| POST          | pistasAdmin/    | Lista todas las pistas                               | id (pista)
 | POST          | reserva/        | Crea un nueva Reserva                                | id_usuario, id_pista, id_hora, fecha_pista, luz, anulado
+| POST          | reservasUsuario/| Lista todas las reservas de un user                  | id_usuario
+| GET           | reservasAdmin/  | Lista todas las reservas de todos los users          | null
 | PUT           | anularReserva/  | Anula una reserva                                    | id_reserva
 | GET           | usuarios/       | Lista los usuarios                                   | null
 | POST          | login/          | Confirma credenciales del usuario                    | mail, password
+| GET           | estadísticas/   | Genera y devuelve un json con datos estadísticos     | null
 
 
 
