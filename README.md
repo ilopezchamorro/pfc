@@ -75,6 +75,9 @@ MySQL es usado por muchos sitios web grandes y populares, como Wikipedia, Google
 
 [logo]: https://github.com/ilopezchamorro/pfc/blob/master/db.png "Modelo Relacional"
 
+
+- Se hace DELETE ON CASCADE con los deportes, usuarios y pistas. Al eleminar un usuario se eliminan sus reservas. Si se elimina un deporte se eliminan sus pistas y sus alquileres asociados.
+
 ####  2. API-RESTful
 
 Actuará de brocker ejerciendo la comunicación entre el frontend y el modelo de datos. Esta API no guardará datos en memoria por lo que no se encargará de la persistencia siendo su único fin la gestión de recuperación de datos y empaquetarlos como JSON para devolverlos al front. Se crea esta capa intermedia para garantizar la seguridad de los datos no teniendo nunca el front acceso directo a la base de datos siendo trabajo de esta api el lanzamiendo de las consultas en un entorno controlado. Las variables que proceden del front serán parametrizadas siempre evitando así cualquier ataque tipo SQL Inyection.
