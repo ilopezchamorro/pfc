@@ -293,8 +293,8 @@ El entorno de desarrollo se ha creado orientado a la automatización de tareas. 
 A continuación listamos todo el software y librerías utilizadas para el proceso desarrollo del proyecto.
 
 - [SublimeText](http://www.sublimetext.com/): IDE de desarrollo
-- [Git](https://github.com/): Bases de Datos
-- [PhpMyAdmin](http://www.phpmyadmin.net/home_page/index.php): Control de Versiones
+- [Git](https://github.com/): Control de Versiones
+- [PhpMyAdmin](http://www.phpmyadmin.net/home_page/index.php): Gestor de Bases de Datos
 - [Nodejs](https://nodejs.org/): Chrome's JavaScript runtime
 - [Grunt](http://gruntjs.com): Ejecutor de Tareas programadas
 - [grunt-browserify](https://www.npmjs.com/package/grunt-browserify): Inyección de dependencias de Javascript
