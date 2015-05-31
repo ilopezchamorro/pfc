@@ -268,14 +268,36 @@ A continuación se listarán las librerías de las que el proyecto es dependient
 - [Backbone.js](http://backbonejs.org/): Core de la aplicación, lleva MVC al front
 - [Underscore.js](http://underscorejs.org/): Manejo de Objetos con orientación funcional y dependencia de Backbone
 - [HandelBars](http://handlebarsjs.com/): Templating que astrae la lógica de la presentación
-- [Moment](http://momentjs.com/): Parsea, manipula y muestra fechasw
+- [Moment](http://momentjs.com/): Parsea, manipula y muestra fechas
 - [Sha1](https://github.com/pvorb/node-sha1): Creación de arlgoritmo de cifrado Sha1 para la contraseña de los usuarios
 - [Backbone.localstorage](https://www.npmjs.com/package/backbone.localstorage): Librería que facilita el uso de localstorege de HTML5 desde javascript
 - [jQuery](https://jquery.com/): Libreria cross-browsing y dependencia de Backbone para peticiones Ajax
 - [JQuery UI](https://jqueryui.com/): Capa de Front interactiva usada para el calendario
 
-
 El resultado final del javascript del proyecto será un único javacript concatenado, ofuscado y minificado en el archivo `./js/app.min.js` con todas las dependencias de producción así como la lógica desarrollada. Gracias a esto conseguimos que toda la lógica que necesita la aplicación esté contenida en una única petición al servidor optimizando así la carga de la aplicación que podría llegar a ser servida de forma distribuída por un CDN tipo Amazon S3 y optimizar aun más el proyecto, aunque no se contempla en esta primera fase armar una arquitectura de alta disponibilidad.
+
+
+#### 3. ENTORNO DE DESAROLLO
+
+El entorno de desarrollo se ha creado orientado a la automatización de tareas. Esto conlleva una inversión de tiempo inicial muy notable pero nos brinda la seguridad de la eliminación de errores humanos durante los procesos de deploy o desarrollo u inyección de dependencias.
+
+Para conseguirlo se utilizan las siguientes herramientas:
+
+- [Grunt](http://gruntjs.com): Ejecutor de Tareas programadas
+- [grunt-browserify](https://www.npmjs.com/package/grunt-browserify): Inyección de dependencias de Javascript
+- [Grunt-contrib-clean](https://www.npmjs.com/package/grunt-contrib-clean): Borra directorios
+- [Grunt-contrib-copy](https://www.npmjs.com/package/grunt-contrib-copy): Copia archivos entre directorios
+- [Grunt-contrib-cssmin](https://www.npmjs.com/package/grunt-contrib-cssmin): Minifica los archivos css
+- [Grunt-contrib-stylus](https://www.npmjs.com/package/grunt-contrib-stylus): Precompilados de stylus css
+- [Grunt-contrib-uglify](https://www.npmjs.com/package/grunt-contrib-uglify): Minifica y Concatena archivos javascript
+- [Grunt-open](https://www.npmjs.com/package/grunt-open): Abre un directorio en el navegador
+- [Grunt-ssh](https://www.npmjs.com/package/grunt-ssh): Abre una conexión con el servidor para la subida de archivos por sftp o ssh
+- [Grunt-replace](https://www.npmjs.com/package/grunt-replace): Sustituye strings de archivos mediante expresiones regulares
+- [Grunt-contrib-watch](https://www.npmjs.com/package/grunt-contrib-watch): Observa cambios sobre los archivos para recompilar automáticamente
+
+
+
+
 
 
 ***
