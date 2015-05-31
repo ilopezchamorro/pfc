@@ -42,6 +42,7 @@ Se ha optado por una arquitectura separada principalmente en tres capas lógicas
 	- 2.API-RESTful
 	- 3.Front-end
 
+
 El modelo será una base de datos relacional MySQL que guardará todos los datos necesarios para el funcionamiento de la aplicación.  Se creará una capa intermedia a modo broker cuyo único fin es comunicar el front-end con el modelo de datos que será la API RESTful. Y una tercera capa que será el front-end donde estará el peso de la lógica de negocio y las vistas para que los usuarios y administradores puedan interaccionar con el modelo.
 
 
