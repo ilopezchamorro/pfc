@@ -151,7 +151,7 @@ Finalmente se creará una instancia de la clase Api y se llamará al método pro
 
 
 
-| Método        | URL             | Descripción                                          | Parametros
+| Método        | URL             | Descripción                                          | Parámetros
 | ------------- | --------------- | ---------------------------------------------------- | -----------------------
 | POST          | nuevoUsuario/   | Crea un nuevo Usuario                                | nombre, apellidos, expediente, dni, password, mail
 | POST          | nuevoAdmin/     | Crea un nuevo Adminsitrador                          | nombre, apellidos, expediente, dni, password, mail, rol
