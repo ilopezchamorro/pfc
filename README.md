@@ -361,6 +361,46 @@ Preparas los archivos, añadiendo instantáneas de ellos a tu área de preparaci
 Confirmas los cambios, lo que toma los archivos tal y como están en el área de preparación, y almacena esa instantánea de manera permanente en tu directorio de Git.
 Si una versión concreta de un archivo está en el directorio de Git, se considera confirmada (committed). Si ha sufrido cambios desde que se obtuvo del repositorio, pero ha sido añadida al área de preparación, está preparada (staged). Y si ha sufrido cambios desde que se obtuvo del repositorio, pero no se ha preparado, está modificada (modified).
 
+
+
+###### c. Automatización de Tareas
+
+
+El Universo entero tiende a la complejidad y el caos, y los proyectos de software, lejos de ser una excepción, confirman y aceleran esta tendencia cosmogónica. Y a medida que se amplían en alcance, complejidad o equipo, también crece el esfuerzo necesario para mantenerlos, evolucionarlos y desplegarlos tras cada nueva versión.
+
+Parte de este esfuerzo proviene del conflicto existente entre las prioridades del proyecto en su entorno de desarrollo, donde prima la ergonomía del desarrollador y la legibilidad del código, y las características que ha de tener la aplicación ya publicada, donde esto se convierte en irrelevante y se prioriza la eficiencia y la economía de recursos.
+
+Muchos frameworks de desarrollo web incorporan mecanismos más o menos transparentes al desarrollador para —por ejemplo— concatenar y minimizar scripts y hojas de estilos. De este modo el programador puede trabajar con componentes modulares y ficheros optimizados para la legibilidad, que son transformados al vuelo en versiones optimizadas para la velocidad de descarga o de interpretación.
+
+Pero a medida que el proyecto gana en complejidad o en requisitos de eficiencia esta facilidad puede resultar insuficiente. Pongamos otro ejemplo: para trabajar con iconos un diseñador puede preferir trabajar con una miríada de ficheros independientes generados en lotes por su herramienta de diseño favorita y que le resultan fáciles de mantener. Y unos metros más allá su compañero desarrollador o administrador de sistemas puede ver con terror como esta práctica dispara las peticiones HTTP necesarias para servir la página, y con ello el consumo de recursos y el tiempo de transferencia.
+
+¿Cómo resolver este conflicto? En los últimos dos o tres años están cobrando relevancia algunas herramientas dirigidas a programadores y que podríamos denominar de automatización de tareas o de compilación de proyectos (frontend build tools, developer automation tools, task runners o streaming build systems). Se trata fundamentalmente de Grunt (2012), que mantiene con Gulp (2013) un interesante duelo por el favor de los desarrolladores, y GNU Make (1977. Sí: mil novecientos setenta y siete), la popular y casi omnipotente utilidad del mundo Unix.
+
+Más allá de las diferencias conceptuales o técnicas, la idea detrás de estas herramientas es común y sencilla: automatizar la ejecución de tareas repetitivas con la finalidad de transformar un proyecto de su forma óptima para desarrollo a su forma óptima para publicación o despliegue.
+
+Un ejemplo probablemente común en proyectos online que han adquirido una cierta complejidad podría ser un workflow consistente en todas o algunas de las siguientes tareas:
+
+- Linting de código, particularmente JavaScript.
+- Optimización de las imágenes del proyecto, recortando, recomprimiendo, ajustando la calidad o realizando conversiones de formato.
+- Minimización o conversión de ficheros de tipografía.
+- Generación de una hoja de sprites a partir de ficheros con iconos independientes.
+- Compilación de ficheros Sass, Less, CoffeScript…
+- Ejecución de tests unitarios, de integración o de usuario (Selenium).
+- Comprobación automática de enlaces rotos.
+- Supresión de comentarios y compactación de la salida.
+- Generación automática de documentación o APIs a partir del código.
+- Validación semántica de lenguajes W3C.
+- Concatenación y minimización de scripts u hojas de estilos.
+- Vaciado (flush) de cachés.
+- Despliegue automático en producción.
+
+El coste de tener que realizar manualmente estas tareas puede ser inasumible, especialmente en proyectos con un desarrollo ágil, iteraciones frecuentes y muchas versiones y publicaciones. Esta es la dificultad que tratan de resolver las herramientas descritas. En ningún orden en particular:
+
+Grunt, originaria del mundo de JavaScript, implementa una filosofía basada en configuración mejor que programación, y sus numerosísimos plugins facilitan las tareas más frecuentes y minimizan la curva de aprendizaje.
+
+GNU Make, la herramienta con que nuestros abuelos compilaban sus programas Fortran en pantallas de fósforo verde, goza de excelente salud y proporciona a los usuarios más fieles a la filosofía Unix workflows potentes y flexibles desde una herramienta estándar y casi universal.
+
+
 ***
 
 TO-DO
