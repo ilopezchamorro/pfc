@@ -322,9 +322,9 @@ Git no modela ni almacena sus datos de este modo. En cambio, Git modela sus dato
 
 Esta es una diferencia muy importante entre Git y prácticamente todos los demás VCSs. Hace que Git reconsidere casi todos los aspectos del control de versiones que muchos de los demás sistemas copiaron de la generación anterior. Esto hace a Git más como un mini sistema de archivos con algunas herramientas tremendamente potentes construidas sobre él, más que como un VCS.
 
-![alt text][logo]
+![alt text][logo4]
 
-[logo]: https://github.com/ilopezchamorro/pfc/blob/master/git1.png "Modelo de Datos Git"
+[logo4]: https://github.com/ilopezchamorro/pfc/blob/master/git1.png "Modelo de Datos Git"
 
 
 
@@ -344,9 +344,9 @@ Ahora presta atención. Esto es lo más importante a recordar acerca de Git si q
 
 Esto nos lleva a las tres secciones principales de un proyecto de Git: el directorio de Git (Git directory), el directorio de trabajo (working directory), y el área de preparación (staging area).
 
-![alt text][logo]
+![alt text][logo5]
 
-[logo]: https://github.com/ilopezchamorro/pfc/blob/master/git2.png "Estados de Git"
+[logo5]: https://github.com/ilopezchamorro/pfc/blob/master/git2.png "Estados de Git"
 
 El directorio de Git es donde Git almacena los metadatos y la base de datos de objetos para tu proyecto. Es la parte más importante de Git, y es lo que se copia cuando clonas un repositorio desde otro ordenador.
 
