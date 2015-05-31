@@ -309,7 +309,7 @@ A continuación listamos todo el software y librerías utilizadas para el proces
 - [Grunt-contrib-watch](https://www.npmjs.com/package/grunt-contrib-watch): Observa cambios sobre los archivos para recompilar automáticamente
 
 
-###### a. Control de Versiones
+###### b. Control de Versiones
 
 El control de versiones es un sistema que registra los cambios realizados sobre un archivo o conjunto de archivos a lo largo del tiempo, de modo que puedas recuperar versiones específicas más adelante.
 
