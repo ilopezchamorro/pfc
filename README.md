@@ -281,8 +281,18 @@ El resultado final del javascript del proyecto será un único javacript concate
 
 El entorno de desarrollo se ha creado orientado a la automatización de tareas. Esto conlleva una inversión de tiempo inicial muy notable pero nos brinda la seguridad de la eliminación de errores humanos durante los procesos de deploy o desarrollo u inyección de dependencias.
 
-Para conseguirlo se utilizan las siguientes herramientas:
 
+	- a.Dependencias de desarrollo
+	- b.Control de versiones
+	- c.Automatización de tareas
+	- d.Deploy a producción
+
+
+###### a.Dependencias de desarrollo
+
+
+- [Git](https://github.com/): Control de Versiones
+- [Nodejs](https://nodejs.org/): Chrome's JavaScript runtime
 - [Grunt](http://gruntjs.com): Ejecutor de Tareas programadas
 - [grunt-browserify](https://www.npmjs.com/package/grunt-browserify): Inyección de dependencias de Javascript
 - [Grunt-contrib-clean](https://www.npmjs.com/package/grunt-contrib-clean): Borra directorios
