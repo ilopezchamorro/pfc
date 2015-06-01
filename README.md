@@ -598,39 +598,31 @@ Lo siguiente es abrir el archivo de configuración que nos provee XAMPP, de igua
 
 Si están en XAMPP, la ruta será la siguiente: `C:\xampp\apache\conf\extra\httpd-vhosts.conf
 
-El archivo lucirá de la siguiente manera:
 
 ![alt text][hosts3]
 
 [hosts3]: https://github.com/ilopezchamorro/pfc/blob/master/hosts2.png
 
 
-Es en este archivo donde alojaremos cada uno de los host virtuales que creemos, lo haremos de la siguiente manera:
+Es en este archivo donde alojaremos cada uno de los host virtuales que creemos, en esta caso nos valdrá con pegar este ya configurado para nuestro proyecto:
 
-Primero agregamos la directiva Directory, es aquí donde activaremos el uso de URL’s amigables, necesarias para el funcionamiento del framework PHP que utilicemos (ejemplo: el poderoso Laravel), lo agregamos antes de la configuración de NameVirtualHost, y es aquí donde debemos recordar el nombre que le establecimos a nuestra carpeta, además de todo usaremos la diagonal convencional y no la invertida para descripción de direcciones:
+````
+<VirtualHost *:80>
+    ServerAdmin webmaster@pfc.com
+    DocumentRoot c:\xampp\htdocs\pfc
+    ServerName pdf.dev
+    <Directory "c:\xampp\htdocs\pfc">
+	Options Indexes FollowSymLinks
+	Order allow,deny
+	Allow from all
+   </Directory>
+</VirtualHost>
+````
 
-![alt text][i1]
-
-[i1]: https://github.com/ilopezchamorro/pfc/blob/master/i1.png
-
-
-Lo siguiente es agregar nuestro virtual host, y lo agregamos de último a nuestro archivo:
-
-![alt text][i2]
-
-[i2]: https://github.com/ilopezchamorro/pfc/blob/master/i2.png
-
-Recuerda reemplazar c:\virtualhost\sitiolocal\public con tu directorio en caso de que sea diferente.
-
-
-En nuestro caso : `c:\xampp\htdocs\pfc`
+Recuerda reemplazar `c:\xampp\htdocs\pfc` y `pfc.dev` con tu directorio y dominio local en caso de que hayas establecido uno diferente.
 
 
-![alt text][i3]
-
-[i3]: https://github.com/ilopezchamorro/pfc/blob/master/i3.png
-
- Nota: si te ha tocado cambiar el puerto donde escucha Apache que por defecto es 80 a otro puerto (ejemplo: 8080), en ese caso ese el número de puerto que debes de poner en el encabezado de Virtual Host ejemplo: <VirtualHost *:8080>
+	Nota: si te ha tocado cambiar el puerto donde escucha Apache que por defecto es 80 a otro puerto (ejemplo: 8080), en ese caso ese el número de puerto que debes de poner en el encabezado de Virtual Host ejemplo: <VirtualHost *:8080>
 
 Realizado todo esto procedemos a  guardar nuestro archivo, y ahora nos toca reiniciar Apache, y probar el acceso al host virtual en el explorador en el caso de este ejemplo la dirección sería:
 
