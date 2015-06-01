@@ -568,19 +568,22 @@ NOTA: Usamos pfc.dev pero podría ser cualquiera otro, lo único que esta direcc
 
 Ahora debemos modificar el archivo de configuración de Apache, para incluir el archivo de configuración de virtual host, lo podemos abrir de igual manera con un bloc de notas.
 
-Si están en XAMPP, la ruta será la siguiente: C:\xampp\apache\conf\httpd.conf
-
-Si están en WAMP, la ruta será la siguiente: C:\wamp\bin\apache\Apache2.2.21\conf\httpd.conf
+En XAMPP, la ruta será la siguiente: C:\xampp\apache\conf\httpd.conf
 
 Lo siguiente es buscar las siguientes dos líneas que están resaltadas:
 
 Virtual host
 
-Eliminen el # de la segunda línea.
+Elimínese el # de la segunda línea.
 
 Además dentro del mismo archivo debemos asegurarnos de que el módulo Rewrite está habilitado, para ello buscamos la siguiente línea:
 
-```
+![alt text][hosts2]
+
+[hosts2]: https://github.com/ilopezchamorro/pfc/blob/master/httpd-conf_.png
+
+
+````console
 httpd.conf
 LoadModule rewrite_module modules/mod_rewrite.so
 ```
@@ -590,11 +593,10 @@ Y nos aseguramos de que no esté comentada (el signo de numeral # sirve para com
 Realizado esto guardamos los cambios.
 
 ###### Paso 4:
-Lo siguiente es abrir el archivo de configuración que nos provee XAMPP o WAMP, de igual manera lo podemos editar con un Bloc de Notas.
+
+Lo siguiente es abrir el archivo de configuración que nos provee XAMPP, de igual manera lo podemos editar con un Bloc de Notas.
 
 Si están en XAMPP, la ruta será la siguiente: C:\xampp\apache\conf\extra\httpd-vhosts.conf
-
-Si están en WAMP, la ruta será la siguiente: C:\wamp\bin\apache\Apache2.2.21\conf\extra\httpd-vhosts.conf
 
 El archivo lucirá de la siguiente manera:
 
@@ -621,9 +623,9 @@ localhost
 Realizado todo esto procedemos a  guardar nuestro archivo, y ahora nos toca reiniciar Apache, y probar el acceso al host virtual en el explorador en el caso de este ejemplo la dirección sería:
 
 
-1
-htttp://misitio.local/
-Si estás construyendo el sitio en Laravel y ves lo siguiente es porque has seguido los pasos de forma correcta:
+````console
+http://pfc.dev
+````
 
 
 ##### Crear Base de Datos
