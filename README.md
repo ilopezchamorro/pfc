@@ -714,7 +714,7 @@ Esto nos instala la línea de comandos de grunt de forma global en nuestro pc (t
 
 Node Package Modules. Es un repositorio de librerías de javascript.
 
-Existe un archivo `package.json` en el que figuran todas las dependencias de desarrollo y de ejecución de javascript que no hacen falta versionar ya que pueden obtenerse desde el repositorio oficial ejecutando un solo comando, detectará qué librerías en qué versión queremos ya que lo tenemos configurado en dicho archivo.
+Existe un archivo `package.json` en el que figuran todas las dependencias de desarrollo y de ejecución de javascript que nos hacen falta versionar ya que pueden obtenerse desde el repositorio oficial ejecutando un solo comando, detectará qué librerías en qué versión queremos ya que lo tenemos configurado en dicho archivo.
 
 Puede llevar un un rato instalarlo todo hata que descarga todas las librerías pero solo lo tendremos que realizar una vez, para esto ejecutar en la consola en modo administrador:
 
