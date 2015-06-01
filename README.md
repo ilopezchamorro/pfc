@@ -420,7 +420,7 @@ GNU Make, la herramienta con que nuestros abuelos compilaban sus programas Fortr
 En este punto vamos a describir paso por paso cómo armar el proyecto en local desde cero para poder desarrollar y cómo se crean deploys a producción:
 
 	- 1. LAMP STACK
-	- Git
+	- 2. Git
 	- Nodejs
 	- Consola de Comandos
 	- Grunt
@@ -474,10 +474,29 @@ Al terminar la instalación arrancar el programa de nuevo en modo ejecutar con p
 Ahora ya tenemos instalado un servidor web y phpmyadmin para poder accerder a base de datos de una manera sencilla.
 
 
-## 1.a LAMP
+## 2. Git
+
+Instalar Git en Windows es muy fácil. El proyecto msysGit tiene uno de los procesos de instalación más sencillos. Simplemente descarga el archivo exe del instalador desde la página de GitHub, y ejecútalo:
+
+- [GIT](http://msysgit.github.io/): Descargar GIT
+
+Una vez instalado, tendrás tanto la versión de línea de comandos (incluido un cliente SSH que nos será útil más adelante) como la interfaz gráfica de usuario estándar.
+
+Nota para el uso en Windows: Se debería usar Git con la shell provista por msysGit (estilo Unix), si por cualquier razón se necesitara usar la shell nativa de Windows, la consola de línea de comandos, se han de usar las comillas dobles en vez de las simples (para parámetros que contengan espacios) y se deben entrecomillar los parámetros terminándolos con el acento circunflejo (^) si están al final de la línea, ya que en Windows es uno de los símbolos de continuación.
 
 
+## 3. Nodejs
 
+Para poder utilizar todas las herramientas de automatización necesitamos tener instalado el motor V8 de Chrome que nos brinda Node para poder ejecutar Javascript del lado del servidor, es un intérprete de comandos gracias al cual no necesitamos estar dentro de un navegador para poder ejecutar Javascript.
+
+Si no tienes instalado todavía Node.JS el proceso es bastante fácil. Por supuesto, todo comienza por dirigirse a la página de inicio de NodeJS:
+
+
+- [GIT](https://nodejs.org/): Descargar NODE
+
+Allí encontrarás el botón para instalarlo "Install" que pulsas y simplemente sigues las instrucciones.
+
+Los procesos de instalación son sencillos y ahora los describimos. Aunque son ligéramente distintos de instalar dependiendo del sistema operativo, una vez lo tienes instalado, el modo de trabajo con NodeJS es independiente de la plataforma y teóricamente no existe una preferencia dada por uno u otro sistema, Windows, Linux, Mac, etc. Sin embargo, dependiendo de tu sistema operativo sí puede haber unos módulos diferentes que otros, ésto es, unos pueden funcionar en Linux y no así en otros sistemas, y viceversa.
 
 ***
 
