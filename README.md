@@ -764,6 +764,7 @@ Este archivo nunca será versionado para no comprometer la seguridad.
 
 "sftp": credenciales para subir el código al servidor de producción de forma atomática.
 "mysql": credeciales de la base de datos en dos versiones:
+
 "dev": credenciales Base de Datos de desarrollo
 "pro": credenciales de la Base de Datos de producción
 
@@ -772,16 +773,22 @@ Este archivo nunca será versionado para no comprometer la seguridad.
 Ahora sí estamos listos para intereactuar con el proyecto. Si no has tenido errores durante la instalación ahora simplemente hay 3 comándos básicos que puedes ejecutar para usar el proyecto:
 
 
-Desarrollo:
+- Desarrollo:
+
 `grunt`
+
 Crea una caperta dev/, ejecuta browserify para inyección de dependencias de javascript, después compila y minifica javascript, después minifica y concatena CSS, mueve todos los archivos necesarios desde src hasta dev, abre la url en el navegador y se queda escuchando cambios en código para relanzar todo el proceso de forma automática al guardar un cambio y cambia las credenciales con las encontradas en el archivo secret.json de dev
 
-Generar código entregable:
+- Generar código entregable:
+
 `grunt build`
+
 Genera un entregable en un carpeta Build/ con todo el código listo para ejecutarse con las credenciales de pro.
 
-Pase a producción:
+- Pase a producción:
+
 `grunt deploy`
+
 Hace los mismo que el comando anterior pero además lo sube al servidor de proucción los archivos.
 
 
