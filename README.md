@@ -459,17 +459,17 @@ Seguir los pasos de instalación y siempre verificar que se instala tanto PHP co
 
 ![alt text][xamp1]
 
-[xamp1]: https://github.com/ilopezchamorro/pfc/blob/master/xampp01.png
+[xamp1]: https://github.com/ilopezchamorro/pfc/blob/master/xampp01.jpg
 
 ![alt text][xamp2]
 
-[xamp2]: https://github.com/ilopezchamorro/pfc/blob/master/xampp02.png
+[xamp2]: https://github.com/ilopezchamorro/pfc/blob/master/xampp02.jpg
 
 Al terminar la instalación arrancar el programa de nuevo en modo ejecutar con permisos de administrador y seleccionar los módulos y arrancar los servicios de PHP y MySQL
 
 ![alt text][xamp4]
 
-[xamp4]: https://github.com/ilopezchamorro/pfc/blob/master/xampp04.png
+[xamp4]: https://github.com/ilopezchamorro/pfc/blob/master/xampp04.jpg
 
 Ahora ya tenemos instalado un servidor web y phpmyadmin para poder accerder a base de datos de una manera sencilla.
 
