@@ -812,6 +812,7 @@ En el proyecto se identifican dos actores:
 	- Alta de usuarios
 	- Login
 	- Persistencia de Sesión
+	- Loading...
 
 > USUARIO
 
@@ -919,6 +920,31 @@ Estará disponible el siguiente método para lectura para poder comprobar en cua
 
 ````
 
+##### Loading...
+
+Este módulo se encarga de mostrar u ocultar una animación css3 con dos pelotas girando sobre si mismas que impide tocar ningún botón de la pantalla. Se activa cuando comienza una petición Ajax y termina al recibir la respuesta, que después manejará la app.
+
+Se encuentra localizado dentro del router de la aplicación.
+
+
+````javascript
+loader: function () {
+
+    var loading = $('#loading');
+    var documento = $(document);
+    var modalCalendario = $('#modalCalendario');
+
+
+    documento.ajaxStart(function () {
+      loading.show(0);
+    });
+
+    documento.ajaxComplete(function () {
+      loading.fadeOut(500);
+    });
+  },
+````
+
 ##### Menú Principal
 
 `src/js/views/header.js`
@@ -1004,9 +1030,55 @@ getTiempo: function(){
 Este módulo solo tiene carácter informativo, no aporta nada a la lógica del proyecto.
 
 
-
 ##### Listado de pistas
+
+`src/js/views/deporte-single.js`
+`src/js/views/deportes-lists.js`
+
+Al listado de pistas se accede desde el listado de deportes. A esta vista se le pasa el deporte sobre el que ha pulsado el usuario y se envía al servicio `pistas/`
+
+Este servicio espera dos campos:
+
+- id_deporte
+- Día
+
+Se le pasa el día de hoy siempre salvo al interaccionar con el calendario y cambiar de fecha se le pasa entonces la fecha seleccionada.
+
+Este servicio devuelve un objeto Json con las pistas, las horas de cada pista y su estado, si está libre u ocupado. A partir de aquí hay dos variantes por rol:
+
+
+> Usuario
+
+Si es un usuario estándar se comprueba el id de usuario de cada reserva con el del usuario logueado, si estos dos son iguales se entiende que la reserva es propietaria, y se puede anular, si son distintos ids se entiende que la reserva es de un tercero y aparece como "no anulable". Si no tiene reserva asociada se mostrará cmomo libre y podrá reservarse.
+
+> Admin
+
+En el caso del administrador no se hace la comprobación de quién ha reservado la pista ya que tiene los privilegios para anular cualquier reserva por lo cual solo ve dos estados, libre o reservado con capacidad para anularlo.
+
+El Administrador también puede reservar pistas.
+
+
+###### RESERVAR
+
+Para reservar hay que pulsar sobre una hora que contenga la etiqueta "libre". Se abre un modal de confirmación que nos pregunta si queremos alquilar con luz.
+Al confirmar la reserva se envían los datos de qué usuario la crea, si quiere o no luz la servicio de la api: `reserva/` con los siguiente campos: id_usuario, id_pista, id_hora, fecha_pista, luz, anulado
+
+La api hace una segunda comprobación de que no exista dicha reserva, en caso de existir devuelve un error avisando que ya está reservada y que por favor refresques el navegador. Esto evita la concurrencia de reservas en caso de que dos usuarios reserven a la vez la misma pista.
+
+Si la reserva no existe la crea y devuelve un success con un mensaje de "reserva hecha correctamente" que se mostrará al usuario. En este punto lanza un evento por el bus de eventos para que se refresque la vista (sin refrescarse el navegador, vía ajax). Al refrescarse la vista vuelve a pedir al servicio `pistas\` la información para mostrarla de forma actualizada y cambiará el estado de la pista que estaba libre a reservada.
+
+###### ANULAR
+
+Para anular hay que pulsar sobre una hora que contenga la etiqueta "anular reserva". Se abre un modal de confirmación que nos pregunta si queremos anularla.
+Al confirmar la anulación se envía el id_reserva al servicio de la api: `anularReserva/` con los el siguiente campo: id_reserva.
+
+Si la respuesta es un success, se  procede igual que en el punto anterior, se lanza un evento por el bus de eventos para que se refresque la vista. Al refrescarse la vista vuelve a pedir al servicio `pistas\` la información para mostrarla de forma actualizada y cambiará el estado de la pista que estaba reservada a libre.
+
+Ahora cualquier usuario verá libre esta hora en esta pista este día y podrá reservarla.
+
 ##### Calendario
+
+
 ##### Listado de horarios de cada pista con aviso de estado: libre, ocupado o posibilidad de cancelación si es tu propia reserva.
 ##### Ventana Confirmación de reserva
 ##### Ventana Anulación
