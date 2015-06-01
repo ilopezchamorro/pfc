@@ -792,3 +792,61 @@ Genera un entregable en un carpeta Build/ con todo el código listo para ejecuta
 Hace los mismo que el comando anterior pero además lo sube al servidor de producción los archivos.
 
 
+
+# ENTIDADES Y CLASES DEL PROYECTO
+
+En el proyecto se identifican dos actores:
+
+- Usuarios
+- Administradores
+
+
+![alt text][dev1]
+
+[dev1]: https://github.com/ilopezchamorro/pfc/blob/master/dev1.jpg
+
+
+
+
+
+
+
+
+
+
+
+La funcionalidades que se obtendrán de esta primera fase son los siguientes:
+
+Alta de nuevos Usuarios
+Login
+SignOut
+Listado de deportes
+Listado de pistas
+Listado de horarios de cada pista con aviso de estado: libre, ocupado o posibilidad de cancelación si es tu propia reserva.
+Calendario para switchear días
+Listado de ficha de usuario
+Listado de reservas
+Buscador de reservas
+Buscardor de usuarios
+Modificación de perfil
+Los usuarios administradores también podrán:
+
+Crear usuarios
+Modificar Usuarios
+Buscar usuarios
+Dar de baja Usuarios
+Escalar permisos
+Crear Otras cuentas de administradores
+Cancelar cualquier reserva
+Listar reservas
+Busqueda de reservas
+Reservar pistas
+Crear Deportes
+Modificar Deportes
+Eliminar Deportes
+Crear pistas
+Modificar pistas
+Asignar pistas a Deportes
+Gestionar precios de las pistas
+
+
