@@ -1045,7 +1045,7 @@ Este servicio devuelve un objeto Json con las pistas, las horas de cada pista y 
 
 > Usuario
 
-Si es un usuario estándar se comprueba el id de usuario de cada reserva con el del usuario logueado, si estos dos son iguales se entiende que la reserva es propietaria, y se puede anular, si son distintos ids se entiende que la reserva es de un tercero y aparece como "no anulable". Si no tiene reserva asociada se mostrará cmomo libre y podrá reservarse.
+Si es un usuario estándar se comprueba el id de usuario de cada reserva con el del usuario logueado, si estos dos son iguales se entiende que la reserva es propietaria, y se puede anular, si son distintos ids se entiende que la reserva es de un tercero y aparece como "no anulable". Si no tiene reserva asociada se mostrará como libre y podrá reservarse.
 
 > Admin
 
