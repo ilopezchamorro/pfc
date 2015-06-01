@@ -846,36 +846,36 @@ En el proyecto se identifican dos actores:
 
 
 
-#### Alta de usuarios
-#### Login
+##### Alta de usuarios
+##### Login
 
-### USUARIO
-#### SignOut/cerrar sesión
-#### Menú Principal
-#### Listado de deportes
-#### El timpo próximos 7 días
-#### Listado de pistas
-#### Calendario
-#### Listado de horarios de cada pista con aviso de estado: libre, ocupado o posibilidad de cancelación si es tu propia reserva.
-#### Ventana Confirmación de reserva
-#### Ventana Anulación
-#### Ficha/modificación de usuario
-#### Listado de reservas
-#### Buscador de reservas
-### ADMIN
-#### SignOut/cerrar sesión
-#### Menú Principal
-#### Listado de deportes
-#### El timpo próximos 7 días
-#### Listado de pistas
-#### Calendario
-#### Listado de horarios de cada pista con aviso de estado: libre, ocupado, puediendo cancelar cualquier reserva
-#### Ventana Confirmación de reserva
-#### Ventana Anulación
-#### Ficha/modificación de usuario
-#### Listado de reservas
-#### Buscador de reservas
-#### Alta de nuevos usuarios
-#### Listado de usuarios
-#### Escalado de Permisos
-#### Buscador de usuarios
+#### USUARIO
+##### SignOut/cerrar sesión
+##### Menú Principal
+##### Listado de deportes
+##### El timpo próximos 7 días
+##### Listado de pistas
+##### Calendario
+##### Listado de horarios de cada pista con aviso de estado: libre, ocupado o posibilidad de cancelación si es tu propia reserva.
+##### Ventana Confirmación de reserva
+##### Ventana Anulación
+##### Ficha/modificación de usuario
+##### Listado de reservas
+##### Buscador de reservas
+#### ADMIN
+##### SignOut/cerrar sesión
+##### Menú Principal
+##### Listado de deportes
+##### El timpo próximos 7 días
+##### Listado de pistas
+##### Calendario
+##### Listado de horarios de cada pista con aviso de estado: libre, ocupado, puediendo cancelar cualquier reserva
+##### Ventana Confirmación de reserva
+##### Ventana Anulación
+##### Ficha/modificación de usuario
+##### Listado de reservas
+##### Buscador de reservas
+##### Alta de nuevos usuarios
+##### Listado de usuarios
+##### Escalado de Permisos
+##### Buscador de usuarios
