@@ -421,11 +421,7 @@ En este punto vamos a describir paso por paso cómo armar el proyecto en local d
 
 	- 1. LAMP STACK
 	- 2. Git
-	- Nodejs
-	- Consola de Comandos
-	- Grunt
-	- Npm
-	- Bower
+	- 3. Nodejs
 
 
 ## 1. LAMP STACK
@@ -500,12 +496,15 @@ Los procesos de instalación son sencillos y ahora los describimos. Aunque son l
 
 ***
 
-	YA TENEMOS INSTALADO TODO LO NECESARIO PARA TRABAJAR CON EL PROYECTO AHORA PASAMOS A CONFIGURAR EL ENTORNO, OBTENER EL CÓDIGO Y EJECUTARLO.
+##### YA TENEMOS INSTALADO TODO LO NECESARIO PARA TRABAJAR CON EL PROYECTO AHORA PASAMOS A CONFIGURAR EL ENTORNO, OBTENER EL CÓDIGO Y EJECUTARLO.
 
 ***
-
-
-
+	- Configurar un Dominio Local
+	- Hola Consola de Comandos
+	- D
+	- Grunt
+	- Npm
+	- Bower
 
 
 
