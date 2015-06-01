@@ -419,12 +419,7 @@ GNU Make, la herramienta con que nuestros abuelos compilaban sus programas Fortr
 
 En este punto vamos a describir paso por paso cómo armar el proyecto en local desde cero para poder desarrollar y cómo se crean deploys a producción:
 
-	- STAC
-		- Apache
-			- hosts
-			- httpd-vhosts.conf
-		- MySQL
-			- PhpMyAdmin
+	- 1. LAMP STACK
 	- Git
 	- Nodejs
 	- Consola de Comandos
@@ -433,6 +428,53 @@ En este punto vamos a describir paso por paso cómo armar el proyecto en local d
 	- Bower
 
 
+## 1. LAMP STACK
+
+Para este proyecto necesitamos tener instalado en nuestro sistema un entorno LAMP.
+
+LAMP es el acrónimo usado para describir un sistema de infraestructura de internet que usa las siguientes herramientas:
+
+- Linux, el sistema operativo; En algunos casos también se refiere a LDAP.
+- Apache, el servidor web;
+- MySQL/MariaDB, el gestor de bases de datos;
+- Perl, PHP, o Python, los lenguajes de programación.
+
+La combinación de estas tecnologías es usada principalmente para definir la infraestructura de un servidor web, utilizando un paradigma de programación para el desarrollo.
+
+Existen distinas maneras de lograrlo, se puede instalar de forma nativa en el sistemao bien utilizar alguna herramienta como XAMP.
+
+XAMPP es un servidor independiente de plataforma, software libre, que consiste principalmente en la base de datos MySQL, el servidor web Apache y los intérpretes para lenguajes de script: PHP y Perl. El nombre proviene del acrónimo de X (para cualquiera de los diferentes sistemas operativos), Apache, MySQL, PHP, Perl.
+
+XAMPP solamente requiere descargar y ejecutar un archivo ZIP, tar , exe o fkl, con unas pequeñas configuraciones en alguno de sus componentes que el servidor Web necesitará. XAMPP se actualiza regularmente para incorporar las últimas versiones de Apache/MySQL/PHP y Perl. También incluye otros módulos como OpenSSL y phpMyAdmin. Para instalar XAMPP se requiere solamente una pequeña fracción del tiempo necesario para descargar y configurar los programas por separado.
+
+Puesto que para este caso quién sepa hacerlo de forma nativa no necesitaría un tutorial por nuestra parte pasamos a indicar los pasos para instalar XAMPP.
+
+Primero de todo se ha de Descargar e instalar XAMPP
+
+- [XAMPP](https://www.apachefriends.org/download.html#641): Descargar XAMPP
+
+NOTA: Dar al archivo botón derecho y ejecutar con persmisos de administrador.
+
+Seguir los pasos de instalación y siempre verificar que se instala tanto PHP como MYSQL, el resto de opciones son opcionales.
+
+![alt text][xamp1]
+
+[xamp1]: https://github.com/ilopezchamorro/pfc/blob/master/xampp01.png
+
+![alt text][xamp2]
+
+[xamp2]: https://github.com/ilopezchamorro/pfc/blob/master/xampp02.png
+
+Al terminar la instalación arrancar el programa de nuevo en modo ejecutar con permisos de administrador y seleccionar los módulos y arrancar los servicios de PHP y MySQL
+
+![alt text][xamp4]
+
+[xamp4]: https://github.com/ilopezchamorro/pfc/blob/master/xampp04.png
+
+Ahora ya tenemos instalado un servidor web y phpmyadmin para poder accerder a base de datos de una manera sencilla.
+
+
+## 1.a LAMP
 
 
 
