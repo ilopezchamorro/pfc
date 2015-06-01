@@ -961,7 +961,7 @@ Si se pulsa sobre un deporte se accede a las pistas asociadas a dicho deporte.
 
 Para este módulo se ha utilizado una api de un tercero que no da la información meteorológica de los próximos días
 
-- [API EL TIEMPO](http://openweathermap.org/): ir
+- [API EL TIEMPO](http://openweathermap.org/)
 
 Al consultarla nos devuelve un JSON con los datos medios por día y el la url del icono a mostar por cada día. Lo recogemos y mediante una iteración montamos el un bucle en el front que nos lo muestre como se puede apreciar en la vista. Al hacer la consulta a la API se le mandan las coordenas del campus de la UFC:
 
