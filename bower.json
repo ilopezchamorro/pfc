@@ -1,10 +1,10 @@
 {
-  "name": "bookingfy",
+  "name": "pfc",
   "version": "1.0.0",
   "authors": [
-    "mimotic"
+    "Ignacio Lopez"
   ],
-  "description": "bookingfy",
+  "description": "pfc",
   "main": "src/public/index.html",
   "license": "MIT",
   "ignore": [
@@ -14,7 +14,7 @@
     "test",
     "tests"
   ],
-  "homepage": "bookingfy.com",
+  "homepage": "pfc.ilopezchamorro.com",
   "dependencies": {
     "normalize.styl": "~3.0.2",
     "backbone.paginator": "~2.0.2"

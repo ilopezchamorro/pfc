@@ -1,25 +1,25 @@
 {
-  "name": "bookingfy",
+  "name": "PFC",
   "version": "1.0.0",
-  "description": "proyecto bookingfy",
+  "description": "proyecto fin de carrera",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mimotic/bookingfy.git"
+    "url": "https://github.com/ilopezchamorro/pfc.git"
   },
   "keywords": [
     "bookingfy",
     "pistas"
   ],
-  "author": "mimotic",
+  "author": "Ignacio Lopez",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mimotic/bookingfy/issues"
+    "url": "https://github.com/ilopezchamorro/pfc/issues"
   },
-  "homepage": "https://github.com/mimotic/bookingfy",
+  "homepage": "https://github.com/ilopezchamorro/pfc",
   "devDependencies": {
     "connect-modrewrite": "^0.7.11",
     "grunt": "^0.4.5",
