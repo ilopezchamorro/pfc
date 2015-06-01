@@ -806,7 +806,7 @@ En el proyecto se identifican dos actores:
 [dev1]: https://github.com/ilopezchamorro/pfc/blob/master/dev1.jpg
 
 
-### MÓDULOS DE LA APLICACIÓN
+#### MÓDULOS DE LA APLICACIÓN
 
 	- Público :
 		- Alta de usuarios (público)
