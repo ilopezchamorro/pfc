@@ -811,6 +811,7 @@ En el proyecto se identifican dos actores:
 
 	- Alta de usuarios
 	- Login
+	- Persistencia de Sesión
 
 > USUARIO
 
@@ -885,14 +886,48 @@ Al introducir las credenciales se consulta mediante el servicio de la api rest `
 Si el resultado de la consulta a la api de login es OK, se le redirige a la parte privada interna de la aplicación.
 
 
-#### NOTA:
+##### Persistencia de Sesión:
 
+A partir de ahora la aplicación coge dos caminos diferentes depediendo del rol del usuario que se ha logueado.
 
+- Usuario: rol = 0
+- Admin: rol = 1
 
-#### USUARIO
+Se guardará un objeto usuario que contendrá los siguientes datos: Nombre, Apellidos, Email, Expediente y Rol.
+
+Este objeto será usará un patrón singleton de instancia única con métodos privados de tal forma que solo la aplicación es capaz de crearlo, esto nos garantiza la integridad de la seguridad.
+Estará disponible el siguiente método para lectura para poder comprobar en cualquier punto qué rol tiene el usuario logueado, para poder diferencias qué mostrar o qué no.
+
+````javascript
+
+ islogged: function() {
+    var response = 'unlogged';
+    var sesion = Sesion.getInstance();
+    var sesionRol = sesion.get('rol');
+
+    if(Number(sesionRol) === 1) response = 'admin';
+    else if(Number(sesionRol) === 0) response = 'user';
+
+    return response;
+  },
+
+````
+
+##### Menú Principal
+
+> Usuario
+
+En el caso de usuario
+
+> Admin
 
 ##### SignOut/cerrar sesión
-##### Menú Principal
+
+> Usuario
+
+
+> Admin
+
 ##### Listado de deportes
 ##### El timpo próximos 7 días
 ##### Listado de pistas
