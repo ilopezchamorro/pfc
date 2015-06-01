@@ -822,7 +822,6 @@ En el proyecto se identifican dos actores:
 	- El timpo próximos 7 días
 	- Listado de pistas (RESERVAR / ANULAR)
 	- Calendario
-	- Listado de horarios de cada pista con aviso de estado: libre, ocupado o posibilidad de cancelación si es tu propia reserva.
 	- Ficha/modificación de usuario
 	- Listado de reservas
 	- Buscador de reservas
@@ -836,7 +835,6 @@ En el proyecto se identifican dos actores:
 	- El timpo próximos 7 días
 	- Listado de pistas (RESERVAR / ANULAR)
 	- Calendario
-	- Listado de horarios de cada pista con aviso de estado: libre, ocupado, puediendo cancelar cualquier reserva
 	- Ficha/modificación de usuario
 	- Listado de reservas
 	- Buscador de reservas
@@ -1056,6 +1054,8 @@ El Administrador también puede reservar pistas.
 
 ###### RESERVAR
 
+`src/js/views/reservar.js`
+
 Para reservar hay que pulsar sobre una hora que contenga la etiqueta "libre". Se abre un modal de confirmación que nos pregunta si queremos alquilar con luz.
 Al confirmar la reserva se envían los datos de qué usuario la crea, si quiere o no luz la servicio de la api: `reserva/` con los siguiente campos: id_usuario, id_pista, id_hora, fecha_pista, luz, anulado
 
@@ -1065,6 +1065,8 @@ Si la reserva no existe la crea y devuelve un success con un mensaje de "reserva
 
 ###### ANULAR
 
+`src/js/views/anular.js`
+
 Para anular hay que pulsar sobre una hora que contenga la etiqueta "anular reserva". Se abre un modal de confirmación que nos pregunta si queremos anularla.
 Al confirmar la anulación se envía el id_reserva al servicio de la api: `anularReserva/` con los el siguiente campo: id_reserva.
 
@@ -1072,8 +1074,64 @@ Si la respuesta es un success, se  procede igual que en el punto anterior, se la
 
 Ahora cualquier usuario verá libre esta hora en esta pista este día y podrá reservarla.
 
+##### Calendario
 
+`src/js/views/calendario.js`
 
+Este módulo genera un calendario usando el plugin Jquery UI. Si no se le pasa fecha mostrará la de hoy, si se le pasa una fecha por la url la coge y muestra la dicho día.
+
+````javascript
+  getDateUrl: function(){
+
+    var f = window.location.href;
+
+    f = f.split("/");
+    f = _.last(f).trim();
+    isF = Moment(f, 'YYYY-MM-DD', true).isValid();
+
+    if (isF === false) f = Moment().format('YYYY-MM-DD');
+
+    return f;
+  },
+````
+Al switchear una fecha se vuelve a llamar al método pistas para refrescar la vista y mostrar las reservas asociadas de ese día.
+
+##### Ficha/modificación de usuario
+
+`src/js/views/perfil.js`
+
+Permite listar los datos del usuario que son recogidos del objeto sesión.
+El usuario tiene la capacidad de modificar cualquiera de los datos siempre teniendo en cuenta la previa validación de los mismos.
+
+Aunque el usuario esté logueado por seguridad se le pide la clave actual otra vez antes de lanzar el servicio de actualización.
+
+Tras pasar la validación en el front se envían los datos a la api `actualizarUsuario/`
+
+La api comprueba que nuevamente si cambia mail, expediente o DNI que no coincidan con los de otro usuario.
+
+Si los cambios han sido efectivos se responde con un success y se le muestra el mensaje al cliente. Se lanza un evento para actualizar la vista con los nuevos datos. En caso de que todos los datos enviados fueran iguales se le avisará al usuario que no se ha modificado ningún dato ya que todos los enviados eran los mismos que los que se encuentan en la base de datos.
+
+##### Listado de reservas
+
+`src/js/views/reservas-list.js`
+
+Al acceder a esta sección se consulta el servio de la api `reservasusuario/` que espera como parámetro el `id_usuario`.
+
+Nos devuelve un objeto JSON con todas las reservas de dicho usuario y su estado.
+
+En el front comprobamos si las reservas no anuladas han pasado ya de fecha en cuyo caso le adjuntamos la etiqueta "-pasada-".
+
+El resto de las reservas mostrarán anulado o reservado.
+
+Cuando una reserva no está anulada ni pasada se puede anular pulsando sobre el icono de la papelera roja, este botón llama a la api 'anular/' y se le pasa el id de la reserva.
+
+En el success de la anulación se lanza un evento para refrescar la vista.
+
+##### Buscador de reservas
+
+En el front las reservas son guardadas dentro de una colección de modelos, cada modelo sería una fila. Esto nos permite diferenciar cada uno de los campos del modelo que son las columnas por las que podemos filtrar de forma instatánea sin tener que pedir de nuevo el servicio para cada búsqueda ya que tenemos guardado de la petición anterior todas las reservas completas.
+
+La búsqueda sucede al teclear. Comienza en el evento change del input.
 
 ---------
 
@@ -1081,9 +1139,9 @@ to-do
 
 ---------
 
-##### Calendario
-##### Listado de horarios de cada pista con aviso de estado: libre, ocupado o posibilidad de cancelación si es tu propia reserva.
-##### Ficha/modificación de usuario
+
+
+
 ##### Listado de reservas
 ##### Buscador de reservas
 
@@ -1097,7 +1155,6 @@ to-do
 ##### El timpo próximos 7 días
 ##### Listado de pistas
 ##### Calendario
-##### Listado de horarios de cada pista con aviso de estado: libre, ocupado, puediendo cancelar cualquier reserva
 ##### Ventana Confirmación de reserva
 ##### Ventana Anulación
 ##### Ficha/modificación de usuario
