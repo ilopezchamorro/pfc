@@ -841,6 +841,7 @@ En el proyecto se identifican dos actores:
 	- Alta de nuevos usuarios
 	- Listado de usuarios
 	- Buscador de usuarios
+	- Gestión de Pistas
 
 
 
