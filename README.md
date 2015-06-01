@@ -1234,10 +1234,41 @@ events: {
 
 Para eliminar un usuario se le pasa al API rest el id_usuario al servicio `eliminarUsuario/`
 
+Para modificar los datos de usuario se mandan los datos al servicio `actualizarUsuarioAdmin/`
 
 
 ##### Buscador de usuarios
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas odio consequatur, earum impedit, dignissimos aspernatur necessitatibus dicta voluptatem eius voluptate libero eos, autem error at quae labore culpa. Dolorum, dolore!
+Este servicio es el mismo que el buscador de reservas solo que aplicado la colección de usuarios.
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas odio consequatur, earum impedit, dignissimos aspernatur necessitatibus dicta voluptatem eius voluptate libero eos, autem error at quae labore culpa. Dolorum, dolore!
+En esta caso se utiliza también un helper para en el front distinguir de manera visual si en el listado es un usurio sin privilegios o un administrador.
+
+##### Gestión de Pistas
+
+Este módulo es el gestor principal de las pistas de la aplicación. Permite a los administradores dar de alta nuevos deportes, nuevas pistas asociadas a un deporte y asignarles precio.
+
+También permite la modificación de cualquier campo así como la eliminación de pistas y deportes.
+
+También se pueden eliminar tanto pistas como deportes.
+
+- CREAR
+
+Para crear un nuevo deporte/pista hay que pulsar sobre el botón `+` de color verde. Esto dispara una modal con una serie de inputs de datos a rellenar.
+
+En caso de ser nuevo deporte pedirá el nombre del deporte.
+
+Si es una nueva pista pedirá EL nombre de ls pista, los precios de la pista y de la luz y un combo para seleccionar entre uno de los deportes existentes previamente creados para asignarlas a dicho deporte.
+
+los servicios para dar de alta son para las pistas `nuevaPista/` y para los deportes `nuevoDeporte/`
+
+- MODIFICAR
+
+Para modificar se ha de dar doble click sobre el campo que se desee actualizar. Al dar doble click transformamos el dato en un input, si se cambia el dato la aplicación detectará el evento `change` del input y lanzará el servicio contra la API REST `modificarPista/` ó `modificarDeporte`.
+
+- BORRAR
+
+Si se elimina un deporte, en base de datos se hará un DELETE ON CASCADE con las pistas asociadas y también sobre las reservas asociadas a dichas pistas.
+
+Para eliminar un deporte/pista hay que pulsar sobre la papelera roja y se envía al servicio de la API `eliminarDeporte/` ó `eliminarPista/` pasándole el ID de la pista o del deporte según corresponda.
+
+>Ante un success de cualquiera de los tres eventos anteriores (CREAR/MODIFICAR/BORRAR) se lanza un evento para que se refresque la vista y msotrar los datos actualizados de la base de datos.
