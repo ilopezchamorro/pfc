@@ -974,7 +974,7 @@ logout: function (event) {
 `src/js/views/deporte-single.js`
 `src/js/views/deportes-lists.js`
 
-Esta vista aparece como bienvenida nada más entrar a la aplicación. Consulta a la API ´pistas/´ que devuelve un objeto JSON con los deportes que contienen pistas.
+Esta vista aparece como bienvenida nada más entrar a la aplicación. Consulta a la API `pistas/` que devuelve un objeto JSON con los deportes que contienen pistas.
 Si se pulsa sobre un deporte se accede a las pistas asociadas a dicho deporte.
 
 ##### El tiempo próximos 7 días
