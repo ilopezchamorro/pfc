@@ -981,7 +981,7 @@ Si se pulsa sobre un deporte se accede a las pistas asociadas a dicho deporte.
 
 `src/js/views/eltiempo.js`
 
-Para este módulo se ha utilizado una api de un tercero que no da la información meteorológica de los próximos días
+Para este módulo se ha utilizado una api de un tercero que nos da la información meteorológica de los próximos días
 
 - [API EL TIEMPO](http://openweathermap.org/)
 
