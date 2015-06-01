@@ -501,11 +501,11 @@ Los procesos de instalación son sencillos y ahora los describimos. Aunque son l
 ***
 
 	- Configurar un Dominio Local
-	- Crear Base de Datos
 	- Hola Consola de Comandos
+	- Algunos comandos Básicos
 	- Configurando Git
 	- Descargando el código desde Github
-	- Comandos básicos con Git
+	- Crear Base de Datos
 	- Grunt
 	- Npm
 	- Bower
@@ -609,9 +609,9 @@ Es en este archivo donde alojaremos cada uno de los host virtuales que creemos, 
 ````
 <VirtualHost *:80>
     ServerAdmin webmaster@pfc.com
-    DocumentRoot c:\xampp\htdocs\pfc
+    DocumentRoot c:\xampp\htdocs\pfc\dev
     ServerName pdf.dev
-    <Directory "c:\xampp\htdocs\pfc">
+    <Directory "c:\xampp\htdocs\pfc\dev">
 	Options Indexes FollowSymLinks
 	Order allow,deny
 	Allow from all
@@ -619,7 +619,7 @@ Es en este archivo donde alojaremos cada uno de los host virtuales que creemos, 
 </VirtualHost>
 ````
 
-Recuerda reemplazar `c:\xampp\htdocs\pfc` y `pfc.dev` con tu directorio y dominio local en caso de que hayas establecido uno diferente.
+Recuerda reemplazar `c:\xampp\htdocs\pfc\dev` y `pfc.dev` con tu directorio y dominio local en caso de que hayas establecido uno diferente.
 
 
 	Nota: si te ha tocado cambiar el puerto donde escucha Apache que por defecto es 80 a otro puerto (ejemplo: 8080), en ese caso ese el número de puerto que debes de poner en el encabezado de Virtual Host ejemplo: <VirtualHost *:8080>
@@ -630,27 +630,159 @@ Realizado todo esto procedemos a  guardar nuestro archivo, y ahora nos toca rein
 http://pfc.dev
 ````
 
-
-##### Crear Base de Datos
-
 ##### Hola Consola de Comandos
 
-##### Configurando Git
+Abrimos en modo Ejecutar como Administrador la consola de git, GIT BASH que hemos instalado antes junto con Git.
+Esta consola tipo Unix, la usaremos para ejecutar los comandos necesarios para el desarrollo del proyecto así como para gestionar el control de versiones con Git.
+
+###### Algunos comandos Básicos:
+
+- Para saltar una carpeta hacia arriba al ser estilo Unix sería: `cd ..`
+- Para saber en qué carpeta estamos: `pwd`
+- Para listar los archivos en la carpeta dónde nos encontramos: `ls`
+- Para lcrear una carpeta: `mkdir`
+- Borrar `rm`
+- Mover `mv`
+- Copy paste `cp`
+- Ir a Carpeta de usuario (home) `cd ~/`
+- Ir a la raiz del ordenador `cd /`
 
 ##### Descargando el código desde Github
 
-##### Comandos básicos con Git
+Para descargar el código nos dirigimos a Github que es el repositorio donde lo tenemos guardado y donde lo estamos versionando. Por motivos de perfomance solo se guarda el código de desarrollo, los pases a producción se generarán al vuelo mediante comandos automatizados.
+
+`https://github.com/ilopezchamorro/pfc`
+
+Con la consola abierta lo primero es posicionarse en la carpeta que deseamos generar el código
+
+`cd c:`
+
+`cd xampp/htdocs/pfc/dev`
+
+Una vez colocados en esta capeta hay que clonar el repositorio. Para esto ejecutamos el siguiente comando y se descagará de forma automática el código.
+
+`git clone https://github.com/ilopezchamorro/pfc.git .`
+
+NOTA: al final ponemo un punto, esto significa que nos descargue el código "aquí" (en esta carpeta) si no idicamos esto nos creará una carpeta padre y habría que cambiar el vhost que acabamos de configurar previamente.
+
+
+	Ya tenemos el código en nuestro ordenador !!!!
+
+
+##### Crear Base de Datos
+
+Lo siguiente será crear la BAse de Datos necesaria para el funcionamiento del poryecto.
+
+Para crear la base de datos simplemente vamos a introducir en el navegador la siguiente ruta:
+
+`http://localhost/phpmyadmin`
+
+Esto nos dará acceso a PhpMyAdmin, un gestor de base de datos visual.
+
+Si no le has dado credenciales específicas lo normal es que por defecto use:
+
+````
+User: root
+Pass: (vacío, ninguna pass asignada)
+Host: localhost
+````
+no necesitarás cambiarlas para trabajar de forma local.
+
+Una vez dentro tan solo debes crear una nueva base de datos con el nombre que queramos.
+
+Despues pinchar en Importar, e importar el archivo `sql.sql` que está en la raiz del proyecto y la estructura de base de datos ya estará lista para trabajar, el sql que acabamos de importar ha generado nuestra base de datos.
+
+
+###### ¿Por qué aun no puedo ver el proyecto en el nevegador?
+
+Si apreciamos hemos puesto una ruta que aun no existe para el virtual host. `c:/xampp/htdocs/pfc/dev`
+
+La carpeta dev la generará la aplicación al vuelo cuando ejecutemos los comandos para desarrollo.
 
 ##### Grunt
 
+Necesitaremos instalar la línea de comandos de Gunt para que podamos ejecutarlos.
+
+En la consola de comandos (ejecutada en modo administrador):
+
+`npm install -g grunt-cli`
+
+Esto nos instala la línea de comandos de grunt de forma global en nuestro pc (tendremos acceso desde cualquier carpeta) gracias a `-g`
+
+
 ##### Npm
+
+Node Package Modules. Es un repositorio de librerías de javascript.
+
+Existe un archivo `package.json` en el que figuran todas las dependencias de desarrollo y de ejecución de javascript que no hacen falta versionar ya que pueden obtenerse desde el repositorio oficial ejecutando un solo comando, detectará qué librerías en qué versión queremos ya que lo tenemos configurado en dicho archivo.
+
+Puede llevar un un rato instalarlo todo hata que descarga todas las librerías pero solo lo tendremos que realizar una vez, para esto ejecutar en la consola en modo administrador:
+
+`npm install`
+
+Automáticamente descagará todo lo necesario.
 
 ##### Bower
 
+Bower es otro gestor de dependencias espécifico para front, en en se encuentran librerías que no son solo javascript sino también de css. Para este proyecto hemos utilizado un 2reset2 de estilo para igualar a todos los navegadores llamado Normalize. Como es CSS no está disponible en NPM así que usaremos Bower para instalarla.
+
+Simplemente ejecutar el siguiente comando:
+
+`bower install`
+
+
 ##### Configuración de credenciales
+
+En la raíz del poryecto viene un archivo `secret.json.example`
+
+````json
+{
+	"sftp":{
+		"host" : "yourHost",
+	    "username" : "yourUser",
+	    "password" : "**********"
+	},
+	"mysql":{
+		"dev":{
+			"dbname": "dbname",
+			"user" : "root",
+		    "pass" : "**********",
+		    "host" : "localhost"
+		},
+		"pro":{
+			"dbname": "dbname",
+			"user" : "exampleUser",
+		    "pass" : "**********",
+		    "host" : "localhost"
+		}
+	}
+}
+````
+Sustituir los valores por los correctos y guardar el archivo con el nombre: `secret.json`
+
+Este archivo nunca será versionado para no comprometer la seguridad.
+
+"sftp": credenciales para subir el código al servidor de producción de forma atomática.
+"mysql": credeciales de la base de datos en dos versiones:
+"dev": credenciales Base de Datos de desarrollo
+"pro": credenciales de la Base de Datos de producción
 
 ##### Comandos automatizados
 
+Ahora sí estamos listos para intereactuar con el proyecto. Si no has tenido errores durante la instalación ahora simplemente hay 3 comándos básicos que peudes ejecutar para usar el proyecto:
+
+
+Desarrollo:
+`grunt`
+Crea una caperta dev/, ejecuta browserify para inyección de dependencias de javascript, después compila y minifica javascript, después minifica y concatena CSS, mueve todos los archivos necesarios desde src hasta dev, abre la url en el navegador y se queda escuchando cambios en código para relanzar todo el proceso de forma automática al guardar un cambio y cambia las credenciales con las encontradas en el archivo secret.json de dev
+
+Generar código entregable:
+`grunt build`
+Genera un entregable en un carpeta Build/ con todo el código listo para ejecutarse con las credenciales de pro.
+
+Pase a producción:
+`grunt deploy`
+Hace los mismo que el comando anterior pero además lo sube al servidor de proucción los archivos.
 
 
 
