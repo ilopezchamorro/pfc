@@ -1115,7 +1115,9 @@ Si los cambios han sido efectivos se responde con un success y se le muestra el 
 
 `src/js/views/reservas-list.js`
 
-Al acceder a esta sección se consulta el servio de la api `reservasusuario/` que espera como parámetro el `id_usuario`.
+> Usuario
+
+Al acceder a esta sección se consulta el servio de la api `reservasUsuario/` que espera como parámetro el `id_usuario`.
 
 Nos devuelve un objeto JSON con todas las reservas de dicho usuario y su estado.
 
@@ -1144,6 +1146,16 @@ El resto de las reservas mostrarán anulado o reservado.
 Cuando una reserva no está anulada ni pasada se puede anular pulsando sobre el icono de la papelera roja, este botón llama a la api 'anular/' y se le pasa el id de la reserva.
 
 En el success de la anulación se lanza un evento para refrescar la vista.
+
+> Admin
+
+EL administrador tiene ligeras diferencas.
+
+- Muestra las reservas de todos los usuarios
+
+Para esto en caso de ser ` rol == 1 ` se consultará el servicio `reservasAdmin/` que listará las reservas de todos los usuarios.
+
+- Puede anular las reservas de cualquier usuario
 
 ##### Buscador de reservas
 
@@ -1179,19 +1191,9 @@ to-do
 
 
 
-#### ADMIN
 
-##### SignOut/cerrar sesión
-##### Menú Principal
-##### Listado de deportes
-##### El timpo próximos 7 días
-##### Listado de pistas
-##### Calendario
-##### Ventana Confirmación de reserva
-##### Ventana Anulación
-##### Ficha/modificación de usuario
-##### Listado de reservas
-##### Buscador de reservas
+
+
 ##### Alta de nuevos usuarios
 ##### Listado de usuarios
 ##### Escalado de Permisos
