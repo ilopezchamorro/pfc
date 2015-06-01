@@ -840,7 +840,6 @@ En el proyecto se identifican dos actores:
 	- Buscador de reservas
 	- Alta de nuevos usuarios
 	- Listado de usuarios
-	- Escalado de Permisos
 	- Buscador de usuarios
 
 
@@ -1149,7 +1148,7 @@ En el success de la anulación se lanza un evento para refrescar la vista.
 
 > Admin
 
-EL administrador tiene ligeras diferencas.
+El administrador tiene ligeras diferencas.
 
 - Muestra las reservas de todos los usuarios
 
@@ -1183,18 +1182,27 @@ filter: function() {
         this.filtered.reset(models);
     },
 ````
----------
 
-to-do
+***
+##### A PARTIR DE AQUÍ EL RESTO DE SERVICIOS ESTÁN SOLO DISPONIBLES PARA ADMINISTRADORES
+Los administradores heredan toda la funcionalidad anterior con las salvedades descritas en cada caso.
+***
 
----------
+##### Alta nuevos Usuarios
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas odio consequatur, earum impedit, dignissimos aspernatur necessitatibus dicta voluptatem eius voluptate libero eos, autem error at quae labore culpa. Dolorum, dolore!
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas odio consequatur, earum impedit, dignissimos aspernatur necessitatibus dicta voluptatem eius voluptate libero eos, autem error at quae labore culpa. Dolorum, dolore!
 
 
-
-
-
-
-##### Alta de nuevos usuarios
 ##### Listado de usuarios
-##### Escalado de Permisos
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas odio consequatur, earum impedit, dignissimos aspernatur necessitatibus dicta voluptatem eius voluptate libero eos, autem error at quae labore culpa. Dolorum, dolore!
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas odio consequatur, earum impedit, dignissimos aspernatur necessitatibus dicta voluptatem eius voluptate libero eos, autem error at quae labore culpa. Dolorum, dolore!
+
+
 ##### Buscador de usuarios
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas odio consequatur, earum impedit, dignissimos aspernatur necessitatibus dicta voluptatem eius voluptate libero eos, autem error at quae labore culpa. Dolorum, dolore!
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas odio consequatur, earum impedit, dignissimos aspernatur necessitatibus dicta voluptatem eius voluptate libero eos, autem error at quae labore culpa. Dolorum, dolore!
