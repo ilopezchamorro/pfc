@@ -500,6 +500,24 @@ Los procesos de instalación son sencillos y ahora los describimos. Aunque son l
 
 ***
 
+	YA TENEMOS INSTALADO TODO LO NECESARIO PARA TRABAJAR CON EL PROYECTO AHORA PASAMOS A CONFIGURAR EL ENTORNO, OBTENER EL CÓDIGO Y EJECUTARLO.
+
+***
+
+
+
+
+
+
+
+
+
+
+
+
+
+***
+
 TO-DO
 
 
