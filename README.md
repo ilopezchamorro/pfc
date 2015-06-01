@@ -1119,8 +1119,26 @@ Al acceder a esta sección se consulta el servio de la api `reservasusuario/` qu
 
 Nos devuelve un objeto JSON con todas las reservas de dicho usuario y su estado.
 
-En el front comprobamos si las reservas no anuladas han pasado ya de fecha en cuyo caso le adjuntamos la etiqueta "-pasada-".
+En el front comprobamos si las reservas no anuladas han pasado ya de fecha en cuyo caso le adjuntamos la etiqueta "-pasada-". Para esto usamos una función helper que comprueba si la fecha es anterior a mañana.
 
+````javascript
+ models = models.map(function (model) {
+
+            if(model.fecha_pista){
+                datePista = Moment(model.fecha_pista).unix();
+                model.fecha_pista = Moment(model.fecha_pista).format('DD/MM/YYYY');
+            }
+
+            compareDate = Moment().unix();
+
+            //console.log(datePista);
+
+            if( ((datePista + (24*60*60) ) - compareDate) < 0){
+                if(Number(model.anulado) === 0) model.anulado = 2;
+            }
+            return model;
+        });
+````
 El resto de las reservas mostrarán anulado o reservado.
 
 Cuando una reserva no está anulada ni pasada se puede anular pulsando sobre el icono de la papelera roja, este botón llama a la api 'anular/' y se le pasa el id de la reserva.
@@ -1131,19 +1149,33 @@ En el success de la anulación se lanza un evento para refrescar la vista.
 
 En el front las reservas son guardadas dentro de una colección de modelos, cada modelo sería una fila. Esto nos permite diferenciar cada uno de los campos del modelo que son las columnas por las que podemos filtrar de forma instatánea sin tener que pedir de nuevo el servicio para cada búsqueda ya que tenemos guardado de la petición anterior todas las reservas completas.
 
-La búsqueda sucede al teclear. Comienza en el evento change del input.
+La búsqueda sucede al teclear. Comienza en el evento `change` del input buscando coincidencias en cualquier columna con el string introducido y filtrando el contenido.
 
+````javascript
+filter: function() {
+        var what = this.get('what').trim().toLowerCase(),
+            where = this.get('where'),
+            lookin = (where==='all') ? ['nombre_deporte', 'nombre_pista', 'fecha_pista', 'inicio', 'precio_pista', 'precio_luz', 'anulado','luz'] : where,
+            models;
+
+        if (what==='') {
+            models = this.collection.models;
+        } else {
+            models = this.collection.filter(function(model) {
+                return _.some(_.values(model.pick(lookin)), function(value) {
+                    return ~value.toLowerCase().indexOf(what);
+                });
+            });
+        }
+
+        this.filtered.reset(models);
+    },
+````
 ---------
 
 to-do
 
 ---------
-
-
-
-
-##### Listado de reservas
-##### Buscador de reservas
 
 
 
