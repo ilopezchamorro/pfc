@@ -363,6 +363,9 @@ private function modificarDeporte() {
        $respuesta['pistas'] = $filas;
        $respuesta['deportes'] = $filas2;
        $this->mostrarRespuesta($this->convertirJson($respuesta), 200);
+     }else{
+       $respuesta['deportes'] = $filas2;
+       $this->mostrarRespuesta($this->convertirJson($respuesta), 200);
      }
      $this->mostrarRespuesta($this->devolverError(2), 400);
    }
