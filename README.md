@@ -501,6 +501,7 @@ Los procesos de instalación son sencillos y ahora los describimos. Aunque son l
 ***
 
 	- Configurar un Dominio Local
+	- Crear Base de Datos
 	- Hola Consola de Comandos
 	- Configurando Git
 	- Descargando el código desde Github
@@ -513,9 +514,137 @@ Los procesos de instalación son sencillos y ahora los describimos. Aunque son l
 
 
 
+##### Configurar un Dominio Local
 
 
+Antes de empezar definamos qué es un virtual host (también llamado host virtual): consiste en poder alojar múltiples dominios en una sola máquina.
 
+¿En dónde son utilizados? Son utilizados en ambientes de desarrollos, por lo que solo funcionan de manera local.
+
+
+Empecemos:
+
+###### Paso 1:
+
+Lo primero que debemos hacer es crear el directorio donde alojaremos nuestros virtual hosts que contendrá el código, por ejemplo en la carpeta principal de documentos de xammp
+
+```console
+C:/xampp/htdocs/pfc
+````
+
+Dentro de esta carpeta es donde guardaremos nuestros proyectos.
+
+
+###### Paso 2:
+
+Lo siguiente que debemos  hacer es dirigirnos a C:\WINDOWS\system32\drivers\etc\ y modificar el archivo hosts, pero para modificar el archivo necesitamos permisos de administrador por lo que primero abrimos el Bloc de Notas como administrador y abrimos la siguiente dirección C:\WINDOWS\system32\drivers\etc\hosts.
+
+Nos aparecerá de esta manera el archivo:
+
+Hosts
+
+![alt text][hosts]
+
+[hosts]: https://github.com/ilopezchamorro/pfc/blob/master/hosts.png
+
+
+En este archivo agregamos nuestro host virtual, para agregarlo lo hacemos de la siguiente manera:
+
+````console
+IP               Nombre de Host
+````
+
+Entonces nosotros agregaremos nuestros host apuntado a 127.0.0.1 que es la dirección IPv4 de la maquina local, y después el nombre de nuestro hosts. Podemos agregar los host que deseemos pero siempre apuntando a 127.0.0.1
+
+
+````console
+127.0.0.1        pfc.dev
+````
+
+NOTA: Usamos pfc.dev pero podría ser cualquiera otro, lo único que esta dirección será la que habrá que meter en el navegador para que apunte a nuestro site local.
+
+
+###### Paso 3:
+
+Ahora debemos modificar el archivo de configuración de Apache, para incluir el archivo de configuración de virtual host, lo podemos abrir de igual manera con un bloc de notas.
+
+Si están en XAMPP, la ruta será la siguiente: C:\xampp\apache\conf\httpd.conf
+
+Si están en WAMP, la ruta será la siguiente: C:\wamp\bin\apache\Apache2.2.21\conf\httpd.conf
+
+Lo siguiente es buscar las siguientes dos líneas que están resaltadas:
+
+Virtual host
+
+Eliminen el # de la segunda línea.
+
+Además dentro del mismo archivo debemos asegurarnos de que el módulo Rewrite está habilitado, para ello buscamos la siguiente línea:
+
+```
+httpd.conf
+LoadModule rewrite_module modules/mod_rewrite.so
+```
+
+Y nos aseguramos de que no esté comentada (el signo de numeral # sirve para comentar líneas), si no tiene el signo quiere decir que ya está habilitada.
+
+Realizado esto guardamos los cambios.
+
+###### Paso 4:
+Lo siguiente es abrir el archivo de configuración que nos provee XAMPP o WAMP, de igual manera lo podemos editar con un Bloc de Notas.
+
+Si están en XAMPP, la ruta será la siguiente: C:\xampp\apache\conf\extra\httpd-vhosts.conf
+
+Si están en WAMP, la ruta será la siguiente: C:\wamp\bin\apache\Apache2.2.21\conf\extra\httpd-vhosts.conf
+
+El archivo lucirá de la siguiente manera:
+
+httpd vhosts
+
+ Es en este archivo donde alojaremos cada uno de los host virtuales que creemos, lo haremos de la siguiente manera:
+
+Primero agregamos la directiva Directory, es aquí donde activaremos el uso de URL’s amigables, necesarias para el funcionamiento del framework PHP que utilicemos (ejemplo: el poderoso Laravel), lo agregamos antes de la configuración de NameVirtualHost, y es aquí donde debemos recordar el nombre que le establecimos a nuestra carpeta, además de todo usaremos la diagonal convencional y no la invertida para descripción de direcciones:
+
+virtual host
+
+Lo siguiente es agregar nuestro virtual host, y lo agregamos de último a nuestro archivo:
+
+vhost
+
+Recuerda reemplazar c:\virtualhost\sitiolocal\public con tu directorio en caso de que sea diferente.
+
+Cuando se habilita el uso de Virtual host, Apache desactiva la carpeta raíz del servidor, por lo que antes de todos los virtual hosts debemos agregar la carpeta que nos provee XAMPP o WAMP para alojar nuestras paginas. En este caso yo utilice XAMPP:
+
+localhost
+
+ Nota: si te ha tocado cambiar el puerto donde escucha Apache que por defecto es 80 a otro puerto (ejemplo: 8080), en ese caso ese el número de puerto que debes de poner en el encabezado de Virtual Host ejemplo: <VirtualHost *:8080>
+
+Realizado todo esto procedemos a  guardar nuestro archivo, y ahora nos toca reiniciar Apache, y probar el acceso al host virtual en el explorador en el caso de este ejemplo la dirección sería:
+
+
+1
+htttp://misitio.local/
+Si estás construyendo el sitio en Laravel y ves lo siguiente es porque has seguido los pasos de forma correcta:
+
+
+##### Crear Base de Datos
+
+##### Hola Consola de Comandos
+
+##### Configurando Git
+
+##### Descargando el código desde Github
+
+##### Comandos básicos con Git
+
+##### Grunt
+
+##### Npm
+
+##### Bower
+
+##### Configuración de credenciales
+
+##### Comandos automatizados
 
 
 
