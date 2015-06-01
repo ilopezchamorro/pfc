@@ -492,7 +492,7 @@ Para poder utilizar todas las herramientas de automatización necesitamos tener 
 Si no tienes instalado todavía Node.JS el proceso es bastante fácil. Por supuesto, todo comienza por dirigirse a la página de inicio de NodeJS:
 
 
-- [GIT](https://nodejs.org/): Descargar NODE
+- [Node.js](https://nodejs.org/): Descargar NODE
 
 Allí encontrarás el botón para instalarlo "Install" que pulsas y simplemente sigues las instrucciones.
 
