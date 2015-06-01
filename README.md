@@ -1190,15 +1190,50 @@ Los administradores heredan toda la funcionalidad anterior con las salvedades de
 
 ##### Alta nuevos Usuarios
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas odio consequatur, earum impedit, dignissimos aspernatur necessitatibus dicta voluptatem eius voluptate libero eos, autem error at quae labore culpa. Dolorum, dolore!
+`src/js/views/registro-admin.js`
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas odio consequatur, earum impedit, dignissimos aspernatur necessitatibus dicta voluptatem eius voluptate libero eos, autem error at quae labore culpa. Dolorum, dolore!
+Esta sección permite al Adminsitrador crear usuarios/administradores. Funciona igual que el registro público en cuanto lógica y validación.
 
+Si se selcciona el checkbox "administrador" se mandarán los datos al sercivio `nuevoAdmin/` por el contrario si se deja sin seleccionar se mandarán los datos a al servicio `nuevoUsuario/` de la API REST.
+
+````javascript
+var rolAdmin = $('#rolAdmin').is(':checked'),
+         url = (rolAdmin)? '/api/nuevoAdmin' : '/api/nuevoUsuario',
+````
 
 ##### Listado de usuarios
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas odio consequatur, earum impedit, dignissimos aspernatur necessitatibus dicta voluptatem eius voluptate libero eos, autem error at quae labore culpa. Dolorum, dolore!
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas odio consequatur, earum impedit, dignissimos aspernatur necessitatibus dicta voluptatem eius voluptate libero eos, autem error at quae labore culpa. Dolorum, dolore!
+`src/js/views/users-list.js`
+
+Al acceder a este apartado la aplicación pide a la API REST el servicio `usuarios/` vía GET sin pasar ningún parámetro.
+
+Esta devuelve un objeto JSON con el conjuto de usuarios de la aplicación incluido su rol.
+
+Si se pulsa sobre uno de los usuarios se crea una vista nueva `new userPerfil` cargando los datos del usuario seleccionado para poder modificarlos o borrarlos. Se puede cambiar el también el rol de usuario/admin escalando o degradando sus permisos de acceso.
+
+````javascript
+events: {
+        'click': 'goFichaUser'
+    },
+
+    goFichaUser: function(event){
+        if(window.userperfil!=undefined) {
+            window.userperfil.resetear();
+            window.userperfil.undelegateEvents();
+        }
+
+    	this.userPerfil = new UserPerfil({ model: this.model });
+
+        this.userPerfil.render();
+
+        window.userperfil = this.userPerfil;
+
+        $('html, body').animate({ scrollTop: 0 }, 'slow');
+    }
+````
+
+Para eliminar un usuario se le pasa al API rest el id_usuario al servicio `eliminarUsuario/`
+
 
 
 ##### Buscador de usuarios
