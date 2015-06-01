@@ -24,13 +24,29 @@ La primera fase de desarrollo contempla la creación de una base de datos relaci
 - Listado de horarios de cada pista con aviso de estado: libre, ocupado o posibilidad de cancelación si es tu propia reserva.
 - Calendario para switchear días
 - Listado de ficha de usuario
+- Listado de reservas
+- Buscador de reservas
+- Buscardor de usuarios
+- Modificación de perfil
 
 ###### Los usuarios administradores también podrán:
+- Crear usuarios
+- Modificar Usuarios
+- Buscar usuarios
 - Dar de baja Usuarios
+- Escalar permisos
 - Crear Otras cuentas de administradores
 - Cancelar cualquier reserva
+- Listar reservas
+- Busqueda de reservas
 - Reservar pistas
-- Cambiar precios de las pistas
+- Crear Deportes
+- Modificar Deportes
+- Eliminar Deportes
+- Crear pistas
+- Modificar pistas
+- Asignar pistas a Deportes
+- Gestionar precios de las pistas
 
 
 
@@ -41,6 +57,7 @@ Se ha optado por una arquitectura separada principalmente en tres capas lógicas
 	- 1.Modelo de Datos
 	- 2.API-RESTful
 	- 3.Front-end
+
 
 El modelo será una base de datos relacional MySQL que guardará todos los datos necesarios para el funcionamiento de la aplicación.  Se creará una capa intermedia a modo broker cuyo único fin es comunicar el front-end con el modelo de datos que será la API RESTful. Y una tercera capa que será el front-end donde estará el peso de la lógica de negocio y las vistas para que los usuarios y administradores puedan interaccionar con el modelo.
 
@@ -74,6 +91,9 @@ MySQL es usado por muchos sitios web grandes y populares, como Wikipedia, Google
 
 [logo]: https://github.com/ilopezchamorro/pfc/blob/master/db.png "Modelo Relacional"
 
+
+- Se hace DELETE ON CASCADE con los deportes, usuarios y pistas. Al eleminar un usuario se eliminan sus reservas. Si se elimina un deporte se eliminan sus pistas y sus alquileres asociados.
+
 ####  2. API-RESTful
 
 Actuará de brocker ejerciendo la comunicación entre el frontend y el modelo de datos. Esta API no guardará datos en memoria por lo que no se encargará de la persistencia siendo su único fin la gestión de recuperación de datos y empaquetarlos como JSON para devolverlos al front. Se crea esta capa intermedia para garantizar la seguridad de los datos no teniendo nunca el front acceso directo a la base de datos siendo trabajo de esta api el lanzamiendo de las consultas en un entorno controlado. Las variables que proceden del front serán parametrizadas siempre evitando así cualquier ataque tipo SQL Inyection.
@@ -91,7 +111,9 @@ Esta clase se ocupa de dos tareas principalmente:
 - Filtrar los datos enviados en la petición.
 
 A) El método mostrarRespuesta recibe los parámetros $data, que contiene la respuesta JSON a enviar al cliente, y $estado que especifica el código de estado HTTP que acompañará a la respuesta. Este método se encarga de asignar el código de estado con el que se configurarán las cabeceras. Configurará las cabeceras que se van a enviar junto con la respuesta, mediante la llamada al método setCabecera.  Y mostrará dicha respuesta.
+
 B) El método setCabecera  crea dos cabeceras que acompañarán a la respuesta de la petición. Para ello utilizará el código de estado asignado en el método mostrarRespuesta y la descripción del código obtenida mediante el método getCodEstado. Estas cabeceras no serán enviadas hasta que no se envíe la respuesta en mostrarRespuesta con la instrucción echo $data.
+
 C) El método getCodEstado contiene un array asociativo donde las claves son los posibles códigos de estado y los valores son las descripciones asociadas a esos códigos. Por lo tanto a partir del código de estado que se enviará junto a las cabeceras y la respuesta, devolverá su descripción.
 
 Los método encargados de limpiar los datos se encargan de sanear los datos que acompañan a las peticiones GET, POST, PUT y DELETE.
@@ -104,9 +126,9 @@ B) El método limpiarEntrada se encarga de sanear los datos que se le pasen como
 Como comentamos anteriormente, queremos que el servicio pueda ser utilizado mediante URL's amigables. Para ello deberemos de especificar una regla de reescritura de URL's en un fichero .htaccess. Que lo definiremos en la raíz del proyecto.
 
 Con esta regla de reescritura estamos especificando:
-- El directorio base es `/login_restful/`
+- El directorio base es `/api/`
 - Se han añadido tres condiciones para restringir la reescritura sólo a rutas que no existan previamente. Es decir, que no valdría realizar reescritura, por ejemplo, para `http://pfc.ilopezchamorro.com/img/img.png` (suponemos que esta ruta y recurso existe). La primera condición previene los directorios que ya existan con la bandera `!-d`. La segunda condición hace que se ignoren ficheros que ya existan con la bandera !-f. Y la tercera condición hace que se ignoren los enlaces simbólicos que ya existan con `!-l`.
-- Luego con la regla de reescritura transformaremos una URL amigable a una URL con la que el servidor pueda trabajar. Por lo tanto `http://pfc.ilopezchamorro.com/api/borrarUsuario/1 será transformado internamente a `http://pfc.ilopezchamorro.com/api/Api.php?url=borrarUsuario/1`. Ya que `/borrarUsuario/1` será tomado como referencia `$1`.
+- Luego con la regla de reescritura transformaremos una URL amigable a una URL con la que el servidor pueda trabajar. Por lo tanto `http://pfc.ilopezchamorro.com/api/borrarUsuario/1` será transformado internamente a `http://pfc.ilopezchamorro.com/api/Api.php?url=borrarUsuario/1`. Ya que `/borrarUsuario/1` será tomado como referencia `$1`.
 
 
 ###### Clase Api
@@ -145,18 +167,31 @@ Finalmente se creará una instancia de la clase Api y se llamará al método pro
 
 
 
-| Método        | URL             | Descripción                                          | Parametros
+| Método        | URL             | Descripción                                          | Parámetros
 | ------------- | --------------- | ---------------------------------------------------- | -----------------------
 | POST          | nuevoUsuario/   | Crea un nuevo Usuario                                | nombre, apellidos, expediente, dni, password, mail
 | POST          | nuevoAdmin/     | Crea un nuevo Adminsitrador                          | nombre, apellidos, expediente, dni, password, mail, rol
+| POST          | actualizarUsuario/| Atualiza los datos de un user                      | nombre, apellidos, expediente, dni, password, mail
+| POST          | actualizarAdmin/| Atualiza los datos de un admin                      | nombre, apellidos, expediente, dni, password, mail
+| POST          | eliminarUsuario/| Elimina un usuario                                   | id_usuario
 | POST          | nuevaHora/      | Crea una nueva hora a todas las pistas               | inicio
 | POST          | nuevoDeporte/   | Crea un nuevo Deporte                                | nombre
-| GET           | deportes/       | Lista los deportes                                   | null
+| POST          | EliminarDeporte/| Elimina un deporte                                   | id_deporte
+| POST          | ModificarDeporte/| Modifica un Deporte                                 | id, new_name_deporte
+| GET           | deportes/       | Lista los deportes con Pistas asociadas              | null
+| GET           | deportesAdmin/       | Lista todos los deportes                             | null
 | POST          | pistas/         | Lista las pistas de un deporte de un día determinado | id (pista), fecha_pista
+| POST          | modificarPistas/| Modifica una pista                                   | id (pista), nombre, precio_luz, precio_pista
+| POST          | eliminarPista/  | Elimina una pista                                    | id (pista)
+| POST          | nuevaPista/     | Crea una pista asociada a un derporte                | nombre, id_deporte
+| POST          | pistasAdmin/    | Lista todas las pistas                               | id (pista)
 | POST          | reserva/        | Crea un nueva Reserva                                | id_usuario, id_pista, id_hora, fecha_pista, luz, anulado
+| POST          | reservasUsuario/| Lista todas las reservas de un user                  | id_usuario
+| GET           | reservasAdmin/  | Lista todas las reservas de todos los users          | null
 | PUT           | anularReserva/  | Anula una reserva                                    | id_reserva
 | GET           | usuarios/       | Lista los usuarios                                   | null
 | POST          | login/          | Confirma credenciales del usuario                    | mail, password
+| GET           | estadísticas/   | Genera y devuelve un json con datos estadísticos     | null
 
 
 
@@ -249,14 +284,136 @@ A continuación se listarán las librerías de las que el proyecto es dependient
 - [Backbone.js](http://backbonejs.org/): Core de la aplicación, lleva MVC al front
 - [Underscore.js](http://underscorejs.org/): Manejo de Objetos con orientación funcional y dependencia de Backbone
 - [HandelBars](http://handlebarsjs.com/): Templating que astrae la lógica de la presentación
-- [Moment](http://momentjs.com/): Parsea, manipula y muestra fechasw
+- [Moment](http://momentjs.com/): Parsea, manipula y muestra fechas
 - [Sha1](https://github.com/pvorb/node-sha1): Creación de arlgoritmo de cifrado Sha1 para la contraseña de los usuarios
 - [Backbone.localstorage](https://www.npmjs.com/package/backbone.localstorage): Librería que facilita el uso de localstorege de HTML5 desde javascript
 - [jQuery](https://jquery.com/): Libreria cross-browsing y dependencia de Backbone para peticiones Ajax
 - [JQuery UI](https://jqueryui.com/): Capa de Front interactiva usada para el calendario
 
-
 El resultado final del javascript del proyecto será un único javacript concatenado, ofuscado y minificado en el archivo `./js/app.min.js` con todas las dependencias de producción así como la lógica desarrollada. Gracias a esto conseguimos que toda la lógica que necesita la aplicación esté contenida en una única petición al servidor optimizando así la carga de la aplicación que podría llegar a ser servida de forma distribuída por un CDN tipo Amazon S3 y optimizar aun más el proyecto, aunque no se contempla en esta primera fase armar una arquitectura de alta disponibilidad.
+
+
+#### 3. ENTORNO DE DESAROLLO
+
+El entorno de desarrollo se ha creado orientado a la automatización de tareas. Esto conlleva una inversión de tiempo inicial muy notable pero nos brinda la seguridad de la eliminación de errores humanos durante los procesos de deploy o desarrollo u inyección de dependencias.
+
+
+	- a. Dependencias de desarrollo
+	- b. Control de versiones
+	- c. Automatización de tareas
+
+
+###### a. Dependencias de desarrollo
+
+A continuación listamos todo el software y librerías utilizadas para el proceso desarrollo del proyecto.
+
+- [SublimeText](http://www.sublimetext.com/): IDE de desarrollo
+- [Git](https://github.com/): Control de Versiones
+- [PhpMyAdmin](http://www.phpmyadmin.net/home_page/index.php): Gestor de Bases de Datos
+- [Nodejs](https://nodejs.org/): Chrome's JavaScript runtime
+- [Grunt](http://gruntjs.com): Ejecutor de Tareas programadas
+- [grunt-browserify](https://www.npmjs.com/package/grunt-browserify): Inyección de dependencias de Javascript
+- [Grunt-contrib-clean](https://www.npmjs.com/package/grunt-contrib-clean): Borra directorios
+- [Grunt-contrib-copy](https://www.npmjs.com/package/grunt-contrib-copy): Copia archivos entre directorios
+- [Grunt-contrib-cssmin](https://www.npmjs.com/package/grunt-contrib-cssmin): Minifica los archivos css
+- [Grunt-contrib-stylus](https://www.npmjs.com/package/grunt-contrib-stylus): Precompilados de stylus css
+- [Grunt-contrib-uglify](https://www.npmjs.com/package/grunt-contrib-uglify): Minifica y Concatena archivos javascript
+- [Grunt-open](https://www.npmjs.com/package/grunt-open): Abre un directorio en el navegador
+- [Grunt-ssh](https://www.npmjs.com/package/grunt-ssh): Abre una conexión con el servidor para la subida de archivos por sftp o ssh
+- [Grunt-replace](https://www.npmjs.com/package/grunt-replace): Sustituye strings de archivos mediante expresiones regulares
+- [Grunt-contrib-watch](https://www.npmjs.com/package/grunt-contrib-watch): Observa cambios sobre los archivos para recompilar automáticamente
+
+
+###### b. Control de Versiones
+
+El control de versiones es un sistema que registra los cambios realizados sobre un archivo o conjunto de archivos a lo largo del tiempo, de modo que puedas recuperar versiones específicas más adelante.
+
+Te permite revertir archivos a un estado anterior, revertir el proyecto entero a un estado anterior, comparar cambios a lo largo del tiempo, ver quién modificó por última vez algo que puede estar causando un problema, quién introdujo un error y cuándo, y mucho más. Usar un VCS también significa que si fastidias o pierdes archivos, puedes recuperarlos fácilmente. Además, obtienes todos estos beneficios a un coste muy bajo.
+
+Instantáneas, no diferencias
+La principal diferencia entre Git y cualquier otro VCS (Subversion y compañía incluidos) es cómo Git modela sus datos. Conceptualmente, la mayoría de los demás sistemas almacenan la información como una lista de cambios en los archivos. Estos sistemas (CVS, Subversion, Perforce, Bazaar, etc.) modelan la información que almacenan como un conjunto de archivos y las modificaciones hechas sobre cada uno de ellos a lo largo del tiempo.
+
+Git no modela ni almacena sus datos de este modo. En cambio, Git modela sus datos más como un conjunto de instantáneas de un mini sistema de archivos. Cada vez que confirmas un cambio, o guardas el estado de tu proyecto en Git, él básicamente hace una foto del aspecto de todos tus archivos en ese momento, y guarda una referencia a esa instantánea. Para ser eficiente, si los archivos no se han modificado, Git no almacena el archivo de nuevo — sólo un enlace al archivo anterior idéntico que ya tiene almacenado como podemos ver en la siguiente imagen.
+
+Esta es una diferencia muy importante entre Git y prácticamente todos los demás VCSs. Hace que Git reconsidere casi todos los aspectos del control de versiones que muchos de los demás sistemas copiaron de la generación anterior. Esto hace a Git más como un mini sistema de archivos con algunas herramientas tremendamente potentes construidas sobre él, más que como un VCS.
+
+![alt text][logo4]
+
+[logo4]: https://github.com/ilopezchamorro/pfc/blob/master/git1.png "Modelo de Datos Git"
+
+
+
+- Integridad de git
+
+Todo en Git es verificado mediante una suma de comprobación antes de ser almacenado, y es identificado a partir de ese momento mediante dicha suma (checksum en inglés). Esto significa que es imposible cambiar los contenidos de cualquier archivo o directorio sin que Git lo sepa. Esta funcionalidad está integrada en Git al más bajo nivel y es parte integral de su filosofía. No puedes perder información durante su transmisión o sufrir corrupción de archivos sin que Git sea capaz de detectarlo.
+
+El mecanismo que usa Git para generar esta suma de comprobación se conoce como hash SHA-1. Se trata de una cadena de 40 caracteres hexadecimales (0-9 y a-f), y se calcula en base a los contenidos del archivo o estructura de directorios en Git. Un hash SHA-1 tiene esta pinta:
+
+24b9da6552252987aa493b52f8696cd6d3b00373
+Verás estos valores hash por todos lados en Git, ya que los usa con mucha frecuencia. De hecho, Git guarda todo no por nombre de archivo, sino en la base de datos de Git por el valor hash de sus contenidos.
+
+- Estados de Git
+
+
+Ahora presta atención. Esto es lo más importante a recordar acerca de Git si quieres que el resto de tu proceso de aprendizaje prosiga sin problemas. Git tiene tres estados principales en los que se pueden encontrar tus archivos: confirmado (committed), modificado (modified), y preparado (staged). Confirmado significa que los datos están almacenados de manera segura en tu base de datos local. Modificado significa que has modificado el archivo pero todavía no lo has confirmado a tu base de datos. Preparado significa que has marcado un archivo modificado en su versión actual para que vaya en tu próxima confirmación.
+
+Esto nos lleva a las tres secciones principales de un proyecto de Git: el directorio de Git (Git directory), el directorio de trabajo (working directory), y el área de preparación (staging area).
+
+![alt text][logo5]
+
+[logo5]: https://github.com/ilopezchamorro/pfc/blob/master/git2.png "Estados de Git"
+
+El directorio de Git es donde Git almacena los metadatos y la base de datos de objetos para tu proyecto. Es la parte más importante de Git, y es lo que se copia cuando clonas un repositorio desde otro ordenador.
+
+El directorio de trabajo es una copia de una versión del proyecto. Estos archivos se sacan de la base de datos comprimida en el directorio de Git, y se colocan en disco para que los puedas usar o modificar.
+
+El área de preparación es un sencillo archivo, generalmente contenido en tu directorio de Git, que almacena información acerca de lo que va a ir en tu próxima confirmación. A veces se denomina el índice, pero se está convirtiendo en estándar el referirse a ello como el área de preparación.
+
+El flujo de trabajo básico en Git es algo así:
+
+Modificas una serie de archivos en tu directorio de trabajo.
+Preparas los archivos, añadiendo instantáneas de ellos a tu área de preparación.
+Confirmas los cambios, lo que toma los archivos tal y como están en el área de preparación, y almacena esa instantánea de manera permanente en tu directorio de Git.
+Si una versión concreta de un archivo está en el directorio de Git, se considera confirmada (committed). Si ha sufrido cambios desde que se obtuvo del repositorio, pero ha sido añadida al área de preparación, está preparada (staged). Y si ha sufrido cambios desde que se obtuvo del repositorio, pero no se ha preparado, está modificada (modified).
+
+
+
+###### c. Automatización de Tareas
+
+
+El Universo entero tiende a la complejidad y el caos, y los proyectos de software, lejos de ser una excepción, confirman y aceleran esta tendencia cosmogónica. Y a medida que se amplían en alcance, complejidad o equipo, también crece el esfuerzo necesario para mantenerlos, evolucionarlos y desplegarlos tras cada nueva versión.
+
+Parte de este esfuerzo proviene del conflicto existente entre las prioridades del proyecto en su entorno de desarrollo, donde prima la ergonomía del desarrollador y la legibilidad del código, y las características que ha de tener la aplicación ya publicada, donde esto se convierte en irrelevante y se prioriza la eficiencia y la economía de recursos.
+
+Muchos frameworks de desarrollo web incorporan mecanismos más o menos transparentes al desarrollador para —por ejemplo— concatenar y minimizar scripts y hojas de estilos. De este modo el programador puede trabajar con componentes modulares y ficheros optimizados para la legibilidad, que son transformados al vuelo en versiones optimizadas para la velocidad de descarga o de interpretación.
+
+Pero a medida que el proyecto gana en complejidad o en requisitos de eficiencia esta facilidad puede resultar insuficiente. Pongamos otro ejemplo: para trabajar con iconos un diseñador puede preferir trabajar con una miríada de ficheros independientes generados en lotes por su herramienta de diseño favorita y que le resultan fáciles de mantener. Y unos metros más allá su compañero desarrollador o administrador de sistemas puede ver con terror como esta práctica dispara las peticiones HTTP necesarias para servir la página, y con ello el consumo de recursos y el tiempo de transferencia.
+
+¿Cómo resolver este conflicto? En los últimos dos o tres años están cobrando relevancia algunas herramientas dirigidas a programadores y que podríamos denominar de automatización de tareas o de compilación de proyectos (frontend build tools, developer automation tools, task runners o streaming build systems). Se trata fundamentalmente de Grunt (2012), que mantiene con Gulp (2013) un interesante duelo por el favor de los desarrolladores, y GNU Make (1977. Sí: mil novecientos setenta y siete), la popular y casi omnipotente utilidad del mundo Unix.
+
+Más allá de las diferencias conceptuales o técnicas, la idea detrás de estas herramientas es común y sencilla: automatizar la ejecución de tareas repetitivas con la finalidad de transformar un proyecto de su forma óptima para desarrollo a su forma óptima para publicación o despliegue.
+
+Un ejemplo probablemente común en proyectos online que han adquirido una cierta complejidad podría ser un workflow consistente en todas o algunas de las siguientes tareas:
+
+- Linting de código, particularmente JavaScript.
+- Optimización de las imágenes del proyecto, recortando, recomprimiendo, ajustando la calidad o realizando conversiones de formato.
+- Minimización o conversión de ficheros de tipografía.
+- Generación de una hoja de sprites a partir de ficheros con iconos independientes.
+- Compilación de ficheros Sass, Less, CoffeScript…
+- Ejecución de tests unitarios, de integración o de usuario (Selenium).
+- Comprobación automática de enlaces rotos.
+- Supresión de comentarios y compactación de la salida.
+- Generación automática de documentación o APIs a partir del código.
+- Validación semántica de lenguajes W3C.
+- Concatenación y minimización de scripts u hojas de estilos.
+- Vaciado (flush) de cachés.
+- Despliegue automático en producción.
+
+El coste de tener que realizar manualmente estas tareas puede ser inasumible, especialmente en proyectos con un desarrollo ágil, iteraciones frecuentes y muchas versiones y publicaciones. Esta es la dificultad que tratan de resolver las herramientas descritas. En ningún orden en particular:
+
+Grunt, originaria del mundo de JavaScript, implementa una filosofía basada en configuración mejor que programación, y sus numerosísimos plugins facilitan las tareas más frecuentes y minimizan la curva de aprendizaje.
+
+GNU Make, la herramienta con que nuestros abuelos compilaban sus programas Fortran en pantallas de fósforo verde, goza de excelente salud y proporciona a los usuarios más fieles a la filosofía Unix workflows potentes y flexibles desde una herramienta estándar y casi universal.
 
 
 ***
