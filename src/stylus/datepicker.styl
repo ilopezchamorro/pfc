@@ -1,0 +1,199 @@
+// calendario
+// #ui-datepicker-div
+// 	background-color: white;
+// 	position: absolute;
+// 	top: 124px;
+// 	left: 0px;
+// 	z-index: 2;
+// 	display: block;
+// 	box-shadow: 1px -1px 4px rgba(0, 0, 0, 0.29);
+
+#datapicker-button
+	margin: 0;
+	text-align: center;
+	padding: 1em 0;
+	bottom: 0;
+	width: 100%;
+	background-color: #fff;
+	position: fixed;
+	left: 0;
+	z-index: 2;
+	display: block
+	box-shadow: 1px -1px 4px rgba(0,0,0,0.29);
+#datepickerDay
+	display none
+	max-width 322px
+	margin 1em auto
+// #placeDatepicker
+// 	position: fixed;
+// 	bottom: 0;
+// 	left: 0;
+// 	z-index: 1;
+// 	margin-left: -200px;
+// 	border: 3px solid rgba(0, 0, 0, 0.02);
+// 	padding: 1em 0 !important;
+// 	text-align: center !important;
+// 	font-weight: 100 !important;
+// 	cursor: pointer !important;
+// 	outline: none !important;
+// 	margin: 0 auto !important;
+// 	width: 100%!important;
+// 	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+// 	-webkit-transition: background-color .8s ease-out;
+// 	-moz-transition: background-color .8s ease-out;
+// 	-o-transition: background-color .8s ease-out;
+// 	transition: background-color .8s ease-out;
+// 	-webkit-transition: color .2s ease-out;
+// 	-moz-transition: color .2s ease-out;
+// 	-o-transition: color .2s ease-out;
+// 	transition: color .2s ease-out;
+// 	background-color hueso
+// 	color dark-gray
+// 	&:placeholder
+// 		color dark-gray
+// 	&:hover
+// 		-webkit-transition: background-color .8s ease-out;
+// 		-moz-transition: background-color .8s ease-out;
+// 		-o-transition: background-color .8s ease-out;
+// 		transition: background-color .8s ease-out;
+// 		-webkit-transition: color .2s ease-out;
+// 		-moz-transition: color .2s ease-out;
+// 		-o-transition: color .2s ease-out;
+// 		transition: color .2s ease-out;
+
+a
+	text-decoration none
+.ui-datepicker-header
+	.ui-datepicker-prev,
+	.ui-state-hover.ui-datepicker-prev-hover
+		position: absolute !important
+		top: 1.2em !important
+		margin-left: 11px !important
+		left auto !important
+		right auto !important
+.ui-datepicker-header
+	.ui-datepicker-next,
+	.ui-state-hover.ui-datepicker-next-hover
+		position: absolute !important
+		top: 1.2em !important
+		margin-left: 290px !important
+		left auto !important
+		right auto !important
+.ui-widget
+	font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+	border: none;
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+.ui-datepicker
+	padding 0
+.ui-datepicker-header
+	border:none
+	background transparent
+	font-weight normal
+	font-size 14px
+.ui-datepicker-header .ui-state-hover
+	background: transparent;
+	border-color: transparent;
+	cursor: pointer;
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+thead
+	background #2e3641
+tr
+	height 2.7em
+table
+	box-shadow none
+.ui-datepicker .ui-datepicker-title
+	margin-top: .4em
+	margin-bottom: .3em
+	color: #2E3641
+	font-size 1.2
+	padding-top 1em
+	text-align center
+	margin-bottom 1em
+
+
+ .ui-datepicker .ui-datepicker-prev-hover,
+ .ui-datepicker .ui-datepicker-next-hover,
+ .ui-datepicker .ui-datepicker-next,
+ .ui-datepicker .ui-datepicker-prev {
+	top: .9em;
+	border:none;
+}
+
+.ui-datepicker-prev.ui-state-disabled
+	color white
+	cursor default !important
+	display none
+
+ .ui-datepicker .ui-datepicker-prev-hover {
+	left: 2px;
+}
+
+ .ui-datepicker .ui-datepicker-next-hover {
+	right: 2px;
+}
+
+ .ui-datepicker .ui-datepicker-next span,
+ .ui-datepicker .ui-datepicker-prev span {
+	border-radius: 50%;
+	background: rgb(49, 56, 61);
+	color: white;
+	padding: 0.3em 0.5em !important;
+	background-image: url(images/ui-icons_ffffff_256x240.png);
+	background-position: -32px 0;
+	margin-top: 0;
+	top: 0;
+	font-weight: normal;
+}
+
+ .ui-datepicker .ui-datepicker-prev span {
+	background-position: -96px 0;
+}
+
+ .ui-datepicker table {
+	margin: 0;
+}
+
+ .ui-datepicker th {
+	padding: 1em 0;
+	color: #ccc;
+	font-size: 13px;
+	font-weight: normal;
+	border: none;
+	border-top: 1px solid #3a414d;
+}
+
+ .ui-datepicker td {
+	background: #4093AB;
+	border: none;
+	padding: 0;
+}
+
+ td .ui-state-default {
+	background: transparent;
+	border: none;
+	text-align: center;
+	padding: .8em;
+	margin: 0;
+	font-weight: normal;
+	color: white;
+	font-size: 16px;
+}
+
+ .ui-state-disabled  {
+	opacity: 1;
+}
+
+ .ui-state-disabled .ui-state-default {
+	color: #74A7B6;
+}
+
+ td .ui-state-active,
+ td .ui-state-hover {
+	background: #388298;
+}
+
+

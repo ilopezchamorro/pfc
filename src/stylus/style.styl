@@ -1,0 +1,1527 @@
+@import "nib"
+@import "../../../bower_components/normalize.styl/normalize.styl"
+@import "../../../node_modules/backgrid/lib/backgrid.css"
+@import "rickshaw.styl"
+
+main-blue = #013660
+dark-gray = #333333
+light-gray =  #818181
+
+activo = #6cfc86
+desactivado = #999999
+verdeOk = #59AB3E
+
+rosaPalido = #ff686f
+grisClaro = #ededed
+verdeAguoso = #53ded8
+
+
+hueso = #F5F1F1
+
+
+// font-icon
+@font-face {
+      font-family: 'fontello';
+      src: url('../font/fontello.eot?7784711');
+      src: url('../font/fontello.eot?7784711#iefix') format('embedded-opentype'),
+           url('../font/fontello.woff?7784711') format('woff'),
+           url('../font/fontello.ttf?7784711') format('truetype'),
+           url('../font/fontello.svg?7784711#fontello') format('svg');
+      font-weight: normal;
+      font-style: normal;
+ }
+@font-face {
+  font-family: 'mimo';
+  src: url('../font/mimo.eot?84007961');
+  src: url('../font/mimo.eot?84007961#iefix') format('embedded-opentype'),
+       url('../font/mimo.woff?84007961') format('woff'),
+       url('../font/mimo.ttf?84007961') format('truetype'),
+       url('../font/mimo.svg?84007961#mimo') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.demo-icon
+.mimo-icon
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+	display: inline-block;
+	text-decoration: inherit;
+	width: 1em;
+	margin-right: .2em;
+	text-align: center;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1em;
+	margin-left: .2em;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+.mimo-icon
+	font-family: "mimo";
+.demo-icon
+	font-family: "fontello";
+//reset
+figure
+	margin 0
+body
+	font-family: 'Roboto', sans-serif;
+	font-size 16px
+	margin 0
+
+body.outapp
+	background url('../img/Blur-4.jpg') center center fixed
+	background-repeat no-repeat
+	-webkit-background-size cover
+	-moz-background-size cover
+	-o-background-size cover
+	background-size cover
+
+.outapp
+	.tipo-pistas
+		display none
+body.inapp
+	background hueso
+
+
+section,
+body
+	position relative
+
+// OOCSS
+.text-center
+	text-align center
+
+.clear
+	width 50px
+	clear both
+
+// CABECERA
+// ****************************
+
+.logo
+	position relative
+	margin-left 2em
+	max-width 200px
+	img
+		margin 1em auto
+		width 100%
+		height auto
+
+@media screen and (max-width:650px)
+	.logo
+		position relative
+		max-width 200px
+		margin-left 1em
+		img
+			margin 1em auto
+			width 100%
+			height auto
+	.header ul
+		width 100%
+		list-style-type: none;
+		padding: 0;
+		margin 0
+		float: none;
+		clear: both;
+		li:last-child
+			float right
+
+// logout
+
+#logout
+.user-welcome
+#reservasAdmin
+#usuariosAdmin
+#nuevoUsuarioAdmin
+#pistasAdmin
+#estadisticasAdmin
+	display inline-block
+	color white
+	text-decoration none
+	font-weight 300
+	&:hover
+		text-decoration underline
+
+.header
+	background-color white
+	width 100%
+	margin 0
+	box-shadow none
+	overflow hidden
+	position relative
+  	box-shadow 0 1px 3px rgba(0, 0, 0, 0.15)
+	ul
+		list-style-type: none;
+		display: block;
+		width 385px
+		padding 0
+		margin 0 auto
+		li
+			list-style-type: none;
+			display: inline-block;
+			padding: 0;
+			float left
+			position relative
+			a#doNothing
+				font-size: 1.3em;
+				font-weight: 700;
+			span#tenis
+				display: none;
+		li#listItemWelcome
+			display block
+			position absolute
+			top 0
+			right 0
+			margin-top: 1.5em
+			margin-right: 1em
+			a
+				color #51585C
+				text-decoration none
+				font-weight 300
+				display inline-block
+				margin 0 1em 0 .5em
+				padding-top: 0.5em;
+				padding-right: 1em
+				&:hover
+					text-decoration underline
+				span
+					display block
+			.ffos
+				display none
+			#logout
+				margin: 0.3em 0 0 -2em;
+				position: absolute;
+				padding: 0.3em;
+				font-size 1.2em
+				text-decoration none
+				-webkit-transition: color .5s ease-out;
+				-moz-transition: color .5s ease-out;
+				-o-transition: color .5s ease-out;
+				transition: color .5s ease-out;
+				&:hover
+					color rosaPalido
+
+@media screen and (max-width:650px)
+	.header
+		ul
+			li#listItemWelcome
+				a
+					span
+						display none
+				.ffos
+					display inline-block
+.inapp #logotipoLink
+	margin: 0 ;
+	width: 221px;
+	display: block;
+
+// listado de deportes
+.tipo-pistas2
+	box-shadow: 0 1px 3px rgba(158, 152, 152, 0.47);
+	background: rgba(38, 40, 45, 0.06);
+	margin: 1em auto;
+	padding: 7px;
+	width: 301px;
+	height: 100%;
+
+.deporte
+	position: relative;
+	display: inline-block;
+	padding: .7em 0
+	font-weight: 300;
+	text-transform: uppercase;
+	font-size: 17px;
+	margin: 0 0 2px;
+	width: 100%;
+	color: #4f4f4f;
+	background-color: #fff;
+	-webkit-box-shadow: 0 0 2px #bbb;
+	box-shadow: 0 0 2px rgba(187, 187, 187, 0.52);
+	cursor: pointer;
+	text-align: left;
+	-webkit-border-radius: 2px;
+	border-radius: 0px;
+
+	-webkit-transition: color .5s ease-out;
+	-moz-transition: color .5s ease-out;
+	-o-transition: color .5s ease-out;
+	transition: color .5s ease-out;
+
+	-webkit-transition: background-color .5s ease-out;
+	-moz-transition: background-color .5s ease-out;
+	-o-transition: background-color .5s ease-out;
+	transition: background-color .5s ease-out;
+	span
+		display inline-block
+		margin 0
+		padding 0 0 0 1em
+	&:hover
+		background-color: #E2E2E2;
+		color: #9B9B9B;
+	span
+		cursor pointer
+	i
+		float right
+		margin-top .2em
+		color #9B9B9B
+
+.pista
+	position relative
+	display inline-block
+	padding 3em 0
+	margin .2em
+	width 45%
+	background-color #c3c3c3
+
+#verReservasUser
+	overflow: hidden;
+	height: 150px;
+	width: 204px;
+	display: block;
+	float: left;
+	&:before
+		content ''
+// listado tipo-pistas
+
+// #calendario
+#calendario
+	display: none;
+	margin: 0 auto;
+	clear: none;
+	max-width: 1124px;
+	display: block;
+	width: 100%;
+	margin: 1em auto;
+	padding 0
+	overflow: hidden;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	float none
+
+// #calendario
+// 	.tipo-calendario.doble
+// 		float none
+// 		max-width 400px
+// #calendario.doble
+// 	.tipo-calendario.doble
+// 		float left
+
+#claock
+	width 100%
+	margin 0 auto
+	display: block
+	overflow: hidden;
+	float left;
+	padding 0
+.calendariopick
+	display none
+	width 50%
+	padding 0
+	margin 0
+	float left
+.calendariopick-right
+	padding-top: 6em;
+@media screen and (max-width:640px)
+	.calendariopick
+		width 100%
+		padding 0
+		margin 0
+		float left
+	.calendariopick-right
+		padding-top: 0;
+@media screen and (max-width:1350px)
+	#calendario
+		display: none;
+		margin: 0 auto;
+		clear: none;
+		max-width: 1124px;
+		display: block;
+		width: 100%;
+		margin: 1em auto;
+		padding 0
+		overflow: hidden;
+		-webkit-border-radius: 8px;
+		border-radius: 8px;
+
+.tipo-calendario.doble
+	width: 50%;
+	min-width: 280px;
+	float: left;
+	margin: 0 auto !important;
+	display inline
+
+	&.doble
+		margin 0
+	&.simple
+		margin 0 auto
+	ul
+		margin 0
+		padding 0
+
+@media screen and (max-width:600px)
+	.tipo-calendario.doble
+		width 100%
+		float left
+
+.calendario-list
+  	margin .5em
+  	padding 0
+	ul
+		padding 1em
+
+.calendario-list
+	background #31383D
+	box-shadow 0 0 4px #bbb
+	border-radius 3px
+	h2
+		margin 0
+		padding 1.5em 0 1.5em .8em
+		color white
+		font-weight 300
+		text-align left
+		font-size 16px
+
+
+.hora
+	cursor pointer
+	position relative
+	display block
+	background-color white
+	-webkit-transition: box-shadow .3s ease-out;
+	-moz-transition: box-shadow .3s ease-out;
+	-o-transition: box-shadow .3s ease-out;
+	transition: box-shadow .3s ease-out;
+	box-shadow 0 0 0 grisClaro
+	text-align left
+	border-top 1px solid #F0F0F0
+	padding .6em .8em
+	margin 0
+	&:last-child
+		border-bottom 1px solid #F0F0F0
+	&:hover
+		background #EFEFEF
+
+.hora[data-estado="ocupado"]
+	cursor default
+	color grisClaro
+	&:hover
+		background white
+	&:hover:after
+		content: ' no anulable'
+		font-size: .8em
+.hora[data-estado="libre"]
+	&:hover:after
+		content: ' reservar'
+		color: verdeOk
+		text-align center
+		font-size: .8em
+.hora[data-estado="owner"]
+	&:hover:after
+		content: ' anular'
+		color: rosaPalido
+		text-align center
+		font-size: .8em
+.precios_calendar
+	color: #5c6c77;
+	display: inline-block;
+	text-align: center;
+	font-size: 0.7em;
+	text-align: right;
+	padding-bottom: 1em;
+	font-weight: 300;
+	float: right;
+	padding-right: .8em;
+#inContentModal
+	span.response
+		display block
+		text-align center
+		font-size 2em
+		font-weight 800
+		padding 2em 0 0
+		margin 1.5em auto 0
+		overflow hidden
+		color verdeAguoso
+
+
+#modalCalendario,
+.modal
+	position fixed
+	z-index 3
+	background rgba(0, 0, 0, 0.83);
+	height 100%
+	width 100%
+	top 0
+	left 0
+	display none
+	>div
+		position: relative;
+		height: 350px;
+		max-width: 550px;
+		background: #fff;
+		-webkit-box-shadow: 0 4px 20px #000;
+		box-shadow: 0 4px 20px #000;
+		margin: 0.5em auto;
+		.response
+			display block
+			width 80%
+			margin 1em auto
+		h2
+			background: rgb(37, 38, 42)
+			padding: 0.5em 0
+			margin: 0
+			color: rgb(135, 135, 137)
+			font-weight: 100;
+			font-size: 1.5em
+		p
+			padding-left 1.5em
+			font-weight 100
+			i
+				color: #CDCDCD;
+				background-color: rgb(148, 148, 148);
+				padding: 0.4em;
+				border-radius: 50%;
+				cursor pointer
+				-webkit-transition: color .5s ease-out;
+				-moz-transition: color .5s ease-out;
+				-o-transition: color .5s ease-out;
+				transition: color .5s ease-out;
+				-webkit-transition: background-color .3s ease-out;
+				-moz-transition: background-color .3s ease-out;
+				-o-transition: background-color .3s ease-out;
+				transition: background-color .3s ease-out;
+			.on
+				color #FFF !important
+				background-color: #57F0AA;
+				-webkit-transition: color .5s ease-out;
+				-moz-transition: color .5s ease-out;
+				-o-transition: color .5s ease-out;
+				transition: color .5s ease-out;
+				-webkit-transition: background-color .3s ease-out;
+				-moz-transition: background-color .3s ease-out;
+				-o-transition: background-color .3s ease-out;
+				transition: background-color .3s ease-out;
+			strong
+				font-weight 300
+				color dark-gray
+		.modal-botones
+			bottom 0
+			width 100%
+			clear both
+			position absolute
+			a
+				text-decoration none
+				width 50%
+				display inline-block;
+				padding 1em 0
+				margin 0
+				text-align center
+			.cancel-modal
+				background: #DD656A;
+				color rgb(129, 24, 28)
+			.supercerrar
+				color: rgb(40, 19, 19) !important;
+				background: rgb(153, 135, 135) !important;
+			.confirm-modal
+			#actualizarUserData
+				background: #4AB564;
+				color: rgb(22, 77, 35);
+#reg_pass_old
+	border none
+	border-radius 5px
+	background grisClaro
+	text-align center
+	display block
+	margin 2.5em auto 0
+	width 80%
+	padding 1em
+
+
+
+@media screen and (max-width:650px)
+	#modalCalendario,
+	.modal
+		position fixed
+		z-index 3
+		background rgba(0, 0, 0, 0.83);
+		height 100%
+		width 100%
+		top 0
+		left 0
+		display none
+		>div
+			position: fixed;
+			border: none
+			height: 350px;
+			width: 95%;
+			/* margin: 7em auto; */
+			background: #fff;
+			-webkit-box-shadow: 0 0 6px #818181;
+			box-shadow: 0 0 6px #818181;
+			top 10px
+			margin .3em
+			margin-left: .3em
+			left 0
+
+.hora span
+	font-size .8em
+	border-radius 2px
+	padding .3em .8em
+	float right
+	margin-top: -.1em
+	cursor pointer
+
+.hora span[data-btn="owner"]
+	background-color rosaPalido
+	color white
+	&:before
+		content "anular reserva"
+.hora span[data-btn="libre"]
+	background-color activo
+	color rgb(66, 126, 76)
+	&:before
+		content "libre"
+.hora span[data-btn="ocupado"]
+	cursor default
+	background-color light-gray
+	color dark-gray
+	&:before
+		content "ocupado"
+
+.icon-ok.owner
+.icon-ok.ocupado
+.icon-ko.libre
+.icon-ko.ocupado
+.icon-other.libre
+.icon-other.owner
+	display none
+// footer
+
+// hack
+
+footer
+	background-color transparent
+	color #6C6C6C
+	font-weight 100
+	display block
+	width 100%
+	clear both
+	margin-top 3em
+
+
+body.inapp
+	footer
+		padding-top 3em
+		display block
+body.outapp
+	footer
+		color #EFD3B1
+
+// LOGIN / REGISTRO
+#logo
+	figure
+		margin 2em auto
+		width 300px
+
+.inapp
+	#logo
+		display none
+
+.login_users
+	position relative
+	max-width: 600px;
+	background: rgba(237, 237, 237, 0.64)
+	height: auto;
+	overflow hidden
+	margin: 0 auto;
+	box-shadow: 0 0 4px rgba(51, 51, 51, 0.44)
+	padding 1em
+	border-radius 2px
+	font-weight: 300
+	text-align center
+	border-radius 0
+	-webkit-transition: height .2s ease-out;
+	-moz-transition: height .2s ease-out;
+	-o-transition: height .2s ease-out;
+	transition: height .2s ease-out;
+	label,
+	input
+		position relative
+		margin .5em auto
+		width 580px
+		height 2em
+		padding .5em
+		border none
+	label
+		text-align center
+	#dologin,
+	#doregister,
+	#doactualizar,
+	#doborrar
+		text-transform uppercase
+
+		-webkit-transition: background-color .8s ease-out;
+		-moz-transition: background-color .8s ease-out;
+		-o-transition: background-color .8s ease-out;
+		transition: background-color .8s ease-out;
+
+		-webkit-transition: box-shadow .2s ease-out;
+		-moz-transition: box-shadow .2s ease-out;
+		-o-transition: box-shadow .2s ease-out;
+		transition: box-shadow .2s ease-out;
+
+		-webkit-transition: color .2s ease-out;
+		-moz-transition: color .2s ease-out;
+		-o-transition: color .2s ease-out;
+		transition: color .2s ease-out;
+
+		box-shadow none
+		display inline-block
+		border-radius 3px
+		text-decoration none
+		text-align center
+		color white
+		padding .8em 3em
+		margin 2em auto 2em
+		background-color verdeAguoso
+		box-shadow 0 3px 0 rgb(77, 208, 203)
+		font-weight 300
+		&:hover
+			color #348B87
+			background-color #4DD0CB
+			box-shadow 0 3px 0 rgb(77, 208, 203)
+	#goregistro,
+	#gologin
+		color #736E6E
+	span
+		font-weight 300
+		color #949494
+		text-align center
+		display block
+		margin 1em auto 1.5em
+	span.title-span
+		font-weight 300
+		color #A8A7A3
+
+	#error
+		position relative
+		border 1px solid rosaPalido
+		padding 1em
+		background rosaPalido
+		color white
+		text-align center
+		ul
+			margin: 0
+			padding 0
+			list-style none
+			text-align center
+			li
+				text-align center
+				margin: 0
+				padding: 0
+	#no-error
+		position relative
+		border 1px solid verdeOk
+		padding 1em
+		background verdeOk
+		color white
+		text-align center
+
+.outapp
+	#error
+	#no-error
+		bottom -30px
+
+@media screen and (max-width:650px)
+	.login_users
+		background transparent
+		box-shadow none
+		max-width: 600px;
+		margin: 0 1em;
+		label,
+		input
+			margin 0.1em auto
+			width 94%
+		#dologin,
+		#doregister
+			padding .8em 0
+			width 100%
+		.title-span
+			display none
+	#logo
+		figure
+			width 200px
+			margin 1em auto
+			img
+				width 100%
+				height auto
+	.footer
+		p
+			font-size .8em
+			margin 0 auto .5em
+
+
+
+// validación
+.error
+	display none
+
+
+
+
+// PERFIL
+.inapp .login_users
+	border 0
+	box-shadow none
+	background none
+#actualizarUsuarioModal
+	display none
+.inapp .login_users
+	.in-inputs
+		position: absolute;
+		z-index: 2;
+		margin-top: 1.5em;
+		left: 1.3em;
+		color grisClaro
+	input
+		padding-left: 2em
+@media screen and (max-width:650px)
+	.inapp .login_users
+		.in-inputs
+			margin-top: 1.1em
+			left: 1.3em
+
+.rotate
+	&:hover i
+	    -webkit-animation:spin 1s linear infinite;
+	    -moz-animation:spin 1s linear infinite;
+	    animation:spin 1s linear infinite;
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+// calendario
+@import "datepicker.styl"
+@import "loader.styl"
+
+
+
+
+
+
+
+
+// ######################################
+//  ADMIN - ADMIN - ADMIN
+// ######################################
+
+.admin
+	padding-left: 300px;
+
+.admin .header
+	width: 300px;
+	height: 100%;
+	left: 0;
+	top 0
+	overflow: hidden ;
+	background-color: #26282d ;
+	margin: 0 ;
+	-webkit-box-shadow: 0 1px 2px #666 ;
+	box-shadow: 0 1px 2px #666 ;
+	overflow: auto;
+	position: fixed;
+	ul
+		float right !important
+		width 100%
+		li
+			width 100%
+			margin 0
+			list-style-type: none;
+			display: block ;
+			padding: 0 ;
+			float: left !important;
+			border-bottom 1px solid #44474F
+			&:last-child
+				border-bottom 1px solid #44474F !important
+			&:hover
+				background #41454F !important
+			a
+				padding 1em 0 !important
+				width 100% !important
+				display block !important
+				text-decoration none !important
+				i
+					margin-left 1em !important
+		li.current
+			background #41454F !important
+
+#botonMenuresponsive-wrapper
+	display none
+
+
+@media screen and (max-width:1000px)
+	.admin
+		padding-left: 0
+
+	.admin .header
+		width: 250px
+		height: 100%
+		left: 0
+		top 0
+		overflow: hidden
+		margin: 0 0 0 -250px
+		box-shadow: none
+		overflow: hidden
+		position: fixed
+		z-index 3
+		-webkit-transition: background-color .2s ease-out;
+		-moz-transition: background-color .2s ease-out;
+		-o-transition: background-color .2s ease-out;
+		transition: background-color .2s ease-out;
+		-webkit-transition: margin .3s ease-out;
+		-moz-transition: margin .3s ease-out;
+		-o-transition: margin .3s ease-out;
+		transition: margin .3s ease-out;
+		.black-fondo
+			display none
+
+	.admin .header.open
+		width: 100%
+		height: 100%
+		left: 0
+		top 0
+		overflow: hidden
+		margin: 0 0 0 0
+		box-shadow: none
+		overflow: hidden
+		position: fixed
+		z-index 3
+		-webkit-transition: background-color 0s ease-out;
+		-moz-transition: background-color 0s ease-out;
+		-o-transition: background-color 0s ease-out;
+		transition: background-color 0s ease-out
+		-webkit-transition: margin 0s ease-out;
+		-moz-transition: margin 0s ease-out;
+		-o-transition: margin 0s ease-out;
+		transition: margin 0s ease-out;
+
+
+	.admin #botonMenuresponsive-wrapper
+		display block
+		position fixed
+		position device-fixed
+		right 10px
+		top 10px
+		text-decoration none
+		cursor pointer
+		z-index 5
+		zoom 1
+		#menu-boton-responsive
+			margin 0
+			padding 0
+			overflow hidden
+			height auto
+			width auto
+			#middle
+				border-radius: 50%;
+				overflow hidden
+				#in-menu
+					padding .4em 0 0 .4em
+					height 28px
+					width 28px
+					color #fff
+					background-color rgba(70, 181, 190, 1)
+					i:first-child
+						display inline-block
+					i:last-child
+						display none
+		#menu-boton-responsive.open
+			#middle
+				#in-menu
+					i:first-child
+						display none
+					i:last-child
+						display inline-block
+
+
+
+
+// estadisticasAdmin
+
+#chart_container {
+        position: relative;
+        font-family: Arial, Helvetica, sans-serif;
+}
+#chart {
+        position: relative;
+        left: 40px;
+}
+#y_axis {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 40px;
+}
+
+// busqueda listas
+#content
+	display none
+	max-width 280px
+	margin: 2em auto 0;
+	position: relative;
+	input[type="radio"]
+		display none
+	input[type="text"]
+		width: 227.6px;
+		padding: .5em 0 .5em 2em;
+		font-weight: 300;
+		-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+		box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+		border: none;
+		margin: 1em auto;
+		display: inline-block;
+		position: relative;
+		border: 11px solid #e8e3e3;
+
+	.finding
+		position: absolute;
+		color: #a8a8a8;
+		z-index: 1;
+		top: 37px;
+		left: 16px;
+
+
+.deportes-tipo-pistas2
+	display none
+	position relative
+	h1
+		font-size: 1.8em;
+		margin: .67em 0;
+		text-align: center;
+		font-weight: 300;
+		margin-bottom: -0.6em;
+		color: rgb(219, 216, 216);
+		text-transform: uppercase;
+
+.mis-reservas-table-view
+	box-sizing: border-box;
+	text-align: center
+	margin: 0 auto;
+	thead
+		background: #E06565;
+		color: #DADADA;
+		font-weight 100 !important
+	td
+	th
+		padding .5em .5em !important
+	tr
+		padding 0 1em
+		height: 3em;
+		border-bottom: 1px solid rgba(128, 128, 128, 0.08);
+	.luz0
+		i
+			display none
+	.anulado0
+		background white
+	.anulado1
+		background grisClaro
+		color dark-gray
+	td[data-anulado='0']
+		span
+			display inline-block
+			font-weight 100
+			padding .2em 1em
+			cursor pointer
+			&:hover
+				&:after
+					color #E0585E
+			i
+				color #E0585E
+	td[data-anulado='1']
+		span
+			display inline-block
+			border 1px solid #D8D3D3
+			border-radius 4px
+			padding .2em
+			font-weight 100
+			cursor no-drop
+			&:after
+				color #D8D3D3
+				content:' anulada'
+			i
+				color #D8D3D3
+	td[data-anulado='2']
+		span
+			display inline-block
+			border 1px solid #D8D3D3
+			border-radius 4px
+			padding .2em .6em
+			font-weight 100
+			cursor no-drop
+			&:after
+				color #D8D3D3
+				content:' - pasada - '
+			i
+				display none
+.admin
+	#perfil
+		.login_users
+			background-color: rgba(166,182,202,0.4);
+			margin: 1em auto;
+			max-width: 618.7px;
+			box-shadow: 0 1px 1px #bdbfc2;
+			h3
+				font-weight: 100;
+				display: inline-block;
+				color: white;
+				padding: 1em 3em;
+				background-color: rgb(73, 91, 115);
+				border-radius 10px
+				span
+					margin 0
+
+	#usuarios_list
+		.mis-reservas-table-view
+			tr:hover
+				cursor: pointer;
+				background: #FFF;
+			thead
+				background: #6893CB;
+				color: #E1E5EA;
+				font-weight: 100 !important;
+				tr:hover
+					cursor: default;
+					background: #6893CB;
+			.rol1
+				background-color: rgba(222, 255, 15, 0.04)
+			td[data-rol="1"]
+				span
+					box-shadow: 0 2px 0px rgb(40, 94, 163);
+					font-weight: 100;
+					display: inline-block;
+					margin: 0 auto;
+					border: 1px solid rgba(134, 182, 245, 0.54);
+					-webkit-border-radius: 5px;
+					border-radius: 5px;
+					background: rgba(0, 110, 255, 0.75);
+					color: #BFDAFC;
+					padding: 0.3em 0.5em;
+					i:last-child
+						display none
+					&:after
+						content: 'admin'
+			td[data-rol="0"]
+				span
+					box-shadow none
+					display: inline-block;
+					margin: 0 auto;
+					border: 1px solid rgba(160, 160, 160, 0.38);
+					border-radius: 5px;
+					border-radius: 5px;
+					background: rgba(0, 0, 0, 0.03);
+					color: #6893CB;
+					padding: .3em .5em;
+					i:first-child
+						display none
+					&:after
+						content: 'user'
+
+.mis-reservas-table-view
+		font-size .8em !important
+#usuarios_list
+		width 100%
+		overflow hidden
+		overflow-x auto
+		height auto
+		.mis-reservas-table-view
+			width 950px
+@media screen and (max-width:800px)
+	#reservas_user
+		width 100%
+		overflow hidden
+		overflow-x auto
+		height auto
+		.mis-reservas-table-view
+			width 850px
+@media screen and (max-width:1300px)
+
+	#reservas_admin
+		width 100%
+		overflow hidden
+		overflow-x auto
+		height auto
+		.mis-reservas-table-view
+			width 800px
+
+
+#misReservasUser,
+#misReservasUser2,
+#goHomeUser2
+	text-align: center
+	display: block
+	width 190px
+	padding: .8em 3em;
+	border-radius 5px
+	margin: 1em auto
+	background-color hueso
+	border: 1px solid rgb(150, 150, 150)
+	color #5A5A5A
+	text-decoration: none
+	font-weight 300
+	overflow hidden
+	text-transform uppercase
+
+	-webkit-transition: background-color .8s ease-out;
+	-moz-transition: background-color .8s ease-out;
+	-o-transition: background-color .8s ease-out;
+	transition: background-color .8s ease-out;
+
+	-webkit-transition: color .2s ease-out;
+	-moz-transition: color .2s ease-out;
+	-o-transition: color .2s ease-out;
+	transition: color .2s ease-out;
+	&:hover
+		background-color: rgba(58, 58, 58, 1);
+		color: #B0B0B0;
+
+#goHomeUser2
+	background-color: #4093AB;
+	color: #F0F0F0;
+	border: 1px solid #2B6576;
+
+#eltiempo
+	span
+		display none
+
+#list-ul-time
+	margin 0
+	padding 0
+	display block
+	list-style none
+	overflow none
+	text-align center
+	li
+		margin .5em
+		background rgba(231, 231, 231, 0.52)
+		border-radius 5px
+		text-align center
+		list-style none
+		display inline-block
+		padding .5em 1em
+		box-shadow 0 1px 0px rgba(110, 110, 110, 0.21)
+		p
+			padding 0
+			margin 0
+		p:first-child
+			font-weight 100
+		p:last-child
+			font-weight 700
+
+.eltimepop
+	text-align center
+	color #A6A6A6
+	font-weight 100
+#eltiempo
+	display block
+	overflow hidden
+	margin 0
+	padding 0
+#backBotones
+	width 100%
+	margin 0
+	padding 0
+	overflow hidden
+
+.col
+	width 50%
+	float left
+#goHomeUser2
+	border: none !important
+	box-shadow: 0 3px 0px rgb(58, 127, 147) !important;
+	&:hover
+		box-shadow: 0 3px 0px rgb(58, 127, 147) !important;
+		background-color rgb(58, 127, 147) !important
+		color white  !important
+#misReservasUser2
+	  border: 1px solid rgba(150, 150, 150, 0.28) !important
+.col-left
+	a
+		float right !important
+		margin-right .5em !important
+.col-right
+	a
+		float left !important
+		margin-left 1.5em !important
+@media screen and (max-width:800px)
+	.col
+			width 100%
+			float left
+	.col-left,
+	.col-right
+		a
+			float none !important
+			margin .5em  auto !important
+
+form
+	margin: 0
+
+#backBotones.onlyone
+	.col.col-left
+		width 100%
+	a
+		float: none !important;
+		margin: 1em auto !important;
+	.col.col-right
+		display none !important
+@media screen and (max-width: 1000px)
+	.admin
+		.header
+			background-color: rgba(0, 0, 0, 0.79)
+
+			.special-back
+				box-shadow: 1px 0 2px rgba(0, 0, 0, 0.54);
+				overflow: auto;
+				width: 250px !important;
+				background-color: rgba(38, 40, 45, 1);
+				position: relative;
+				width: auto;
+				height: 100%;
+				padding: 0;
+				margin: 0 0 0 -250px
+				position: fixed
+				z-index 4
+				-webkit-transition: margin .2s ease-out;
+				-moz-transition: margin .2s ease-out;
+				-o-transition: margin .2s ease-out;
+				transition: margin .2s ease-out;
+		.header.open
+			animation: pulse 8s ease infinite alternate, nudge 8s linear infinite alternate;
+			.special-back
+				left: 0;
+				top: 0;
+				margin: 0 0 0 0
+				height: 100% !important;
+				background-color: rgba(38, 40, 45, 1) !important;
+				-webkit-transition: margin .2s ease-out;
+				-moz-transition: margin .2s ease-out;
+				-o-transition: margin .2s ease-out;
+				transition: margin .2s ease-out;
+
+@keyframes pulse {
+			  0%, 100% {
+			    background-color: rgba(37, 45, 65, 0.8);
+			  }
+			  50% {
+			    background-color: rgba(38, 40, 45, 0.9);
+			  }
+			}
+@keyframes girator {
+			  0% {
+			    transform: rotate(0deg);
+			  }
+			   100%{
+			    transform: rotate(2000deg);
+			  }
+			}
+
+.admin #backBotones
+	display none !important
+
+.wrap-pistas
+.wrap-deportes
+	input
+	select
+		padding: 1em 0.5em;
+		margin: .2em;
+	input:disabled
+		color: rgb(186, 186, 186);
+		border none
+		background transparent
+		border 1px solid rgba(38, 40, 45, 0.05);
+
+.admin
+	#misReservasUser
+	#misReservasUser2
+		display none
+
+#activar-check-lus strong
+	cursor pointer
+
+.inputDeporteSty
+	border: none;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	background: #ededed;
+	text-align: center;
+	display: block;
+	margin: 2.5em auto 0;
+	width: 80%;
+	padding: 1em;
+
+#deleteDeporte
+#deletePista
+	right: 14px;
+	cursor: pointer;
+	padding: .3em .4em;
+	color: #e0585e;
+	border: 1px solid #e0585e;
+	margin-top: 15px;
+	border-radius: 3px;
+	background-color: rgba(255, 255, 255, 0);
+	-webkit-transition: color .2s ease-out;
+	-moz-transition: color .2s ease-out;
+	-o-transition: color .2s ease-out;
+	transition: color .2s ease-out;
+	-webkit-transition: background-color .5s ease-out;
+	-moz-transition: background-color .5s ease-out;
+	-o-transition: background-color .5s ease-out;
+	transition: background-color .5s ease-out;
+	position absolute
+	&:hover
+		background-color #e0585e
+		color white
+		-webkit-transition: color .2s ease-out;
+		-moz-transition: color .2s ease-out;
+		-o-transition: color .2s ease-out;
+		transition: color .2s ease-out;
+		-webkit-transition: background-color .5s ease-out;
+		-moz-transition: background-color .5s ease-out;
+		-o-transition: background-color .5s ease-out;
+		transition: background-color .5s ease-out;
+
+
+.wrap-gestion
+.wrap-pistas
+.wrap-deportes
+	width: 300px;
+	padding: 0 2em;
+	margin: 1em .5em;
+	height: auto;
+	overflow: hidden;
+	position: relative;
+	float: left;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+	#no-error
+		display: none;
+		text-align: center;
+		padding: .5em;
+		background-color: rgb(102, 187, 73);
+		color: white;
+		font-weight: 100;
+	.clear
+		background-color: rgb(223, 223, 223);
+		width: 100%;
+		clear: both;
+		overflow: hidden;
+		height: 1px;
+	.clear:first-child
+		background-color: rgba(223, 223, 223,0.2);
+		width: 100%;
+		clear: both;
+		overflow: hidden;
+		height: 1px;
+	h3
+		display: inline-block;
+		background-color: white;
+		color: #4D6181;
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.42);
+		font-size: 1.4em;
+		padding: .7em 0;
+		text-align: center;
+		font-weight: 100;
+		width 100%
+		i
+			opacity .2
+	#adddeporte
+	#addpista
+		position: absolute;
+		top: 57.5px;
+		display: inline-block;
+		background-color: #7FE84B;
+		-webkit-border-radius: 50%;
+		border-radius: 50%;
+		padding: 0.1em;
+		font-size: 1.8em;
+		color: #3C771E;
+		box-shadow: 0 1px 4.7px rgba(0,0,0,0.71);
+		right: 8px;
+		-webkit-transition: color .2s ease-out;
+		-moz-transition: color .2s ease-out;
+		-o-transition: color .2s ease-out;
+		transition: color .2s ease-out;
+		-webkit-transition: background-color .5s ease-out;
+		-moz-transition: background-color .5s ease-out;
+		-o-transition: background-color .5s ease-out;
+		transition: background-color .5s ease-out;
+		-webkit-transition: webkit-box-shadow .5s ease-out;
+		-moz-transition: box-shadow .5s ease-out;
+		-o-transition: box-shadow .5s ease-out;
+		transition: box-shadow .5s ease-out;
+		&:hover
+			-webkit-transition: color .2s ease-out;
+			-moz-transition: color .2s ease-out;
+			-o-transition: color .2s ease-out;
+			transition: color .2s ease-out;
+			-webkit-transition: background-color .5s ease-out;
+			-moz-transition: background-color .5s ease-out;
+			-o-transition: background-color .5s ease-out;
+			transition: background-color .5s ease-out;
+			-webkit-transition: box-shadow .5s ease-out;
+			-moz-transition: box-shadow .5s ease-out;
+			-o-transition: box-shadow .5s ease-out;
+			transition: box-shadow .5s ease-out;
+			background: #65B53D;
+			color: #91EC64;
+			box-shadow: 0 0.3px 6px rgba(0, 0, 0, 1.24);
+
+	input:disabled
+	input[disabled]
+		-webkit-text-fill-color:#880000
+		border none
+.admin
+	footer
+		display none
+	#modalCalendario
+		input
+			line-height: normal;
+			width: 100%;
+			margin: .2em 0;
+			border: none;
+			text-align: center;
+			padding: 10px 0;
+			position: relative;
+			background-color: rgb(249, 249, 249);
+		select
+			text-transform: none;
+			margin: 2em 0 0 10%;
+			height: 4em;
+			overflow: hidden;
+			text-align: center;
+	#doactualizar
+		margin-right .5em
+	#doborrar
+		color: #F5F1F1;
+		background-color: #DB4545;
+		box-shadow: 0 3px 0 #A83131;
+		&:hover
+			background-color: #A83131;
+			color: #F5F1F1;
+			box-shadow: 0 3px 0 #A83131;
+
+#error-gestion
+#no-error-gestion
+	display none
+	margin .5em 3em
+	color white
+	padding 1em 2em
+	text-align center
+	font-weight 100
+#error-gestion
+	background-color rosaPalido
+#no-error-gestion
+	background-color verdeOk
+.error
+	display none
+.txt-left
+	text-align left !important
