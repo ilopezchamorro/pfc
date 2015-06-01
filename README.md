@@ -580,7 +580,7 @@ Además dentro del mismo archivo debemos asegurarnos de que el módulo Rewrite e
 
 ![alt text][hosts2]
 
-[hosts2]: https://github.com/ilopezchamorro/pfc/blob/master/httpd-conf_.png
+[hosts2]: https://github.com/ilopezchamorro/pfc/blob/master/httpd.conf_.png
 
 
 ````console
