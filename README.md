@@ -640,7 +640,7 @@ Esta consola tipo Unix, la usaremos para ejecutar los comandos necesarios para e
 - Para saltar una carpeta hacia arriba al ser estilo Unix sería: `cd ..`
 - Para saber en qué carpeta estamos: `pwd`
 - Para listar los archivos en la carpeta dónde nos encontramos: `ls`
-- Para lcrear una carpeta: `mkdir`
+- Para crear una carpeta: `mkdir`
 - Borrar `rm`
 - Mover `mv`
 - Copy paste `cp`
