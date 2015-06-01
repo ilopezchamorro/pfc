@@ -789,7 +789,7 @@ Genera un entregable en un carpeta Build/ con todo el código listo para ejecuta
 
 `grunt deploy`
 
-Hace los mismo que el comando anterior pero además lo sube al servidor de proucción los archivos.
+Hace los mismo que el comando anterior pero además lo sube al servidor de producción los archivos.
 
 
 
