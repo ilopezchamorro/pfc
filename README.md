@@ -853,6 +853,8 @@ En el proyecto se identifican dos actores:
 
 ##### Alta de usuarios
 
+`src/js/views/registro.js`
+
 A este módulo se accede desde la pantalla de Login. Su único fin es registrar alumnos. Los Administradores sólo pueden ser registrados por otro Administrador desde el panel de control.
 Se le solicitan al usuario sus datos:
 
@@ -878,6 +880,8 @@ Al detectar la Aplicación dicho evento redirecciona a la pantalla de Login y de
 
 ##### Login
 
+`src/js/views/login.js`
+
 Al acceder a la aplicación se comprueba si el usuario que accede está logueado. En caso contrario se le redirige a la pantalla de Login.
 Esta pantalla consta de 2 inputs para poder introducir las credenciales. Desde aquí se puede pivotar hacia Alta de Usuarios por si un usuario es nuevo y carece de cuenta.
 
@@ -887,6 +891,8 @@ Si el resultado de la consulta a la api de login es OK, se le redirige a la part
 
 
 ##### Persistencia de Sesión:
+
+`src/js/models/sesion.js`
 
 A partir de ahora la aplicación coge dos caminos diferentes depediendo del rol del usuario que se ha logueado.
 
@@ -915,21 +921,90 @@ Estará disponible el siguiente método para lectura para poder comprobar en cua
 
 ##### Menú Principal
 
+`src/js/views/header.js`
+
 > Usuario
 
-En el caso de usuario
+En el caso de usuario el menú consta de logotipo principal que siempre redirige a la HOME.
+En la parte derecha se muestra el nombre del usuario recogido del objeto de sesión. Si se pulsa nos lleva a la ficha modificar usuario. Por motivos de usabilidad si la pantalla es estracha como en móviles se cambia mediante css el nombre del usuario por un icono tipo user con la misma función de llevarnos hasta la ficha de usuario.
+Existe un tercer botón que desloguea y borra la instancia de la sesión, impidiendo el acceso hasta que no se vuelva a loguear otro usuario.
 
 > Admin
+
+En admin el diseño es notablemente distinto ya que además lleva una serie de links a las distintas partes de gestión. Este menú también es responsive ocultándose en patallas pequeñas, el administrador tendrá que pulsar sobre el botón del menú para desplegarlo.
 
 ##### SignOut/cerrar sesión
 
-> Usuario
+Este es un servicio que desloguea al usuario. Destruye el objeto de sesión y redirige al login.
 
+````javascript
+logout: function (event) {
+    event.preventDefault();
 
-> Admin
+    Sesion.destroySesion();
+    var sesion = Sesion.getInstance();
+    Backbone.app.navigate("/login", { trigger: true });
+  },
+````
 
 ##### Listado de deportes
+
+`src/js/views/deporte-single.js`
+`src/js/views/deportes-lists.js`
+
+Esta vista aparece como bienvenida nada más entrar a la aplicación. Consulta a la API ´pistas/´ que devuelve un objeto JSON con los deportes que contienen pistas.
+Si se pulsa sobre un deporte se accede a las pistas asociadas a dicho deporte.
+
 ##### El timpo próximos 7 días
+
+`src/js/views/eltiempo.js`
+
+Para este módulo se ha utilizado una api de un tercero que no da la información meteorológica de los próximos días
+
+- [API EL TIEMPO](http://openweathermap.org/): ir
+
+Al consultarla nos devuelve un JSON con los datos medios por día y el la url del icono a mostar por cada día. Lo recogemos y mediante una iteración montamos el un bucle en el front que nos lo muestre como se puede apreciar en la vista. Al hacer la consulta a la API se le mandan las coordenas del campus de la UFC:
+
+````javascript
+getTiempo: function(){
+    var self = this;
+    var lat = 40.439854;
+    var lon = -3.834995;
+    $.getJSON(API_WEATHER_WEEK_URL + "lat=" + lat + "&lon=" + lon + "&cnt=7&units=metric&mode=json",
+      function getCurrentWeather(data){
+
+        // console.log(data);
+
+        var cityWeather = {};
+        // cityWeather.zone = data.name;
+        // cityWeather.icon = IMG_WATHER_URL + data.weather[0].icon + ".png";
+        // cityWeather.temp = data.main.temp - 272.15;
+        // cityWeather.temp = cityWeather.temp.toFixed(0);
+
+        cityWeather.zone = data.city.name;
+        cityWeather.days = [];
+
+        for(var i=0; i<data.list.length; i++){
+          cityWeather.days[i] = {
+                    temp : data.list[i].temp.day.toFixed(0),
+                    icon: IMG_WATHER_URL + data.list[i].weather[0].icon + ".png",
+                    date: Moment.unix(data.list[i].dt).locale("es").format('dd')
+          };
+        }
+
+
+        // console.log(cityWeather);
+
+        //render
+        self.render(cityWeather);
+      });
+  },
+````
+
+Este módulo solo tiene carácter informativo, no aporta nada a la lógica del proyecto.
+
+
+
 ##### Listado de pistas
 ##### Calendario
 ##### Listado de horarios de cada pista con aviso de estado: libre, ocupado o posibilidad de cancelación si es tu propia reserva.
