@@ -808,48 +808,89 @@ En el proyecto se identifican dos actores:
 
 #### MÓDULOS DE LA APLICACIÓN
 
-	- PÚBLICO :
-		- Alta de usuarios
-		- Login
-	- PRIVADO :
-		- Rol: USUARIO
-			- SignOut/cerrar sesión
-			- Menú Principal
-			- Listado de deportes
-			- El timpo próximos 7 días
-			- Listado de pistas
-			- Calendario
-			- Listado de horarios de cada pista con aviso de estado: libre, ocupado o posibilidad de cancelación si es tu propia reserva.
-			- Ventana Confirmación de reserva
-			- Ventana Anulación
-			- Ficha/modificación de usuario
-			- Listado de reservas
-			- Buscador de reservas
-		- Rol: ADMIN
-			- SignOut/cerrar sesión
-			- Menú Principal
-			- Listado de deportes
-			- El timpo próximos 7 días
-			- Listado de pistas
-			- Calendario
-			- Listado de horarios de cada pista con aviso de estado: libre, ocupado, puediendo cancelar cualquier reserva
-			- Ventana Confirmación de reserva
-			- Ventana Anulación
-			- Ficha/modificación de usuario
-			- Listado de reservas
-			- Buscador de reservas
-			- Alta de nuevos usuarios
-			- Listado de usuarios
-			- Escalado de Permisos
-			- Buscador de usuarios
+
+	- Alta de usuarios
+	- Login
+
+> USUARIO
+
+	- SignOut/cerrar sesión
+	- Menú Principal
+	- Listado de deportes
+	- El timpo próximos 7 días
+	- Listado de pistas
+	- Calendario
+	- Listado de horarios de cada pista con aviso de estado: libre, ocupado o posibilidad de cancelación si es tu propia reserva.
+	- Ventana Confirmación de reserva
+	- Ventana Anulación
+	- Ficha/modificación de usuario
+	- Listado de reservas
+	- Buscador de reservas
+
+
+> ADMIN
+
+	- SignOut/cerrar sesión
+	- Menú Principal
+	- Listado de deportes
+	- El timpo próximos 7 días
+	- Listado de pistas
+	- Calendario
+	- Listado de horarios de cada pista con aviso de estado: libre, ocupado, puediendo cancelar cualquier reserva
+	- Ventana Confirmación de reserva
+	- Ventana Anulación
+	- Ficha/modificación de usuario
+	- Listado de reservas
+	- Buscador de reservas
+	- Alta de nuevos usuarios
+	- Listado de usuarios
+	- Escalado de Permisos
+		- Buscador de usuarios
 
 
 
 
 ##### Alta de usuarios
+
+A este módulo se accede desde la pantalla de Login. Su único fin es registrar alumnos. Los Administradores sólo pueden ser registrados por otro Administrador desde el panel de control.
+Se le solicitan al usuario sus datos:
+
+- Nombre
+- Apellidos
+- Mail
+- Expediente
+- Password
+
+Antes de enviar los datos a la api pasan por una función de validación que comprueba que los campos tengan la longitud adecuada, que el formato del DNI encaje con un DNI válido y que el email sea de formato válido bajo una expresión regular que lo comprueba.
+
+Si falla la validación se corta la ejecucución y se muestra un aviso de qué campos están incorrectos y por qué.
+
+Si la validacion es OK se envía al servicio de la API: `nuevoUsuario/` que espera los campos: nombre, apellidos, expediente, dni, password y mail.
+
+NOTA: La contraseña se envía siempre cifrada en Sha1, nunca un gestor de la aplicación ni con acceso a las bases de datos sabrá cual es la contraseña de cada usuario, se guardan cifradas en la base de datos.
+
+La API rest comprueba que no exista otro usuario con mismo email, dni o expediente. Si hay coincidencias devuelve un error indicando que ese usuario ya existe.
+Si se registra correctamente devuelve un success con un mensaje de "usuario creado correctamente".
+
+La aplicación capturará el success y usará un bus de eventos para lanzar el evento altaDeUsuarioOK que acepta un parámetro por el que se envía el correo electrónico del usuario.
+Al detectar la Aplicación dicho evento redirecciona a la pantalla de Login y deja rellenado el email del cliente para que solo falte introducir la password.
+
 ##### Login
 
+Al acceder a la aplicación se comprueba si el usuario que accede está logueado. En caso contrario se le redirige a la pantalla de Login.
+Esta pantalla consta de 2 inputs para poder introducir las credenciales. Desde aquí se puede pivotar hacia Alta de Usuarios por si un usuario es nuevo y carece de cuenta.
+
+Al introducir las credenciales se consulta mediante el servicio de la api rest `login/`, quien se encargará de comprobar si los datos son veraces. En caso afirmativo devuelve un success y retorna un objeto JSON con los datos del Usuario: rol, dni, expediente, nombre, apellidos y email. Si por el contrario falla indica que alguno de los datos está equivocado sin decir cual para evitar que descubran por fuerza bruta qué emails están ya resgistrados en la base de datos.
+
+Si el resultado de la consulta a la api de login es OK, se le redirige a la parte privada interna de la aplicación.
+
+
+#### NOTA:
+
+
+
 #### USUARIO
+
 ##### SignOut/cerrar sesión
 ##### Menú Principal
 ##### Listado de deportes
@@ -862,7 +903,11 @@ En el proyecto se identifican dos actores:
 ##### Ficha/modificación de usuario
 ##### Listado de reservas
 ##### Buscador de reservas
+
+
+
 #### ADMIN
+
 ##### SignOut/cerrar sesión
 ##### Menú Principal
 ##### Listado de deportes
