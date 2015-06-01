@@ -806,47 +806,39 @@ En el proyecto se identifican dos actores:
 [dev1]: https://github.com/ilopezchamorro/pfc/blob/master/dev1.jpg
 
 
+# MÓDULOS DE LA APLICACIÓN
 
-
-
-
-
-
-
-
-
-La funcionalidades que se obtendrán de esta primera fase son los siguientes:
-
-Alta de nuevos Usuarios
-Login
-SignOut
-Listado de deportes
-Listado de pistas
-Listado de horarios de cada pista con aviso de estado: libre, ocupado o posibilidad de cancelación si es tu propia reserva.
-Calendario para switchear días
-Listado de ficha de usuario
-Listado de reservas
-Buscador de reservas
-Buscardor de usuarios
-Modificación de perfil
-Los usuarios administradores también podrán:
-
-Crear usuarios
-Modificar Usuarios
-Buscar usuarios
-Dar de baja Usuarios
-Escalar permisos
-Crear Otras cuentas de administradores
-Cancelar cualquier reserva
-Listar reservas
-Busqueda de reservas
-Reservar pistas
-Crear Deportes
-Modificar Deportes
-Eliminar Deportes
-Crear pistas
-Modificar pistas
-Asignar pistas a Deportes
-Gestionar precios de las pistas
-
-
+	- Público :
+		- Alta de usuarios (público)
+		- Login (público)
+	- Privado :
+		- Rol: USUARIO
+			- SignOut/cerrar sesión
+			- Menú Principal
+			- Listado de deportes
+			- El timpo próximos 7 días
+			- Listado de pistas
+			- Calendario
+			- Listado de horarios de cada pista con aviso de estado: libre, ocupado o posibilidad de cancelación si es tu propia reserva.
+			- Ventana Confirmación de reserva
+			- Ventana Anulación
+			- Ficha/modificación de usuario
+			- Listado de reservas
+			- Buscador de reservas
+		- Rol: ADMIN
+			- SignOut/cerrar sesión
+			- Menú Principal
+			- Listado de deportes
+			- El timpo próximos 7 días
+			- Listado de pistas
+			- Calendario
+			- Listado de horarios de cada pista con aviso de estado: libre, ocupado, puediendo cancelar cualquier reserva
+			- Ventana Confirmación de reserva
+			- Ventana Anulación
+			- Ficha/modificación de usuario
+			- Listado de reservas
+			- Buscador de reservas
+			- Alta de nuevos usuarios
+			- Listado de usuarios
+			- Escalado de Permisos
+			- Buscador de usuarios
