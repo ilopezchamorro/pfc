@@ -1271,4 +1271,4 @@ Si se elimina un deporte, en base de datos se hará un DELETE ON CASCADE con las
 
 Para eliminar un deporte/pista hay que pulsar sobre la papelera roja y se envía al servicio de la API `eliminarDeporte/` ó `eliminarPista/` pasándole el ID de la pista o del deporte según corresponda.
 
->Ante un success de cualquiera de los tres eventos anteriores (CREAR/MODIFICAR/BORRAR) se lanza un evento para que se refresque la vista y msotrar los datos actualizados de la base de datos.
+>Ante un success de cualquiera de los tres eventos anteriores (CREAR/MODIFICAR/BORRAR) se lanza un evento para que se refresque la vista y mostar los datos actualizados de la base de datos.
