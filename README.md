@@ -769,7 +769,7 @@ Este archivo nunca será versionado para no comprometer la seguridad.
 
 ##### Comandos automatizados
 
-Ahora sí estamos listos para intereactuar con el proyecto. Si no has tenido errores durante la instalación ahora simplemente hay 3 comándos básicos que peudes ejecutar para usar el proyecto:
+Ahora sí estamos listos para intereactuar con el proyecto. Si no has tenido errores durante la instalación ahora simplemente hay 3 comándos básicos que puedes ejecutar para usar el proyecto:
 
 
 Desarrollo:
