@@ -820,11 +820,9 @@ En el proyecto se identifican dos actores:
 	- Menú Principal
 	- Listado de deportes
 	- El timpo próximos 7 días
-	- Listado de pistas
+	- Listado de pistas (RESERVAR / ANULAR)
 	- Calendario
 	- Listado de horarios de cada pista con aviso de estado: libre, ocupado o posibilidad de cancelación si es tu propia reserva.
-	- Ventana Confirmación de reserva
-	- Ventana Anulación
 	- Ficha/modificación de usuario
 	- Listado de reservas
 	- Buscador de reservas
@@ -836,11 +834,9 @@ En el proyecto se identifican dos actores:
 	- Menú Principal
 	- Listado de deportes
 	- El timpo próximos 7 días
-	- Listado de pistas
+	- Listado de pistas (RESERVAR / ANULAR)
 	- Calendario
 	- Listado de horarios de cada pista con aviso de estado: libre, ocupado, puediendo cancelar cualquier reserva
-	- Ventana Confirmación de reserva
-	- Ventana Anulación
 	- Ficha/modificación de usuario
 	- Listado de reservas
 	- Buscador de reservas
@@ -1076,12 +1072,17 @@ Si la respuesta es un success, se  procede igual que en el punto anterior, se la
 
 Ahora cualquier usuario verá libre esta hora en esta pista este día y podrá reservarla.
 
+
+
+
+---------
+
+to-do
+
+---------
+
 ##### Calendario
-
-
 ##### Listado de horarios de cada pista con aviso de estado: libre, ocupado o posibilidad de cancelación si es tu propia reserva.
-##### Ventana Confirmación de reserva
-##### Ventana Anulación
 ##### Ficha/modificación de usuario
 ##### Listado de reservas
 ##### Buscador de reservas
