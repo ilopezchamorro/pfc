@@ -671,7 +671,7 @@ NOTA: al final ponemo un punto, esto significa que nos descargue el código "aqu
 
 ##### Crear Base de Datos
 
-Lo siguiente será crear la BAse de Datos necesaria para el funcionamiento del poryecto.
+Lo siguiente será crear la Base de Datos necesaria para el funcionamiento del poryecto.
 
 Para crear la base de datos simplemente vamos a introducir en el navegador la siguiente ruta:
 
