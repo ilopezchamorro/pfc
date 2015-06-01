@@ -415,7 +415,7 @@ Grunt, originaria del mundo de JavaScript, implementa una filosofía basada en c
 
 GNU Make, la herramienta con que nuestros abuelos compilaban sus programas Fortran en pantallas de fósforo verde, goza de excelente salud y proporciona a los usuarios más fieles a la filosofía Unix workflows potentes y flexibles desde una herramienta estándar y casi universal.
 
-# TUTORIAL DE USO
+# TUTORIAL DE INSTALACIÓN Y USO
 
 En este punto vamos a describir paso por paso cómo armar el proyecto en local desde cero para poder desarrollar y cómo se crean deploys a producción:
 
