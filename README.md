@@ -955,7 +955,7 @@ logout: function (event) {
 Esta vista aparece como bienvenida nada más entrar a la aplicación. Consulta a la API ´pistas/´ que devuelve un objeto JSON con los deportes que contienen pistas.
 Si se pulsa sobre un deporte se accede a las pistas asociadas a dicho deporte.
 
-##### El timpo próximos 7 días
+##### El tiempo próximos 7 días
 
 `src/js/views/eltiempo.js`
 
