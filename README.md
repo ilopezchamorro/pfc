@@ -845,7 +845,7 @@ En el proyecto se identifican dos actores:
 	- Alta de nuevos usuarios
 	- Listado de usuarios
 	- Escalado de Permisos
-		- Buscador de usuarios
+	- Buscador de usuarios
 
 
 
