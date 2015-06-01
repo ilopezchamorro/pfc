@@ -808,10 +808,10 @@ En el proyecto se identifican dos actores:
 
 #### MÓDULOS DE LA APLICACIÓN
 
-	- Público :
-		- Alta de usuarios (público)
-		- Login (público)
-	- Privado :
+	- PÚBLICO :
+		- Alta de usuarios
+		- Login
+	- PRIVADO :
 		- Rol: USUARIO
 			- SignOut/cerrar sesión
 			- Menú Principal
