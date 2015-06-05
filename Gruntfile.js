@@ -24,7 +24,7 @@ module.exports = function(grunt){
 
 		open: { // abre url en el navegador especificado
 		    dev: {
-		      path: 'http://pfc.dev/',
+		      path: 'http://bookingfy.dev/',
 		      app: 'Google Chrome',
 		      options: {
 		      	livereload: true
@@ -42,7 +42,7 @@ module.exports = function(grunt){
 		    server: {
 
 		     	options: {
-			        hostname: 'pfc.dev',
+			        hostname: 'bookingfy.dev',
 			        port:80,
 	                livereload: true,
 	                open: true,
