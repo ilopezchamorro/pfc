@@ -23,7 +23,8 @@ module.exports = Backbone.View.extend({
 
   initialize: function (args) {
     this.render(args);
-    if(args.msg){
+    console.log(args);
+    if(args){
       $('.error').hide();
       $('#no-error').html(args.msg).slideDown().fadeOut(3000);
     }
