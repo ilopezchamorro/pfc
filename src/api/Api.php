@@ -36,28 +36,28 @@ class Api extends Rest {
 
  private function devolverError($id) {
    $errores = array(
-       array('estado' => "error", "msg" => "petición no encontrada"), // 0
-       array('estado' => "error", "msg" => "petición no aceptada"), // 1
-       array('estado' => "error", "msg" => "petición sin contenido"), // 2
-       array('estado' => "error", "msg" => "email o password incorrectos"), // 3
-       array('estado' => "error", "msg" => "error borrando usuario"), // 4
-       array('estado' => "error", "msg" => "error actualizando datos de usuario"), // 5
-       array('estado' => "error", "msg" => "error buscando usuario por email"), // 6
-       array('estado' => "error", "msg" => "error creando usuario"), // 7
-       array('estado' => "error", "msg" => "usuario ya existe"), // 8
-       array('estado' => "error", "msg" => "error anulando reserva"), // 9
-       array('estado' => "error", "msg" => "petición no aceptada, faltan valores o son incorrectos"), // 10
-       array('estado' => "error", "msg" => "Ya existe otro usuario con mismo email, dni o expediente. Si considera que alguien ha robado su identidad por favor, contacte con soporte de la universidad."), // 11
+       array('estado' => "error", "msg" => "Petición no encontrada"), // 0
+       array('estado' => "error", "msg" => "Petición no aceptada"), // 1
+       array('estado' => "error", "msg" => "Petición sin contenido"), // 2
+       array('estado' => "error", "msg" => "Email o Password incorrectos"), // 3
+       array('estado' => "error", "msg" => "Error al borrar usuario"), // 4
+       array('estado' => "error", "msg" => "Error al actualizar datos de usuario"), // 5
+       array('estado' => "error", "msg" => "Error buscando usuario por email"), // 6
+       array('estado' => "error", "msg" => "Error creando usuario"), // 7
+       array('estado' => "error", "msg" => "Usuario ya existe"), // 8
+       array('estado' => "error", "msg" => "Error anulando reserva"), // 9
+       array('estado' => "error", "msg" => "Petición no aceptada, faltan valores o son incorrectos"), // 10
+       array('estado' => "error", "msg" => "Ya existe otro usuario con mismo email, dni o expediente. Si considera que alguien ha robado su identidad por favor, contacte con el Departamento de soporte de la UFV."), // 11
        array('estado' => "error", "msg" => "No se han modificado datos, son iguales a los encontrados en la base de datos u ocurrió algún error"), // 12
-       array('estado' => "error", "msg" => "Password incorrecta"), // 13
-       array('estado' => "error", "msg" => "Error cargando estadisticas"), // 14
+       array('estado' => "error", "msg" => "Password incorrecto"), // 13
+       array('estado' => "error", "msg" => "Error cargando estadísticas"), // 14
        array('estado' => "error", "msg" => "Error eliminando deporte"), // 15
        array('estado' => "error", "msg" => "Error actualizando deporte") ,// 16
        array('estado' => "error", "msg" => "Error actualizando pista"), // 17
        array('estado' => "error", "msg" => "Error Eliminando Pista"), // 18
        array('estado' => "error", "msg" => "Error Creando Pista"), // 19
-       array('estado' => "error", "msg" => "Esta Reserva Ya existe, refresque su navegador"), // 20
-       array('estado' => "error", "msg" => "Error creando la reserva, pruebe de nuevo.") // 21
+       array('estado' => "error", "msg" => "Esta Reserva ya existe, por favor, refresque su navegador"), // 20
+       array('estado' => "error", "msg" => "Error creando la reserva, inténtelo de nuevo.") // 21
        );
 return $errores[$id];
 }
@@ -525,7 +525,7 @@ private function login() {
        $query->execute();
        if ($fila = $query->fetch(PDO::FETCH_ASSOC)) {
          $respuesta['estado'] = 'correcto';
-         $respuesta['msg'] = 'datos pertenecen a usuario registrado';
+         $respuesta['msg'] = 'Estos datos pertenecen a un usuario ya registrado';
          $respuesta['usuario']['id_usuario'] = $fila['id'];
          $respuesta['usuario']['nombre'] = $fila['nombre'];
          $respuesta['usuario']['apellidos'] = $fila['apellidos'];
@@ -647,7 +647,7 @@ private function actualizarUsuario() {
          $query->execute();
          $filasActualizadas = $query->rowCount();
          if ($filasActualizadas > 0) {
-           $resp = array('estado' => "correcto", "msg" => "Datos de usuario actualizados.");
+           $resp = array('estado' => "correcto", "msg" => "Datos de usuario actualizados correctamente.");
            $this->mostrarRespuesta($this->convertirJson($resp), 200);
          } else {
            $this->mostrarRespuesta($this->convertirJson($this->devolverError(12)), 200);
@@ -719,7 +719,7 @@ private function actualizarUsuarioAdmin() {
            $query->execute();
            $filasActualizadas = $query->rowCount();
            if ($filasActualizadas > 0) {
-             $resp = array('estado' => "correcto", "msg" => "Datos de usuario actualizados.");
+             $resp = array('estado' => "correcto", "msg" => "Datos de usuario actualizados correctamente.");
              $this->mostrarRespuesta($this->convertirJson($resp), 200);
            }else{
              $this->mostrarRespuesta($this->convertirJson($this->devolverError(12)), 200);
@@ -955,7 +955,7 @@ private function actualizarNombre($idUsuario) {
      $query->execute();
      $filasActualizadas = $query->rowCount();
      if ($filasActualizadas == 1) {
-       $resp = array('estado' => "correcto", "msg" => "nombre de usuario actualizado correctamente.");
+       $resp = array('estado' => "correcto", "msg" => "Nombre de usuario actualizado correctamente.");
        $this->mostrarRespuesta($this->convertirJson($resp), 200);
      } else {
        $this->mostrarRespuesta($this->convertirJson($this->devolverError(5)), 400);
@@ -977,7 +977,7 @@ private function borrarUsuario($idUsuario) {
        //rowcount para insert, delete. update
    $filasBorradas = $query->rowCount();
    if ($filasBorradas == 1) {
-     $resp = array('estado' => "correcto", "msg" => "usuario borrado correctamente.");
+     $resp = array('estado' => "correcto", "msg" => "Usuario borrado correctamente.");
      $this->mostrarRespuesta($this->convertirJson($resp), 200);
    } else {
      $this->mostrarRespuesta($this->convertirJson($this->devolverError(4)), 400);
@@ -1017,7 +1017,7 @@ private function crearUsuario() {
      if ($query->rowCount() == 1) {
        $id = $this->_conn->lastInsertId();
        $respuesta['estado'] = 'correcto';
-       $respuesta['msg'] = 'usuario creado correctamente';
+       $respuesta['msg'] = 'Usuario creado correctamente';
        $respuesta['usuario']['id'] = $id;
        $respuesta['usuario']['nombre'] = $nombre;
        $respuesta['usuario']['email'] = $email;

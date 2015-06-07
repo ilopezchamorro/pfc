@@ -25,14 +25,14 @@ module.exports = function(grunt){
 		open: { // abre url en el navegador especificado
 		    dev: {
 		      path: 'http://pfc.dev/',
-		      app: 'Google Chrome',
+		      app: 'Firefox',
 		      options: {
 		      	livereload: true
 		      }
 		    },
 		    pro: {
 		      path: 'http://pfc.ilopezchamorro.com/',
-		      app: 'Google Chrome'
+		      app: 'Firefox'
 		    },
 
 		},
