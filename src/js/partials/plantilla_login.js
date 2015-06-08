@@ -8,7 +8,7 @@ plantillas.login = '<div class="login_users">'
 		+ '<div style="float:left;clear:both"></div>'
 		+ '<div class="clear"></div>'
 		+ '<a id="dologin" href="#">Login</a><div class="clear"></div>'
-		+ '<span>¿No tiene una cuenta? <a id="goregistro" href="#">regístrese</a><span>'
+		+ '<span>¿No tiene una cuenta? <a id="goregistro" href="#">Regístrese</a><span>'
 		+ '<div id="error" class="error">{{msg}}</div>'
 		+ '<div id="no-error" class="error">{{msg}}</div>'
 		+ '</div>';
