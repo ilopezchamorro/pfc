@@ -51,7 +51,7 @@ module.exports = Backbone.View.extend({
         };
         var test = false;
 
-        response.datos.mail = (Validator.isEmail(formData.mail))? true : 'email incorrecto';
+        response.datos.mail = (Validator.isEmail(formData.mail))? true : 'Email incorrecto';
         response.datos.password = (Validator.isLength(formData.password, 6))? true : 'La contraseña debe tener mínimo 6 caracteres';
 
         test =   !(_.isString(response.datos.mail)) &&

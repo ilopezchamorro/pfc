@@ -126,7 +126,7 @@ public function procesarLLamada() {
          if ($query->rowCount() == 1) {
            $id = $this->_conn->lastInsertId();
            $respuesta['estado'] = 'correcto';
-           $respuesta['msg'] = 'usuario creado correctamente';
+           $respuesta['msg'] = 'Usuario creado correctamente';
            $respuesta['usuario']['id'] = $id;
            $respuesta['usuario']['nombre'] = $nombre;
            $respuesta['usuario']['mail'] = $mail;
@@ -171,7 +171,7 @@ public function procesarLLamada() {
          if ($query->rowCount() == 1) {
            $id = $this->_conn->lastInsertId();
            $respuesta['estado'] = 'correcto';
-           $respuesta['msg'] = 'usuario administrador creado correctamente';
+           $respuesta['msg'] = 'Usuario administrador creado correctamente';
            $respuesta['usuario']['id'] = $id;
            $respuesta['usuario']['nombre'] = $nombre;
            $respuesta['usuario']['mail'] = $mail;
@@ -299,7 +299,7 @@ private function modificarDeporte() {
                  //rowcount para insert, delete. update
              $filasBorradas = $query->rowCount();
              if ($filasBorradas == 1) {
-               $resp = array('estado' => "correcto", "msg" => "Deporte Actualizado Correctamente");
+               $resp = array('estado' => "correcto", "msg" => "Deporte actualizado correctamente");
                $this->mostrarRespuesta($this->convertirJson($resp), 200);
              } else {
                $this->mostrarRespuesta($this->convertirJson($this->devolverError(16)), 200);
@@ -823,7 +823,7 @@ private function modificarPista() {
                  //rowcount para insert, delete. update
              $filasBorradas = $query->rowCount();
              if ($filasBorradas == 1) {
-               $resp = array('estado' => "correcto", "msg" => "Pista Actualizada Correctamente");
+               $resp = array('estado' => "correcto", "msg" => "Pista actualizada correctamente");
                $this->mostrarRespuesta($this->convertirJson($resp), 200);
              } else {
                $this->mostrarRespuesta($this->convertirJson($this->devolverError(17)), 200);
@@ -918,7 +918,7 @@ private function eliminarUsuario() {
                  //rowcount para insert, delete. update
              $filasBorradas = $query->rowCount();
              if ($filasBorradas == 1) {
-               $resp = array('estado' => "correcto", "msg" => "usuario borrado correctamente.");
+               $resp = array('estado' => "correcto", "msg" => "Usuario borrado correctamente.");
                $this->mostrarRespuesta($this->convertirJson($resp), 200);
              } else {
                $this->mostrarRespuesta($this->convertirJson($this->devolverError(4)), 200);

@@ -120,6 +120,7 @@ module.exports = Backbone.View.extend({
 
   cancelar: function(event){
   	event.preventDefault();
+    this.undelegateEvents();
   	$('#modalCalendario').fadeOut();
   }
 

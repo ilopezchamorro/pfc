@@ -16,7 +16,7 @@ plantillas.registro = '<div class="login_users">'
 		+ '<div class="clear"></div>'
 		+ '<a id="doregister" href="#">Registrarse</a>'
 		+ '<div class="clear"></div>'
-		+ '<span>¿Ya está registrado? <a id="gologin" href="#">loguearse</a><span>'
+		+ '<span>¿Ya está registrado? <a id="gologin" href="#">Loguearse</a><span>'
 		+ '<div id="error" class="error"></div>'
 		+ '</div>';
 

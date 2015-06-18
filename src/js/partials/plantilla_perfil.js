@@ -21,7 +21,7 @@ plantillas.perfil = '<div class="login_users">'
 		+ '</div>'
 		+ '<div id="actualizarUsuarioModal" class="modal"><div>'
 		+ '<h2 class="text-center">Actualizar Datos</h2>'
-		+ '<input data-validado="" id="reg_pass_old" type="password" name="" placeholder="Introduzca su contraseña actual">'
+		+ '<input data-validado="" id="reg_pass_old" type="password" name="" placeholder="Introduzca su password actual">'
 		+ '<div class="modal-botones"><a id="actualizarUserData" href="#" class="rotate"><i class="demo-icon icon-user">&#xe833;</i> Actualizar Datos</a>'
 		+ '<a id="cancelarModal" class="cancel-modal" href="#"><i class="demo-icon icon-user">&#xe804;</i> Cancelar</a>'
 		+ '</div></div>';

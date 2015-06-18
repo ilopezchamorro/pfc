@@ -1,0 +1,187 @@
+- * 607db99 - 2015-06-08: Textos respuesta 
+- * a929f81 - 2015-06-07: cambios título y mensajes errores 
+- * ee89365 - 2015-06-07: strict mode compare iterator 
+- * 82ab46e - 2015-06-07: minor changes js 
+- * 3f1c702 - 2015-06-05: confirm + fix error on firefox 
+- * 5e5d7e3 - 2015-06-05: confirm 
+- * e3f972c - 2015-06-05: título index.html 
+- * 9feb3ea - 2015-06-01: reorder 
+- * 3e214ff - 2015-06-01: clean directory 
+- * a204d6f - 2015-06-01: clean directory 
+- * c5bd754 - 2015-06-01: minor changes 
+- * d7e4fc0 - 2015-06-01: dcoum 
+- * 6693ecf - 2015-06-01: sql 
+- * e732600 - 2015-06-01: sql 
+- * 3f6d278 - 2015-06-01: doc 
+- * 1a8a5ad - 2015-06-01: doc 
+- * bac866f - 2015-06-01: doc 
+- * 7213c38 - 2015-06-01: doc 
+- * beae842 - 2015-06-01: doc 
+- * ec7aa41 - 2015-06-01: doc 
+- * 6ec8025 - 2015-06-01: doc 
+- * 4b3427e - 2015-06-01: doc 
+- * 6a36de6 - 2015-06-01: doc 
+- * eb5ec26 - 2015-06-01: doc 
+- * 0227211 - 2015-06-01: doc 
+- * ee8810f - 2015-06-01: doc 
+- * 4e3a99c - 2015-06-01: doc 
+- * ca68aae - 2015-06-01: doc 
+- * 0d7de2a - 2015-06-01: doc 
+- * 8009426 - 2015-06-01: doc 
+- * fc57fa5 - 2015-06-01: doc 
+- * d65b2ae - 2015-06-01: doc 
+- * d5b3699 - 2015-06-01: doc 
+- * b4c01da - 2015-06-01: doc 
+- * b0d9ae9 - 2015-06-01: doc 
+- * f264254 - 2015-06-01: doc 
+- * 42bca02 - 2015-06-01: doc 
+- * 62d9723 - 2015-06-01: doc 
+- * 09b8cbb - 2015-06-01: doc 
+- * d617e42 - 2015-06-01: doc 
+- * bb00038 - 2015-06-01: doc 
+- * d66d7ae - 2015-06-01: doc 
+- * 693cd00 - 2015-06-01: doc 
+- * 65b1c48 - 2015-06-01: doc 
+- * 4e751b7 - 2015-06-01: doc 
+- * 3cd1e7a - 2015-06-01: doc 
+- * b989c77 - 2015-06-01: doc 
+- * dd733a9 - 2015-06-01: doc 
+- * 943c166 - 2015-06-01: doc 
+- * b1689ee - 2015-06-01: doc 
+- * cf058a2 - 2015-06-01: doc 
+- * 889b543 - 2015-06-01: doc 
+- * 3359c0c - 2015-06-01: doc 
+- * 34ee93f - 2015-06-01: doc 
+- * 5235657 - 2015-06-01: doc 
+- * e60fa15 - 2015-06-01: doc 
+- * 53c2d08 - 2015-06-01: doc 
+- * 02a1c2c - 2015-06-01: doc 
+- * 1a23eea - 2015-06-01: doc 
+- * 40c53ed - 2015-06-01: doc 
+- * faae1d3 - 2015-06-01: doc 
+- * a071ba0 - 2015-06-01: doc 
+- * d9aab7b - 2015-06-01: doc 
+- * 6a1053b - 2015-06-01: doc 
+- * 50bea80 - 2015-06-01: sh 
+- * 42e0719 - 2015-05-31: doc--- 
+- * 8623a64 - 2015-05-31: more doc 
+- * 5ba101f - 2015-05-31: more doc 
+- * f6047ab - 2015-05-31: more doc 
+- * b4ae819 - 2015-05-31: more doc 
+- * 35d5d4f - 2015-05-31: more doc 
+- * e9790fe - 2015-05-31: doc... 
+- * 24dd7c9 - 2015-05-31: more doc 
+- * ae256d1 - 2015-05-31: more doc 
+- * 7f7ac0e - 2015-05-31: more doc 
+- * 15a09a1 - 2015-05-31: more doc 
+- * d2903b9 - 2015-05-31: more doc 
+- * a73d24b - 2015-05-31: more doc 
+- * 7433cd8 - 2015-05-31: more doc 
+- * 7e71a49 - 2015-05-31: test 
+- * 5914eae - 2015-05-08: readme more 
+- * 8ac8653 - 2015-05-08: readme more 
+- * bd7695f - 2015-05-08: readme more 
+- * 9310fd2 - 2015-05-08: readme more 
+- * 23aac36 - 2015-05-08: readme more 
+- * 05d3a68 - 2015-05-08: readme more 
+- * c5a9629 - 2015-05-08: readme more 
+- * 7d9ed4b - 2015-05-08: readme more 
+- * e4be504 - 2015-05-08: readme more 
+- * 19b56dd - 2015-05-08: readme more 
+- * becbbfb - 2015-05-08: readme more 
+- * 098de6f - 2015-05-08: readme more 
+- * f9c6b79 - 2015-05-08: readme more 
+- * 9f3722c - 2015-05-08: readme more 
+- * 253589a - 2015-05-08: readme more 
+- * 00d031e - 2015-05-08: readme more 
+- * 39105ad - 2015-05-08: readme more 
+- * db18603 - 2015-05-08: readme more 
+- * 5ffc587 - 2015-05-08: readme more 
+- * 87e6767 - 2015-05-08: readme more 
+- * 2d2ae69 - 2015-05-08: readme fix 
+- * 1aca682 - 2015-05-08: readme fix 
+- * 90ec988 - 2015-05-08: IMG fix 
+- * 289904c - 2015-05-08: IMG fix 
+- * 8529448 - 2015-05-08: readme fix 
+- * 6d38385 - 2015-05-08: arquitectura img 
+- * d024dc5 - 2015-05-08: readme 
+- * 82a8538 - 2015-05-08: readme + db img 
+- * 65598e8 - 2015-05-08: updating readme 
+- * c20d8ac - 2015-05-08: updating readme 
+- * 9107b32 - 2015-05-08: updating readme 
+- * 00c8b35 - 2015-05-08: updating readme 
+- * d1a98db - 2015-05-08: updating readme 
+- * fe96faa - 2015-05-08: update readme documentation 
+- * 427308f - 2015-05-07: open url producción 
+- * be06f28 - 2015-05-07: resolving 1and1 problems configs 
+- * 0e719aa - 2015-05-06: desvincular eventos al cerrar view 
+- * 66576cc - 2015-05-06: configuración deploy automatico 
+- * ef5eed5 - 2015-05-05: mensajes del ws de reserva y anulacion 
+- * 28579e2 - 2015-05-05: modelo y vista de anular reserva 
+- * 20dfba7 - 2015-05-05: servicio anular reserva 
+- * 5c7729b - 2015-05-05: endpoint pistas añadido campo reserva 
+- * 674316f - 2015-05-05: bus de eventos 
+- * 4f5c0fe - 2015-05-04: mensaje de exito y error en la reserva 
+- * 6612d26 - 2015-05-04: build comand config 
+- * fc85636 - 2015-04-29: reservar pistas 
+- * 19540d1 - 2015-04-29: fecha para reservas 
+- * 323cf32 - 2015-04-29: get date from url 
+- * 09d3211 - 2015-04-29: intermedio 
+- * 5dc09de - 2015-04-29: datos para reserva 
+- * 35bedcb - 2015-04-29: stilos 
+- * 14ff227 - 2015-04-28: logout &amp; hide views 
+- * 00b74bd - 2015-04-28: prev 
+- * 703e66f - 2015-04-28: mostrar cabecera en calendario 
+- * 0496dcd - 2015-04-28: mostrar y ocultar calendar 
+- * 061f60b - 2015-04-28: more css 
+- * 01bbb1d - 2015-04-28: pasando fecha al api 
+- * 76c3cdd - 2015-04-28: styles colander 
+- * 21de8c5 - 2015-04-28: datepicker 
+- * 9febeae - 2015-04-28: queries 
+- * c51be3d - 2015-04-28: fetch calendario 
+- * e0c94e2 - 2015-04-28: header 
+- * 74df70d - 2015-04-27: api pistas 
+- * 5ef09a2 - 2015-04-27: url nombre deporte 
+- * 7f4ad53 - 2015-04-27: responsive registro/login 
+- * 0becb50 - 2015-04-27: deportes from API 
+- * c331e5e - 2015-04-27: servicio deportes 
+- * b18b23d - 2015-04-27: fix css 
+- * 081f4c6 - 2015-04-27: login styles 
+- * 5c68292 - 2015-04-27: solucionado bug en estado login 
+- * cd58c3b - 2015-04-27: primeros toques css, cabecera y body class 
+- * cbc8491 - 2015-04-27: user session in localstorage 
+- * 3c32576 - 2015-04-26: calendarios views, model and collection 
+- * cf01f82 - 2015-04-25: separada funcion fetchData de cargar vistas 
+- * 6db4640 - 2015-04-25: add base tag to index, other improves 
+- * 56e0370 - 2015-04-25: validating data inputs before ajax connect to api 
+- * c2a99bb - 2015-04-25: registro de usuarios 
+- * d13d09b - 2015-04-24: registro de usuario 
+- * 91b4dcf - 2015-04-24: api improve 
+- * 1df933c - 2015-04-23: plantillas en archivos separados y login 
+- * b5e6e2c - 2015-04-23: add losgin, usuarios, nuevaHora, nuevoDeporte 
+- * 56ba51a - 2015-04-23: prueba para separar calendarios 
+- * 58653af - 2015-04-23: endpoints nuevoUsuario y nuevoAdmin 
+- * abd5849 - 2015-04-20: modificados json del calendario, ahora van las horas asociadas a una pista 
+- * d892de8 - 2015-04-14: calendar view 
+- * 3aa2d8a - 2015-04-13: gruntfile coments 
+- * 480f918 - 2015-04-12: .haccess for apache container backbone 
+- * d7c1ebc - 2015-04-12: renaming folder site 
+- * 9678557 - 2015-04-12: separating handelbars template in diferent files &amp;&amp; rest api in app for having not cross domain in this test 
+- * 2d72dd2 - 2015-04-11: login view 
+- * 24fc017 - 2015-04-09: sql updated 
+- * 2491878 - 2015-04-09: reserve urls 
+- * e1f0bd4 - 2015-04-08: added Pistas 
+- * 3600157 - 2015-04-06: sql updated 
+- * bed3418 - 2015-04-06: sql generator 
+- * 2e6f03e - 2015-04-06: added backbone to js 
+- * a48ef11 - 2015-04-05: first test endopoint apirest 
+- * a586dcc - 2015-04-05: esqueleto html y primeros estilos 
+- * 43b4311 - 2015-04-05: alpha php rest api 
+- * 8b8fbe5 - 2015-04-05: bower added 
+- * ff64654 - 2015-04-05: add gruntfile and package.json 
+- * 33d4eb0 - 2015-04-05: creados archivos js y stylus 
+- * cd5406f - 2015-04-05: estructura public 
+- * 7372ab3 - 2015-04-05: add gitignore local empty 
+- * ea3b690 - 2015-04-05: Create README.md 
+- * f61a944 - 2015-04-05: Initial commit 
+
